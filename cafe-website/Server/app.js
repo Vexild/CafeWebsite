@@ -4,6 +4,10 @@ import init from './init.js'
 import mongoose from 'mongoose'
 import Product from "./models/product.model.js"
 
+//allows you to use import and export by using esm modules
+require = require("esm")(module);
+
+
 connectMongoose()
 init() //Jos DB on tyhjä
 
