@@ -1,12 +1,11 @@
 import express from 'express'
-import init from './init.js'
+import init from './mongoinit.js'
 //import bodyParser from 'body-parser'
 import mongoose from 'mongoose'
 import Product from "./models/product.model.js"
 
 //allows you to use import and export by using esm modules
-require = require("esm")(module);
-
+//require = require("esm")(module);
 
 connectMongoose()
 init() //Jos DB on tyhjä
