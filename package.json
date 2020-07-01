@@ -22,7 +22,7 @@
   },
   "scripts": {
     "react": "react-scripts start",
-    "start": "concurrently \"npm run react\" \"node src/express.js\"",
+    "start": "concurrently \"npm run react\" \"node --experimental-modules src/express.js\"",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
