@@ -1,7 +1,7 @@
 import Product from "./models/product.model.js"
 
 export default async function init() {
-    const db = await Product.findOne({name: "test"})
+    const db = await Product.findOne({name: "salmiakkisuklaakissa"})
 
     console.log("init")
 

@@ -5,40 +5,22 @@ const axios = require('axios')
 export default function Product() {
     const [products, setProducts] = useState()
     const [filter, setFilter] = useState([])
-    let temp = 0
+
     console.log(filter)
 
-    const handleCheckBox = (e) => {
-        let temp
-        console.log(temp)
-        temp = e
-        if (filter.length === 0) {
-            
-            setFilter([temp])
-            return
-        }
-        if (filter.includes(e)) {
-            console.log("HALT!")
-            if (filter.length === 1) {
-                setFilter([])
-                return
-            }
-            temp = filter.slice(filter.indexOf(e) + 1, 1) 
-            console.log("temp: ", temp)
-            setFilter(temp)
-            return
+    const handleCheckBox = (tag) => {
+
+        if (filter.includes(tag)) {
+            let filtered = filter.filter(el => el != tag)
+            setFilter(filtered)
         }
         else {
-            console.log("asd")
-            filter.push(e)
+            filter.push(tag)
             setFilter(filter)
-            return
         }
+        console.log(filter)
+       }
 
-
-//        filter.length > 0 ? filter.includes(e) ? setFilter("Kissa") : setFilter(filter, e) : setFilter(e)
-
-    }
 
     const getProducts = () => {
             return axios.get(`http://localhost:4000/api/products`)
@@ -49,11 +31,7 @@ export default function Product() {
             })
             .catch(error => console.log(error))
         }
-/*
-        if (products) {
-            console.log(`Aktuaalinen kissa: ${products}`)
-        }
-        */
+        
         if (!products) {
             getProducts()
         }
