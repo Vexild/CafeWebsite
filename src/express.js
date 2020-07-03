@@ -1,12 +1,12 @@
 import express from 'express'
-import init from './mongoinit.js'
-//import bodyParser from 'body-parser'
+import bodyParser from 'body-parser'
 import mongoose from 'mongoose'
-import Product from "./models/product.model.js"
 import cors from 'cors'
 
-//allows you to use import and export by using esm modules
-//require = require("esm")(module);
+import init from './mongoinit.js'
+import Product from "./models/product.model.js"
+
+const port = 4000
 
 connectMongoose()
 init() //Jos DB on tyhjä
@@ -20,9 +20,9 @@ async function connectMongoose() {
 
 //Express
 const app = express()
-app.use(cors())
-const port = 4000
 //app.use(bodyParser.json)
+app.use(bodyParser.urlencoded({ extended: true }))
+app.use(cors())
 
 app.post('/api/product/:productName/:price', (req, res) => {
     let price = parseInt(req.params.price)
@@ -36,6 +36,21 @@ app.post('/api/product/:productName/:price', (req, res) => {
     const productData = new Product(product)
     productData.save()
     res.send(`Product ${req.params.productName} added.\n`)
+})
+
+app.get('/api/products/:query', async (req, res) => {
+
+    const query = req.params.query
+
+    //100% matchi, case-sensitive
+    const products = await Product.find({tags: query})
+
+    if (products) {
+        res.send(`${products}\n`)
+    }
+    else {
+        res.send("EIOO")
+    }
 })
 
 app.get('/api/products', async (req, res) => {
