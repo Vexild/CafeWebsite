@@ -24,13 +24,15 @@ const app = express()
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(cors())
 
-app.post('/api/product/:productName/:price', (req, res) => {
+app.post('/api/product/:productName/:price/:id', (req, res) => {
     let price = parseInt(req.params.price)
+    let id = parseInt(req.params.id)
    
     // todo: img (product.model, middleware?)
     const product = {
         name: req.params.productName,     
-        price: price
+        price: price,
+        id: id
     }
 
     const productData = new Product(product)
