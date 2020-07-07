@@ -10,8 +10,10 @@ const CommonHeader = () => {
         <div >
             <div className="header-grey-background">
                 <h1 className="sample-font">CAFE sample</h1>
-                <img  className="header-icon-background" src={IGIcon} alt="IGIcon"/>
-                <img  className="header-icon-background" src={FBIcon} alt="IGIcon"/>
+                <div className="social-media-icons">
+                    <img  className="header-icon-background" src={IGIcon} alt="IGIcon"/>
+                    <img  className="header-icon-background" src={FBIcon} alt="IGIcon"/>
+                </div>
                 
             </div>
         </div>
