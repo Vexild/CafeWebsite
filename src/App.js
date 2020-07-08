@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
-import Product from './Product'
+import Filter from './filter'
 
 function App() {
   return (
@@ -13,7 +13,7 @@ function App() {
          <p>Front</p>
        )} />
        <Route path="/tuotteet" render={(props) => (
-         <Product /> 
+         <Filter /> 
        )} />
 
        </div> 
