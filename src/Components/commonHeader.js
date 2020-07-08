@@ -1,4 +1,5 @@
 import React from 'react';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -11,6 +12,8 @@ import FBIcon from '../Icons/fb_icon_color.png'
 import EyecatcherImage from '../Media/placeholder_eyecatcher.jpg'
 
 const CommonHeader = () => {
+
+    const ImgFull = EyecatcherImage.imageFull;
 
     return (
         <div>
@@ -26,8 +29,25 @@ const CommonHeader = () => {
                         <Image className="header-icon-background" src={FBIcon} roundedCircle/>
                     </Col>
                 </Row>
+            </Container>
+            <Container fluid className="eyecatcher">
                 <Row md="auto">
-                    <Image fluid src={EyecatcherImage} alt="eyecatcher"  />
+                    <Router>
+                        <Col md="auto">
+                            <Link to="/">Etusivu </Link>
+                            <Link to="/tuotteet">Tuotteet</Link>
+
+                            <Route exact path="/" render={(props) => (
+                                <p>Front</p>
+                            )} />
+                            <Route path="/tuotteet" render={(props) => (
+                            <p>Store</p>
+                            )} />
+
+                        </Col>
+                    
+                    </Router>
+                    {/*<Image fluid className="background-image" src={EyecatcherImage} alt="eyecatcher"  />*/}
                 </Row>
             </Container>
         </div>
