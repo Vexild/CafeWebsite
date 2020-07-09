@@ -12,10 +12,11 @@
     font-family: Philosopher;
     font-weight: lighter;
     margin-top: 10px;
+    margin-left: 10px;
 
 }
 .social-media-icons{
-    margin: auto 5px auto auto;
+    margin: auto 10px auto auto;
 }
 .header-icon-background {
     height: 2rem;
@@ -24,7 +25,6 @@
 }
 .eyecatcher{
     background-image: url('../Media/placeholder_eyecatcher.jpg');
-    
     z-index: 0;
     background-size: cover;
     background-position: center;
@@ -32,4 +32,31 @@
     min-height: 300px;
     
     /* height: 300px; */
+}
+
+.nav-font{
+    font-family: Courier;
+    font-weight: bold;
+    color: antiquewhite;
+    margin: 0 10px 0 10px;
+    text-decoration: none;
+
+}
+.nav-font:hover{
+    text-decoration: none;
+    color: rgb(240, 115, 65);
+    border-bottom: 2px rgb(240, 115, 65) solid;
+
+}
+.nav-line{
+    margin: 20px 0 0 0;
+    text-align: center;
+    z-index: 1;
+    position: relative;
+}
+.carousel-style{
+    width: 100%;
+    position: absolute;
+    top: 54px;
+    z-index: 0;
 }
