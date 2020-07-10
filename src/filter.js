@@ -7,9 +7,10 @@ const axios = require('axios')
 export default function Filter() {
     const [products, setProducts] = useState()
     const [filter, setFilter] = useState([])
+    const [layout, setLayout] = useState(true)
 
+    console.log("render")
     const handleCheckBox = (tag) => {
-
         if (filter.includes(tag)) {
             let filtered = filter.filter(el => el !== tag)
             setFilter(filtered)
@@ -18,10 +19,7 @@ export default function Filter() {
             filter.push(tag)
             setFilter(filter)
         }
-
        }
-       
-        //console.log("Filter: ", filter)
 
     const getProducts = () => {
             return axios.get(`http://localhost:4000/api/products`)
@@ -36,6 +34,10 @@ export default function Filter() {
         if (!products) {
             console.log("getProducts")
             getProducts()
+        }
+
+        const changeLayout = () => {
+            layout === true ? setLayout(false) : setLayout(true)
         }
 
         const checkBoxes = () => {
@@ -55,12 +57,13 @@ export default function Filter() {
                     return tags.map((data, key) => <Tags handleClick={handleCheckBox} data={data} key={key} />)
                     }
                 }
-                    
 
         const productDivs = () => {
             if (products) {
+                //  let displayedProducts 
+
                 //TODO: tuotteiden suodatus tagien mukaisesti
-            return products.map((data, key) => <Product data={data} key={key} />)
+            return products.map((data, key) => <Product layout={layout} data={data} key={key} />)
             }
             else {
                 return (
@@ -72,11 +75,16 @@ export default function Filter() {
         }
                 return(
             <div>
-                <form>
+                <form  className="container row">
                 {checkBoxes()} 
                 </form>
                 <p>Tuotteet:</p> 
+                <button onClick={changeLayout}>LayoutToggle</button>
+                <div className="container-fluid">
+                    <div className="row">
                 {productDivs()}
+                </div>
+                </div>
             </div>
         )
     }

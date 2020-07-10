@@ -1,7 +1,7 @@
 import Product from "./models/product.model.js"
 
 export default async function init() {
-    const db = await Product.findOne({name: "salmiakkisuklaakissa"})
+    const db = await Product.findOne({name: "taikahaltiakakku"})
 
     console.log("init")
 
@@ -9,16 +9,16 @@ export default async function init() {
     console.log("db doesn't exist")
         
         const dummyProduct = new Product() 
-        dummyProduct.name = "origamisuklaakoira",
+        dummyProduct.name = "taikahaltiakakku",
         dummyProduct.price = 9001
-        dummyProduct.tags = "vegaani", "makea"
+        dummyProduct.tags = "maaginen"
         dummyProduct.id = 12345
         dummyProduct.save()
         const dummy2 = new Product()
         dummy2.id = 12354
-        dummy2.name = "salmiakkisuklaakissa",
-        dummy2.price = 9001
-        dummy2.tags = "makea", "suolainen"
+        dummy2.name = "kahvi"
+        dummy2.price = 124
+        dummy2.tags = "kahvi"
         dummy2.save()
 
         console.log("Dummydb created")
