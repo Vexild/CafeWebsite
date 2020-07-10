@@ -31,7 +31,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "compile:sass": "node-sass --recursive --watch <sass directory> --output <css directory>"
+    "compile:sass": "sass --watch <input.scss> [output.css]"
   },
   "eslintConfig": {
     "extends": "react-app"

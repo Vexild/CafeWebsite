@@ -1,6 +1,6 @@
 import React from 'react';
 // eslint-disable-next-line no-unused-vars
-import '../Styling/header.css'
+// import '../css/header.css'
 import IGIcon from '../Icons/ig_icon_color.png'
 import FBIcon from '../Icons/fb_icon_color.png'
 

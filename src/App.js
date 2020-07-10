@@ -2,10 +2,11 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 import Product from './Product'
 import CommonHeader from './Components/commonHeader'
+import "./css/styles.css";
 
 function App() {
   return (
-    <div>
+    <div id="frontpage">
       <CommonHeader/>
       <Router>
       <div>

@@ -1,9 +1,12 @@
-@use "utils/master" as master;
+@use 'utils/master' as master;
 
-body {
-    background-color: master.$sampleColor;
+div {
+    background-color: master.$maranelloRed;
 }
 
+#frontpage {
+    color: master.$sampleColor;
+}
 p {
     margin: auto;
 }
