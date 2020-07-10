@@ -18,8 +18,8 @@ const CommonFooter = () => {
 
             <Container fluid className="fixed-bottom">
 
-                <Row className="footer-background ">
-                    <Col><img className="footer-map-image" src={GMIcon} alt="GMIcon"/></Col>
+                <Row className="footer-background">
+                    <Col className="d-flex justify-content-center"><img className="footer-map-image" src={GMIcon} alt="GMIcon"/></Col>
                 </Row>
 
             <Row className="footer-background1 align-items-center">
