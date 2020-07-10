@@ -2,25 +2,13 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 import Product from './Product'
 import CommonHeader from './Components/commonHeader'
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 function App() {
   return (
     <div>
-      <CommonHeader/>
-      <Router>
-      <div>
-        <Link to="/">Etusivu </Link>
-        <Link to="/tuotteet">Tuotteet</Link>
-
-        <Route exact path="/" render={(props) => (
-          <p>Front</p>
-          )} />
-        <Route path="/tuotteet" render={(props) => (
-          <Product /> 
-          )} />
-
-        </div> 
-      </Router>
+      <CommonHeader />
     </div>
   )
 }
