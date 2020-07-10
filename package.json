@@ -24,6 +24,7 @@
     "react": "^16.13.1",
     "react-bootstrap": "^1.1.0",
     "react-dom": "^16.13.1",
+    "react-flickity-component": "^3.5.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",
     "sass": "^1.26.10"
@@ -33,7 +34,8 @@
     "start": "concurrently \"npm run react\" \"node src/express.js\"",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "compile:sass": "sass --watch <input.scss> [output.css]"
   },
   "eslintConfig": {
     "extends": "react-app"

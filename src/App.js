@@ -5,6 +5,7 @@ import CommonHeader from './Components/commonHeader'
 import CommonFooter from './Components/commonFooter';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import SimpleMap from './Components/commonMap';
+import "./css/styles.css";
 
 function App() {
   return (
