@@ -34,13 +34,13 @@
     /* height: 300px; */
 }
 
+
 .nav-font{
     font-family: Courier;
     font-weight: bold;
     color: antiquewhite;
     margin: 0 10px 0 10px;
     text-decoration: none;
-
 }
 .nav-font:hover{
     text-decoration: none;
@@ -52,11 +52,29 @@
     margin: 20px 0 0 0;
     text-align: center;
     z-index: 1;
-    position: relative;
+    position: absolute;
+    border: 2px greenyellow solid;
+    width: 100%;
 }
 .carousel-style{
     width: 100%;
     position: absolute;
-    top: 54px;
-    z-index: 0;
+    /* top: 54px; */
+    z-index: -1;
+    border: 2px red solid;
+
+
+}
+.opening-hours-font{
+    color: aliceblue;
+    font-family: Courier;
+    font-size: small;
+    margin-bottom: 0px;
+}
+.opening-hours-listing{
+    position: relative;
+    border: 2px white solid;
+    z-index: 1;
+    bottom: 0px;
+    left:0;
 }
