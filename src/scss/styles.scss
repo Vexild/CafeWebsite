@@ -1,9 +1,5 @@
 @use 'utils/master' as master;
 
-div {
-    background-color: master.$maranelloRed;
-}
-
 #frontpage {
     color: master.$sampleColor;
 }

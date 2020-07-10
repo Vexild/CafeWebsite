@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 import img1 from "../Media/placeholder_eyecatcher.jpg";
 import img2 from "../Media/placeholder_eyecatcher.jpg";
 import img3 from "../Media/placeholder_eyecatcher.jpg";
-import '../Styling/header.css'
+import '../css/header.css'
 const customCarousel = ()  => {
 
     const carouselStyle = {
