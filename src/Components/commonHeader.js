@@ -14,18 +14,23 @@ const CommonHeader = () => {
 
     return (
         <div>
-            <Row fluid className=" header-grey-background ">
-                <Col>
-                    <h1 className="sample-font">CAFE sample</h1>
-                </Col>
-                <Col>
-                </Col>
-                <Col md="auto" className="social-media-icons">
-                    <Image className="header-icon-background" src={IGIcon} roundedCircle/>
-                    <Image className="header-icon-background" src={FBIcon} roundedCircle/>
-                </Col>
-            </Row>
-            <Carousel/>
+            <Container fluid>
+                <Row fluid className=" header-grey-background ">
+                    <Col>
+                        <h1 className="sample-font">CAFE sample</h1>
+                    </Col>
+                    <Col>
+                    </Col>
+                    <Col md="auto" className="social-media-icons">
+                        <Image className="header-icon-background" src={IGIcon} roundedCircle/>
+                        <Image className="header-icon-background" src={FBIcon} roundedCircle/>
+                    </Col>
+                </Row>
+                <Row fluid>
+                    <Carousel/>
+                </Row>
+                
+            </Container>
         </div>
 
     )
