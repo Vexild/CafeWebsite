@@ -1,0 +1,36 @@
+.footer-background {
+    background-color: rgb(196, 196, 196);
+    height: auto;
+}
+
+.footer-background1 {
+    background-color: rgb(108, 108, 108);
+    height: auto;
+}
+
+.footer-background2 {
+    background-color: rgb(54, 54, 54);
+    height: auto;
+
+}
+
+.footer-font {
+    color: white;
+    font-size: 15px;
+}
+
+.footer-icon-background {
+    width: 30px;
+}
+
+.footer-img-background {
+    width: 100px;
+    height: 70px;
+}
+
+.footer-map-image {
+    width: 350px;
+    height: 250px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
