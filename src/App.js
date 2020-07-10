@@ -4,6 +4,7 @@ import Product from './Product'
 import CommonHeader from './Components/commonHeader'
 import CommonFooter from './Components/commonFooter';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import SimpleMap from './Components/commonMap';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
 
         </div> 
       </Router>
+      
       <CommonFooter/>
     </div>
   )

@@ -8,6 +8,7 @@ import IGIcon from '../Icons/ig_icon_color.png'
 import FBIcon from '../Icons/fb_icon_color.png'
 import OKIcon from '../Icons/sample_logo.png'
 import MLIcon from '../Icons/sample_logo.png'
+import GMIcon from '../Icons/map_image.PNG'
 
 
 const CommonFooter = () => {
@@ -15,14 +16,14 @@ const CommonFooter = () => {
     return (
         <div >
 
-            <Container fluid className="footer-container">
+            <Container fluid className="fixed-bottom">
 
-                <Row className="footer-background">
-                    <Col>KARTTA</Col>
+                <Row className="footer-background ">
+                    <Col><img className="footer-map-image" src={GMIcon} alt="GMIcon"/></Col>
                 </Row>
 
-            <Row className="footer-background1">
-                <Col><p className="footer-font">Vapaavalintaista tekstiä</p></Col>
+            <Row className="footer-background1 align-items-center">
+                <Col><p className="footer-font">Vapaavalintaista tekstiä loorem ipsumia ja paljon asdsadasdasdasdasdsdasdsdsad</p></Col>
 
                 <Col> 
                 <p className="footer-font">
@@ -38,7 +39,7 @@ const CommonFooter = () => {
                 </Col>
             </Row>
 
-            <Row className="footer-background2">
+            <Row className="footer-background2 ">
                 <Col><img className="footer-img-background" src={OKIcon} alt="OKIcon"/></Col> 
                 <Col><p className="footer-font">Yhteistyössä</p></Col>
                 <Col><img className="footer-img-background" src={MLIcon} alt="MLIcon"/></Col>

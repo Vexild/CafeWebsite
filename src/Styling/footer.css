@@ -1,9 +1,9 @@
-.footer-container {
+/* .footer-container {
     position:absolute;
     left:0;
     bottom:0;
     right:0;
-}
+} */
 
 .footer-background {
     background-color: rgb(196, 196, 196);
@@ -33,4 +33,9 @@
 .footer-img-background {
     width: 100px;
     height: 70px;
+}
+
+.footer-map-image {
+    width: 350px;
+    height: 250px;
 }
