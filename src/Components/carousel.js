@@ -10,7 +10,7 @@ import Row from 'react-bootstrap/Row';
 import Button from 'react-bootstrap/Button';
 
 
-import '../Styling/header.css'
+import '../css/header.css'
 const customCarousel = ()  => {
 
     // const carouselStyle = {

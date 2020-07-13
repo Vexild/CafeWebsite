@@ -1,5 +1,5 @@
 import React from 'react'
-import '../Styling/header.css'
+import '../css/header.css'
 import Col from 'react-bootstrap/Col';
 
 

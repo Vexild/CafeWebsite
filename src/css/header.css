@@ -2,6 +2,11 @@
 .container{
     align-content: center;
 }
+.common-header{
+    z-index: 1;
+    margin-bottom: 60%;
+
+}
 .header-grey-background {
     background-color: #363636;
     height: auto;
