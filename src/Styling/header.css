@@ -23,16 +23,6 @@
     width: 2rem;
     margin: 2px;
 }
-.eyecatcher{
-    background-image: url('../Media/placeholder_eyecatcher.jpg');
-    z-index: 0;
-    background-size: cover;
-    background-position: center;
-    width: 100%; 
-    min-height: 300px;
-    
-    /* height: 300px; */
-}
 
 
 .nav-font{
@@ -48,33 +38,33 @@
     border-bottom: 2px rgb(240, 115, 65) solid;
 
 }
-.nav-line{
-    margin: 20px 0 0 0;
-    text-align: center;
-    z-index: 1;
-    position: absolute;
-    border: 2px greenyellow solid;
-    width: 100%;
-}
 .carousel-style{
     width: 100%;
     position: absolute;
     /* top: 54px; */
     z-index: -1;
     border: 2px red solid;
-
-
+}
+.nav-line{
+    margin: 20px auto auto auto;
+    text-align: center;
+    z-index: 1;
+    position: absolute;
+    border: 2px greenyellow solid;
+    width: 100%;
+}
+.opening-hours-listing{
+    position: relative;
+    bottom: 160px;
+    height: 150px;
+    margin-bottom: 10px;
+    border: 2px blue solid;
+    z-index: 1;
+    width: auto;
 }
 .opening-hours-font{
     color: aliceblue;
     font-family: Courier;
     font-size: small;
     margin-bottom: 0px;
-}
-.opening-hours-listing{
-    position: relative;
-    border: 2px white solid;
-    z-index: 1;
-    bottom: 0px;
-    left:0;
 }
