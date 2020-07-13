@@ -6,8 +6,8 @@ import img2 from "../Media/placeholder_eyecatcher.jpg";
 import img3 from "../Media/placeholder_eyecatcher.jpg";
 import OpeningHoursComponent from './openingHours';
 import Col from 'react-bootstrap/Col';
-import Row from 'react-bootstrap/Col';
-import Container from 'react-bootstrap/Col';
+import Row from 'react-bootstrap/Row';
+import Button from 'react-bootstrap/Button';
 
 
 import '../Styling/header.css'
@@ -103,9 +103,21 @@ const customCarousel = ()  => {
                 />                    
                 </Carousel.Item> 
             </Carousel>   
-            <div className="opening-hours-listing">
+            <Row >
+                <Col>
+                    <div className="opening-hours-listing">
+                        <OpeningHoursComponent />
+                    </div> 
+                </Col>
+                <Col>
+                    <div className="navigate-footer-map">
+                        <Button>Löydä meidät!</Button>
+                    </div> 
+                </Col>
+            </Row>
+            {/* <div className="opening-hours-listing">
                 <OpeningHoursComponent />
-            </div>      
+            </div>       */}
         </div>
 
         <div className="nav-line">

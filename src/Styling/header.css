@@ -60,7 +60,14 @@
     margin-bottom: 10px;
     border: 2px blue solid;
     z-index: 1;
-    width: auto;
+    width: auto; 
+}
+.navigate-footer-map{
+    position: relative;
+    bottom: 60px;
+    margin-right: 10px;
+    z-index: 1;
+    text-align: end;
 }
 .opening-hours-font{
     color: aliceblue;
