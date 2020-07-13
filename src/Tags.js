@@ -8,5 +8,4 @@ export default function Tags(props) {
             <input type="Checkbox" onClick={() => props.handleClick(props.data)}/> 
         </div>
     )
-
     }
