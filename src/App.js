@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 import Product from './Product'
 import CommonHeader from './Components/commonHeader'
+import PanelCanvas from './Components/panelCanvas'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
@@ -23,6 +24,7 @@ function App() {
 
         </div> 
       </Router>
+      <PanelCanvas />
     </div>
   )
 }
