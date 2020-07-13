@@ -48,14 +48,12 @@
     position: absolute;
     /* top: 54px; */
     z-index: -1;
-    border: 2px red solid;
 }
 .nav-line{
     margin: 20px auto auto auto;
     text-align: center;
     z-index: 1;
     position: absolute;
-    border: 2px greenyellow solid;
     width: 100%;
 }
 .opening-hours-listing{
@@ -63,7 +61,6 @@
     bottom: 160px;
     height: 150px;
     margin-bottom: 10px;
-    border: 2px blue solid;
     z-index: 1;
     width: auto; 
 }
