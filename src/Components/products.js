@@ -3,16 +3,13 @@ import { Container, Row, Col, Image } from "react-bootstrap";
 
 export default function Product(props) {
     const [hover, setHover] = useState(false)
-
-   // Jos tarvit esikatseluun täytettä niin droppaa mongosta cafedb ja käynnistä rojekti uusiksi
-   // Dummyssä tarpeeksi asiaa 
     
-    //TODO: databaseen joku product-text/desc
     //TODO: handleclicki product diviin/kuvaan
-    //TODO: Placeholder? https://cloudinary.com/documentation/react_image_manipulation
-    
-    
+    //TODO? Optimisointia https://cloudinary.com/documentation/react_image_manipulation
+
+    //TODO: databaseen joku product-text/desc
     const text = "Norsujen näkyvin ulkoinen tuntomerkki on kärsä, joka on nenän ja ylähuulen pidentymä. Norsun kärsä voi painaa jopa 140 kilogrammaa. Se on herkkä tunto- ja tartuntaelin. Biologien mukaan norsun kärsässä voi olla jopa neljäkymmentä tuhatta erillistä lihasta, joidenkin mukaan jopa lähempänä sataa tuhatta."
+    
 if (props.layout === true) {
     
     return(

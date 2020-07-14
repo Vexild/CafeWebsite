@@ -1,5 +1,8 @@
 import React, {useState} from 'react'
+
+//Product component returns product cards in grid or list format.
 import Product from './products'
+//Tags component returns a checkbox for every detected tag.
 import Tags from './tags'
 
 const axios = require('axios')
@@ -11,6 +14,7 @@ export default function Filter() {
 
     console.log("render")
     const handleCheckBox = (tag) => {
+        //Determines which checkboxes are checked.
         if (filter.includes(tag)) {
             let filtered = filter.filter(el => el !== tag)
             setFilter(filtered)
@@ -24,6 +28,7 @@ export default function Filter() {
     const getProducts = () => {
             return axios.get(`http://localhost:4000/api/products`)
             .then(response => {
+                //Mongo response is in BSON format, array after parsing.
                 let parsedBSON
                 parsedBSON = JSON.parse(JSON.stringify(response.data))
                 setProducts(parsedBSON)
@@ -32,15 +37,18 @@ export default function Filter() {
             .catch(error => console.log(error))
         }
         if (!products) {
+            //Get data from db if products is undefined
             console.log("getProducts")
             getProducts()
         }
 
         const changeLayout = () => {
+            //Toggle for product list/grid layout
             layout === true ? setLayout(false) : setLayout(true)
         }
 
         const checkBoxes = () => {
+            //Creates checkboxes from products.tags
             if (products) {
                 let tags = []
 
@@ -59,10 +67,10 @@ export default function Filter() {
                 }
 
         const productDivs = () => {
+            //Creates product cards
+            //TODO: filtering
             if (products) {
-                //  let displayedProducts 
-
-                //TODO: tuotteiden suodatus tagien mukaisesti
+                //  let displayedProducts..
             return products.map((data, key) => <Product layout={layout} data={data} key={key} />)
             }
             else {
