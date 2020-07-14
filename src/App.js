@@ -1,6 +1,5 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
-import Product from './Product'
 import CommonHeader from './Components/commonHeader'
 import CommonFooter from './Components/commonFooter';
 import Container from 'react-bootstrap/Container';
@@ -9,7 +8,7 @@ import Col from 'react-bootstrap/Col';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import SimpleMap from './Components/commonMap';
 import "./css/styles.css";
-import Filter from './filter'
+import Menu from './Components/menu'
 
 function App() {
   return (

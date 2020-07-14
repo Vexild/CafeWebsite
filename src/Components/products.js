@@ -20,7 +20,7 @@ if (props.layout === true) {
         onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)} key={props.data.key}>
             
         <Image style={{position: "relative", opacity: hover ? 40 + '%' : 100 + '%'}} 
-        src={require("./img/kahvi")} fluid roundedCircle/>
+        src={require("../Media/kahvi")} fluid roundedCircle/>
 
         <p style={{color: "white", position: "absolute", top: 25 + '%', marginLeft: 25 + '%'}}>{hover? "Info" : ""}</p>
         <p>{props.data.name} </p> 
@@ -41,7 +41,7 @@ if (props.layout === false) {
         <Col>
 
         <Image style={{position: "relative", opacity: hover ? 40 + '%' : 100 + '%'}}  
-        src={require("./img/kahvi")} fluid roundedCircle/>
+        src={require("../Media/kahvi")} fluid roundedCircle/>
         <p style={{color: "white", position: "absolute", top: 25 + '%', marginLeft: 25 + '%'}}>{hover? "Info" : ""}</p>
         
         </Col>
