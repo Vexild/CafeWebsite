@@ -41,16 +41,14 @@
     text-decoration: none;
     color: rgb(240, 115, 65);
     border-bottom: 2px rgb(240, 115, 65) solid;
-
 }
 .carousel-style{
     width: 100%;
     position: absolute;
-    /* top: 54px; */
     z-index: -1;
 }
 .nav-line{
-    margin: 20px auto auto auto;
+    margin: 100px auto auto auto;
     text-align: center;
     z-index: 1;
     position: absolute;

@@ -17,6 +17,29 @@ function App() {
         <Row>
 
           <CommonHeader/>
+          <div className="nav-line">
+            <Router>
+              <Link className="nav-font" to="/">Etusivu</Link>
+              <Link className="nav-font" to="/menu">Menu</Link>
+              <Link className="nav-font" to="/aboutus">Meistä</Link>
+              <Link className="nav-font" to="/order">Tilaus</Link>
+
+              <Route exact path="/" render={(props) => (
+                  <p  className="sample-font">Render Front</p>
+              )} />
+              <Route path="/menu" render={(props) => (
+                  <p  className="sample-font">Render Menu</p>
+              )} />
+              <Route path="/aboutus" render={(props) => (
+                  <p  className="sample-font">Render About Us</p>
+              )} />
+              <Route path="/order" render={(props) => (
+                  <p  className="sample-font">Render Order</p>
+              )} />
+                             
+            </Router>
+        </div>
+        
         
         </Row>
 

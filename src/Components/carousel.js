@@ -13,71 +13,7 @@ import Button from 'react-bootstrap/Button';
 import '../css/header.css'
 const customCarousel = ()  => {
 
-    // const carouselStyle = {
-    //   "position": "absolute",
-    //   "top": "54px",
-    //   "z-index": "0"
-    // }
-  
     return (
-    //   <div>
-    //     <div className="carousel-style">
-    //         <Carousel>
-    //             <Carousel.Item>
-    //             <img
-    //                 className="d-block w-100"
-    //                 src= {img1}
-    //                 alt="First slide"
-    //             />
-    //             </Carousel.Item>
-    //             <Carousel.Item>
-    //                 <img
-    //                     className="d-block w-100"
-    //                     src={img2}
-    //                     alt="Third slide"
-    //                 />
-    //             </Carousel.Item>
-    //             <Carousel.Item>
-    //             <img
-    //                 className="d-block w-100"
-    //                 src={img3}
-    //                 alt="Third slide"
-    //             />                    
-    //             </Carousel.Item> 
-    //         </Carousel>         
-    //     </div>
-
-    //     <div className="nav-line">
-    //         <Router>
-    //                 <Link className="nav-font" to="/">Etusivu</Link>
-    //                 <Link className="nav-font" to="/menu">Menu</Link>
-    //                 <Link className="nav-font" to="/aboutus">Meistä</Link>
-    //                 <Link className="nav-font" to="/order">Tilaus</Link>
-
-    //                 <Route exact path="/" render={(props) => (
-    //                     <p  className="sample-font">Render Front</p>
-    //                 )} />
-    //                 <Route path="/menu" render={(props) => (
-    //                     <p  className="sample-font">Render Menu</p>
-    //                 )} />
-    //                 <Route path="/aboutus" render={(props) => (
-    //                     <p  className="sample-font">Render About Us</p>
-    //                 )} />
-    //                 <Route path="/order" render={(props) => (
-    //                     <p  className="sample-font">Render Order</p>
-    //                 )} />
-                             
-    //         </Router>
-    //     </div>
-    //     <Row className="opening-hours-listing">
-    //         <OpeningHoursComponent />
-    //     </Row>
-    //     <div class="d-flex align-items-end">
-
-
-    //     </div>
-        
-    // </div>
       <div>
         <div className="carousel-style">
             <Carousel>
@@ -120,7 +56,7 @@ const customCarousel = ()  => {
             </div>       */}
         </div>
 
-        <div className="nav-line">
+        {/* <div className="nav-line">
             <Router>
                     <Link className="nav-font" to="/">Etusivu</Link>
                     <Link className="nav-font" to="/menu">Menu</Link>
@@ -142,7 +78,7 @@ const customCarousel = ()  => {
                              
             </Router>
         </div>
-        
+         */}
         
     </div>
     )
