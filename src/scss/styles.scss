@@ -1,8 +1,11 @@
 @use 'utils/master' as master;
+@use 'footer';
+@use 'header';
 
-#frontpage {
-    color: master.$sampleColor;
+.container{
+    align-content: center;
 }
+
 p {
     margin: auto;
 }
