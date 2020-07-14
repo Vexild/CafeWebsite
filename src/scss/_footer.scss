@@ -1,0 +1,43 @@
+%footer-bg-base {
+    height: auto;
+}
+
+.footer-background {
+    @extend %footer-bg-base;
+    background-color: rgb(196, 196, 196);
+}
+
+.footer-background1 {
+    @extend %footer-bg-base;
+    background-color: rgb(108, 108, 108);
+}
+
+.footer-background2 {
+    @extend %footer-bg-base;
+    background-color: rgb(54, 54, 54);
+}
+
+.footer {
+
+    &-font {
+        color: white;
+        font-size: 15px;
+    }
+    
+    &-icon-background {
+        width: 30px;
+    }
+    
+    &-img-background {
+        width: 100px;
+        height: 70px;
+    }
+    
+    &-map-image {
+        width: 350px;
+        height: 250px;
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
+    
+}
