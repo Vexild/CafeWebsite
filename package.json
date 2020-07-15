@@ -28,7 +28,7 @@
   },
   "scripts": {
     "react": "react-scripts start",
-    "start": "concurrently \"npm run react\" \"node src/express.js\"",
+    "start": "concurrently \"npm run react\" \"node src/express.js\" \"npm run compile:sass\"",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
