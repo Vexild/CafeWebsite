@@ -7,8 +7,7 @@ import Tags from './tags'
 
 const axios = require('axios')
 
-//export default function Filter() {
-const Filter = () => {
+const Menu = () => {
 
     const [products, setProducts] = useState()
     const [filter, setFilter] = useState([])
@@ -99,4 +98,4 @@ const Filter = () => {
         )
     }
 
-    export default Filter;
+    export default Menu;
