@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
 import CommonHeader from './Components/commonHeader'
 import CommonFooter from './Components/commonFooter';
+import PanelCanvas from './Components/panelCanvas'
 // import Product from './Product'
 //import Menu from './Components/menu'
 import Container from 'react-bootstrap/Container';
@@ -55,7 +56,7 @@ function App() {
 
         <Row>
           {/* {site ? <FrontPage /> ? <Store/> : <AboutUs/> } */}
-          Middle
+          <PanelCanvas/>
         </Row>
     
         <Row fluid>

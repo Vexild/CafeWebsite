@@ -88,6 +88,8 @@
   width: 100%;
   position: absolute;
   z-index: -1;
+  overflow: hidden;
+  height: 80%;
 }
 
 .nav-line {
@@ -109,7 +111,7 @@
 
 .navigate-footer-map {
   position: relative;
-  bottom: 60px;
+  
   margin-right: 10px;
   z-index: 1;
   text-align: end;
@@ -129,5 +131,17 @@
 p {
   margin: auto;
 }
-
+/*This is purely for testing and devin purpuses. rethink usage later*/
+.centered{
+  /* text-align: center; */
+  display: flex;
+  justify-content: center;
+  margin-right: 20%;
+  margin-left: 20%;
+}
+.set-on-top{
+  z-index: 10;
+}
+.panel-button{
+}
 /*# sourceMappingURL=styles.css.map */

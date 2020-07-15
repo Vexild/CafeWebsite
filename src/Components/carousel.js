@@ -39,9 +39,9 @@ const customCarousel = ()  => {
                 />                    
                 </Carousel.Item> 
             </Carousel>   
-            <Row >
-                <Col>
-                    <div className="opening-hours-listing">
+            <Row className="opening-hours-listing">
+                <Col >
+                    <div >
                         <OpeningHoursComponent />
                     </div> 
                 </Col>
