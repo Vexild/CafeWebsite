@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
 import CommonHeader from './Components/commonHeader'
 import CommonFooter from './Components/commonFooter';
-import Menu from './Components/menu'
+// import Menu from './Components/menu'
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
