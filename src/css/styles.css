@@ -37,10 +37,6 @@
   z-index: 1;
 }
 
-.container {
-  align-content: center;
-}
-
 .common-header {
   z-index: 1;
   margin-bottom: 60%;
@@ -50,6 +46,9 @@
   background-color: #363636;
   height: auto;
 }
+.header-grey-background .social-media-icons {
+  margin: auto 10px auto auto;
+}
 
 .sample-font {
   color: white;
@@ -58,10 +57,6 @@
   font-weight: lighter;
   margin-top: 10px;
   margin-left: 10px;
-}
-
-.social-media-icons {
-  margin: auto 10px auto auto;
 }
 
 .header-icon-background {
@@ -77,7 +72,6 @@
   margin: 0 10px 0 10px;
   text-decoration: none;
 }
-
 .nav-font:hover {
   text-decoration: none;
   color: #f07341;
@@ -109,7 +103,7 @@
 
 .navigate-footer-map {
   position: relative;
-  
+  bottom: 60px;
   margin-right: 10px;
   z-index: 1;
   text-align: end;
@@ -122,24 +116,4 @@
   margin-bottom: 0px;
 }
 
-.container {
-  align-content: center;
-}
-
-p {
-  margin: auto;
-}
-/*This is purely for testing and devin purpuses. rethink usage later*/
-.centered{
-  /* text-align: center; */
-  display: flex;
-  justify-content: center;
-  margin-right: 20%;
-  margin-left: 20%;
-}
-.set-on-top{
-  z-index: 10;
-}
-.panel-button{
-}
 /*# sourceMappingURL=styles.css.map */

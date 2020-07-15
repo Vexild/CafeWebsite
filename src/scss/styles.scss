@@ -2,10 +2,4 @@
 @use 'footer';
 @use 'header';
 
-.container{
-    align-content: center;
-}
-
-p {
-    margin: auto;
-}
+//npm run compile:sass poistetaan produktionissa package.json filussa
