@@ -82,6 +82,8 @@
   width: 100%;
   position: absolute;
   z-index: -1;
+  overflow: hidden;
+  height: 80%;
 }
 
 .nav-line {
@@ -103,7 +105,7 @@
 
 .navigate-footer-map {
   position: relative;
-  bottom: 60px;
+  
   margin-right: 10px;
   z-index: 1;
   text-align: end;
@@ -116,4 +118,27 @@
   margin-bottom: 0px;
 }
 
+<<<<<<< HEAD
+=======
+.container {
+  align-content: center;
+}
+
+p {
+  margin: auto;
+}
+/*This is purely for testing and devin purpuses. rethink usage later*/
+.centered{
+  /* text-align: center; */
+  display: flex;
+  justify-content: center;
+  margin-right: 20%;
+  margin-left: 20%;
+}
+.set-on-top{
+  z-index: 10;
+}
+.panel-button{
+}
+>>>>>>> 4c60fedd8413b7a66a12054799cd64f82e296311
 /*# sourceMappingURL=styles.css.map */
