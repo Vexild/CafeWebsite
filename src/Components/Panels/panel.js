@@ -28,7 +28,7 @@ const Panel =  (props) => {
         {isThisButton ? ( 
             
                 // <Col className="panel-button" style={{ backgroundImage: 'url('+ testImage+')'}}  onClick={(e) => test()} >
-                <Col >
+                <Col onClick={(e) => test()}>
                     <Image src={testImage} fluid />
                     
                     <p className="panel-text">{text}</p>
