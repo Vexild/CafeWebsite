@@ -45,6 +45,8 @@
     width: 100%;
     position: absolute;
     z-index: -1;
+    height: 80%;
+
 }
 .nav-line{
     margin: 100px auto auto auto;
@@ -74,3 +76,17 @@
     font-size: small;
     margin-bottom: 0px;
 }
+
+.centered{
+    /* text-align: center; */
+    display: flex;
+    justify-content: center;
+    margin-right: 20%;
+    margin-left: 20%;
+  }
+
+  .set-on-top{
+    z-index: 10;
+  }
+  .panel-button{
+  }

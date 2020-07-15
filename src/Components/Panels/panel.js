@@ -30,7 +30,7 @@ const Panel =  (props) => {
             <div className="panel-button" >
                 <Button onClick={(e) => test()} >
                     <Col >
-                    <Image src={testImage} onClick={(e) => test()}/>
+                        <Image src={testImage} onClick={(e) => test()}/>
                         <p>{text}</p>
                     </Col>
                     <Col>
