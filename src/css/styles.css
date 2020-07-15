@@ -1,119 +1,18 @@
-.footer-background2, .footer-background1, .footer-background {
-  height: auto;
-}
+/* Error: Expected expression.
+ *     ,
+ * 104 |       offset-position: ;
+ *     |                        ^
+ *     '
+ *   src\scss\_header.scss 104:24  @use
+ *   src\scss\styles.scss 3:1      root stylesheet */
 
-.footer-background {
-  background-color: #c4c4c4;
+body::before {
+  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
+      "Droid Sans Mono", monospace, monospace;
+  white-space: pre;
+  display: block;
+  padding: 1em;
+  margin-bottom: 1em;
+  border-bottom: 2px solid black;
+  content: "Error: Expected expression.\a     \2577 \a 104 \2502        offset-position: ;\d\a     \2502                         ^\a     \2575 \a   src\\scss\\_header.scss 104:24  @use\a   src\\scss\\styles.scss 3:1      root stylesheet";
 }
-
-.footer-background1 {
-  background-color: #6c6c6c;
-}
-
-.footer-background2 {
-  background-color: #363636;
-}
-
-.footer-font {
-  color: white;
-  font-size: 15px;
-}
-.footer-icon-background {
-  width: 30px;
-}
-.footer-img-background {
-  width: 100px;
-  height: 70px;
-}
-.footer-map-image {
-  width: 350px;
-  height: 250px;
-  margin-top: 15px;
-  margin-bottom: 15px;
-}
-
-.common-footer {
-  position: relative;
-  z-index: 1;
-}
-
-.common-header {
-  z-index: 1;
-  margin-bottom: 60%;
-}
-
-.header-grey-background {
-  background-color: #363636;
-  height: auto;
-}
-.header-grey-background .social-media-icons {
-  margin: auto 10px auto auto;
-}
-
-.sample-font {
-  color: white;
-  font-size: 30px;
-  font-family: Philosopher;
-  font-weight: lighter;
-  margin-top: 10px;
-  margin-left: 10px;
-}
-
-.header-icon-background {
-  height: 2rem;
-  width: 2rem;
-  margin: 2px;
-}
-
-.nav-font {
-  font-family: Courier;
-  font-weight: bold;
-  color: antiquewhite;
-  margin: 0 10px 0 10px;
-  text-decoration: none;
-}
-.nav-font:hover {
-  text-decoration: none;
-  color: #f07341;
-  border-bottom: 2px #f07341 solid;
-}
-
-.carousel-style {
-  width: 100%;
-  position: absolute;
-  z-index: -1;
-}
-
-.nav-line {
-  margin: 100px auto auto auto;
-  text-align: center;
-  z-index: 1;
-  position: absolute;
-  width: 100%;
-}
-
-.opening-hours-listing {
-  position: relative;
-  bottom: 160px;
-  height: 150px;
-  margin-bottom: 10px;
-  z-index: 1;
-  width: auto;
-}
-
-.navigate-footer-map {
-  position: relative;
-  bottom: 60px;
-  margin-right: 10px;
-  z-index: 1;
-  text-align: end;
-}
-
-.opening-hours-font {
-  color: aliceblue;
-  font-family: Courier;
-  font-size: small;
-  margin-bottom: 0px;
-}
-
-/*# sourceMappingURL=styles.css.map */

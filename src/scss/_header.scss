@@ -44,7 +44,7 @@
     width: 100%;
     position: absolute;
     z-index: -1;
-    height: 80%;
+    height: 60%;
 
 }
 .nav-line{
@@ -88,4 +88,18 @@
     z-index: 10;
   }
   .panel-button{
+      text-align: center;
+      width: 200px;
+      height: 200px;
+      overflow: hidden;
+  }
+  .panel-button:hover{
+    opacity: 60%;
+  }
+  .panel-button:focus{
+      color: rgb(80, 51, 40);
+  }
+  .panel-text{
+      position: relative;
+      offset-position: ;
   }

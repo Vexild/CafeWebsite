@@ -9,7 +9,7 @@ import testImage from '../Icons/fb_icon_color.png'
 const PanelCanvas =  () => {
 
     return (
-        <Container >
+        <Container>
             <Row className="centered">
                 <Col>
                     <Panel text="tänää hyvä ä munkkia" size={2} isButton={true} />
