@@ -8,6 +8,9 @@ import testImage from '../Icons/fb_icon_color.png'
 
 const PanelCanvas =  () => {
 
+    const lorem = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras id ullamcorper turpis, eget rhoncus nulla. Vivamus odio sem, ullamcorper in pellentesque non, malesuada eu massa. Praesent sagittis suscipit"
+
+
     return (
         <Container>
             <Row className="centered">
@@ -15,7 +18,7 @@ const PanelCanvas =  () => {
                     <Panel text="tänää hyvä ä munkkia" size={2} isButton={true} />
                 </Col>
                 <Col>
-                    <Panel text="tänää hyvä ä munkkia" size={2} isButton={false} />
+                    <Panel text={lorem} size={2} isButton={false} />
                 </Col>
                 {/* <Col>
                     <Panel kuva= "kuva7Löytyy/täälät/jostain.jpg"/>
@@ -23,10 +26,10 @@ const PanelCanvas =  () => {
             </Row>
             <Row className="centered">
                 <Col>
-                    <Panel image={testImage} text="Good Coffee" size={1} isButton={false} />
+                    <Panel text={lorem} size={1} isButton={false} />
                 </Col>
                 <Col>
-                    <Panel image={testImage} text="Good Coffee" size={1} isButton={false} />
+                    <Panel image={testImage} size={1} isButton={true} />
                 </Col>
             </Row>
         </Container>

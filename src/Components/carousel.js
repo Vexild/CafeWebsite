@@ -41,14 +41,10 @@ const customCarousel = ()  => {
             </Carousel>   
             <Row className="opening-hours-listing">
                 <Col >
-                    <div >
-                        <OpeningHoursComponent />
-                    </div> 
+                    <OpeningHoursComponent />
                 </Col>
-                <Col>
-                    <div className="navigate-footer-map">
-                        <Button>Löydä meidät!</Button>
-                    </div> 
+                <Col className="navigate-footer-map">
+                    <Button>Löydä meidät!</Button>
                 </Col>
             </Row>
         </div>        
