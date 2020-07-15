@@ -1,10 +1,6 @@
 import React from 'react';
-<<<<<<< HEAD
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
 import Product from './Product'
-=======
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
->>>>>>> c6af8adb7abd8f405f0377b37d8d346b34ac463c
 import CommonHeader from './Components/commonHeader'
 import CommonFooter from './Components/commonFooter';
 import Container from 'react-bootstrap/Container';
