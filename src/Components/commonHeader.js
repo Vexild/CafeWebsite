@@ -5,8 +5,6 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Image from 'react-bootstrap/Image';
 import Carousel from './carousel'
-// eslint-disable-next-line no-unused-vars
-// import '../css/header.css'
 import IGIcon from '../Icons/ig_icon_color.png'
 import FBIcon from '../Icons/fb_icon_color.png'
 

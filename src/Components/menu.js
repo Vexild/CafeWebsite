@@ -7,7 +7,9 @@ import Tags from './tags'
 
 const axios = require('axios')
 
-export default function Filter() {
+//export default function Filter() {
+const Filter = () => {
+
     const [products, setProducts] = useState()
     const [filter, setFilter] = useState([])
     const [layout, setLayout] = useState(true)
@@ -81,7 +83,7 @@ export default function Filter() {
                 )
             }
         }
-                return(
+        return(
             <div>
                 <form  className="container row">
                 {checkBoxes()} 
@@ -96,3 +98,5 @@ export default function Filter() {
             </div>
         )
     }
+
+    export default Filter;
