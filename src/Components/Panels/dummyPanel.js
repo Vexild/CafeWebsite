@@ -7,10 +7,6 @@ const DummyPanel =  (props) => {
 
     const [isThisButton, setAsButton] = useState(isButton);
     const [panelSize, setPanelSize] = useState(size);
-    // if(isButton){
-    //     setAsButton(true);
-    // }
-
     
     return (
         <Col >

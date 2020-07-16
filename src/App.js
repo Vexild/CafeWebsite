@@ -64,8 +64,8 @@ function App() {
         </Row>
 
         <Row>
-           {site === 'frontpage' ? <PanelCanvas/>  : <Menu /> }
-           {/* <PanelCanvas/> */}
+           {/* {site === 'frontpage' ? <PanelCanvas show={site}/>  : <Dummy /> } */}
+           <PanelCanvas show={site}/>
         </Row>
     
         <Row fluid>
