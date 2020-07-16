@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
 import CommonHeader from './Components/commonHeader'
 import CommonFooter from './Components/commonFooter';
 import PanelCanvas from './Components/panelCanvas'
-//import Menu from './Components/menu'
+import Menu from './Components/menu'
 import Container from 'react-bootstrap/Container';
 
 import Dummy from './Components/Panels/dummyPanel'
@@ -64,7 +64,7 @@ function App() {
         </Row>
 
         <Row>
-           {site === 'frontpage' ? <PanelCanvas/>  : <Dummy/> }
+           {site === 'frontpage' ? <PanelCanvas/>  : <Menu /> }
            {/* <PanelCanvas/> */}
         </Row>
     
