@@ -6,9 +6,10 @@ import multer from 'multer'
 import init from './mongoinit.js'
 import Product from "./models/product.model.js"
 
+import infoRouter from './routers/info.router.js'
+import productsRouter from './routers/product.router.js'
+
 const port = 4000
-
-
 
 function mongoLocal() {
 init() //If DB is empty, add dummydata
@@ -129,7 +130,7 @@ app.post('/api/product/:productName/:price/:id', (req, res) => {
     res.send(`Product ${req.params.productName} added.\n`)
 })
 
-app.get('/api/products/:query', async (req, res) => {
+app.get('/api/products/get/:tag', async (req, res) => {
 
     const query = req.params.query
 
@@ -144,21 +145,13 @@ app.get('/api/products/:query', async (req, res) => {
     }
 })
 
-app.get('/api/products', async (req, res) => {
-    const products = await Product.find({})
 
-    if (products) {
-
-        res.send(products)
-    }
-    else {
-        res.send("EIOO")
-    }
-})
 
 app.get('/api/test', (req, res) => {
     console.log(`Kissa \n`)
     res.send(`Kissa \n`)
 })
+app.use(productsRouter)
+app.use(infoRouter)
 
 app.listen(port, () => console.log(`Backend API listening on port ${port}!`));
