@@ -5,7 +5,7 @@ import Row from 'react-bootstrap/Row'
 import Button from 'react-bootstrap/Button';
 import Image from 'react-bootstrap/Image';
 
-import testImage from '../../Icons/fb_icon_color.png' 
+import testImage from '../../Icons/map_image.PNG' 
 
 
 const Panel =  (props) => {
@@ -14,29 +14,20 @@ const Panel =  (props) => {
 
     const [isThisButton, setAsButton] = useState(isButton);
     const [panelSize, setPanelSize] = useState(size);
-    // if(isButton){
-    //     setAsButton(true);
-    // }
 
+    
     const test = () =>{
         console.log("Toimii",image)
     }
     return (
         
-        <div>
+        <div className="panel-button">
         
         {isThisButton ? ( 
             
-            <div className="panel-button" >
-                <Button onClick={(e) => test()} >
-                    <Col >
-                    <Image src={testImage} onClick={(e) => test()}/>
-                        <p>{text}</p>
-                    </Col>
-                    <Col>
-                    </Col>
-                </Button>
-            </div>
+                // <Col className="panel-button" style={{ backgroundImage: 'url('+ testImage+')'}}  onClick={(e) => test()} >
+            <Image src={testImage} fluid  onClick={(e) => test()} />
+
         ) : (
             <div>
                 <Col >

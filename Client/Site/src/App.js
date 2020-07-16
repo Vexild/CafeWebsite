@@ -1,11 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
 import CommonHeader from './Components/commonHeader'
 import CommonFooter from './Components/commonFooter';
 import PanelCanvas from './Components/panelCanvas'
+<<<<<<< HEAD:src/App.js
 // import Product from './Product'
 //import Menu from './Components/menu'
+=======
+import Menu from './Components/menu'
+>>>>>>> b922f7fd02c18fd4ca5640b9b3611f3678f98a9d:Client/Site/src/App.js
 import Container from 'react-bootstrap/Container';
+
+import Dummy from './Components/Panels/dummyPanel'
+
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import SimpleMap from './Components/commonMap';
@@ -13,8 +20,13 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import "./css/styles.css";
 
 function App() {
-  const [site, setSite] = ['frontpage'];
+  const [site, setSite] = useState('frontpage');
 
+
+  const nav = (a) => {
+    setSite(a);
+    console.log(a);
+  }
   return (
     <div>
       <Container fluid>
@@ -33,12 +45,15 @@ function App() {
 
                 {/* <Route exact path="/" render={(props) => ( */}
                 <Route exact path="/" render={(props) => (
-                  <p  className="sample-font ASD">Render Front</p>
-                  //setSite('frontpage')
+                  <p  className="sample-font ASD">Render Front
+                  { nav('frontpage') }</p>
                   )} />
+                  
                 {/* <Route path="/menu" render={(props) => ( */}
                 <Route path="/menu" render={(props) => (
-                  <p  className="sample-font">Render Menu</p>
+                  <p  className="sample-font ASD">Render Front
+                  { nav('menu') }</p>
+                //  <Menu /> 
                   )} />
                 {/* <Route path="/aboutus" render={(props) => ( */}
                 <Route path="/aboutus" render={(props) => (
@@ -55,8 +70,8 @@ function App() {
         </Row>
 
         <Row>
-          {/* {site ? <FrontPage /> ? <Store/> : <AboutUs/> } */}
-          <PanelCanvas/>
+           {/* {site === 'frontpage' ? <PanelCanvas show={site}/>  : <Dummy /> } */}
+           <PanelCanvas show={site}/>
         </Row>
     
         <Row fluid>

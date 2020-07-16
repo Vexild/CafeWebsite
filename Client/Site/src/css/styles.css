@@ -82,6 +82,7 @@
   width: 100%;
   position: absolute;
   z-index: -1;
+  height: 60%;
 }
 
 .nav-line {
@@ -114,6 +115,38 @@
   font-family: Courier;
   font-size: small;
   margin-bottom: 0px;
+}
+
+.centered {
+  /* text-align: center; */
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.set-on-top {
+  z-index: 10;
+}
+
+.panel-button {
+  text-align: center;
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  margin: 10px;
+  border: 1px black dotted;
+}
+
+.panel-button:hover {
+  opacity: 60%;
+}
+
+.panel-button:focus {
+  color: #503328;
+}
+
+.panel-text {
+  position: relative;
 }
 
 /*# sourceMappingURL=styles.css.map */
