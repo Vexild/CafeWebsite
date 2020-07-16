@@ -14,9 +14,6 @@ const Panel =  (props) => {
 
     const [isThisButton, setAsButton] = useState(isButton);
     const [panelSize, setPanelSize] = useState(size);
-    // if(isButton){
-    //     setAsButton(true);
-    // }
 
     
     const test = () =>{
