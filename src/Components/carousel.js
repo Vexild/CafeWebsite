@@ -39,16 +39,12 @@ const customCarousel = ()  => {
                 />                    
                 </Carousel.Item> 
             </Carousel>   
-            <Row >
-                <Col>
-                    <div className="opening-hours-listing">
-                        <OpeningHoursComponent />
-                    </div> 
+            <Row className="opening-hours-listing">
+                <Col >
+                    <OpeningHoursComponent />
                 </Col>
-                <Col>
-                    <div className="navigate-footer-map">
-                        <Button>Löydä meidät!</Button>
-                    </div> 
+                <Col className="navigate-footer-map">
+                    <Button>Löydä meidät!</Button>
                 </Col>
             </Row>
         </div>        
