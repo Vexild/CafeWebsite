@@ -46,8 +46,7 @@ function App() {
                   
                 {/* <Route path="/menu" render={(props) => ( */}
                 <Route path="/menu" render={(props) => (
-                  <p  className="sample-font">Render Menu
-                  { nav('menu') }</p>
+                 <Menu /> 
                   )} />
                 {/* <Route path="/aboutus" render={(props) => ( */}
                 <Route path="/aboutus" render={(props) => (
