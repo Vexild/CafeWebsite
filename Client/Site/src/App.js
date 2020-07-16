@@ -52,7 +52,8 @@ function App() {
                   )} />
                 {/* <Route path="/aboutus" render={(props) => ( */}
                 <Route path="/aboutus" render={(props) => (
-                  <p  className="sample-font">Render About Us</p>
+                  <p  className="sample-font">Render About Us
+                  { nav('aboutus') }</p>
                   )} />
                 {/* <Route path="/order" render={(props) => ( */}
                 <Route path="/order" render={(props) => (

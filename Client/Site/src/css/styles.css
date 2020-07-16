@@ -104,10 +104,11 @@
 
 .navigate-footer-map {
   position: relative;
-  bottom: 60px;
+  bottom: 0px;
   margin-right: 10px;
   z-index: 1;
   text-align: end;
+  justify-content: end;
 }
 
 .opening-hours-font {
@@ -131,10 +132,10 @@
 .panel-button {
   text-align: center;
   width: 100%;
-  height: 200px;
-  overflow: hidden;
-  margin: 10px;
-  border: 1px black dotted;
+  max-width: 500px;
+  height: auto;
+  padding: 10px;
+  margin: auto;
 }
 
 .panel-button:hover {
@@ -147,6 +148,7 @@
 
 .panel-text {
   position: relative;
+  margin: 0 10% px 0 10% px;
 }
 
 /*# sourceMappingURL=styles.css.map */

@@ -4,35 +4,33 @@ import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
 import Panel from './Panels/panel'
 import Menu from './menu'
-
-import testImage from '../Icons/fb_icon_color.png'
+import testImage1 from '../Media/cafe_1.jpg'
+import testImage2 from '../Media/cafe_2.jpg'
+import testImage from '../Media/cafe_3.jpg'
+// const testImage = "../Icons/fb_icon_color.png'
 
 const PanelCanvas =  (props) => {
 
     const showSite = props.show;
     const lorem = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras id ullamcorper turpis, eget rhoncus nulla. Vivamus odio sem, ullamcorper in pellentesque non, malesuada eu massa. Praesent sagittis suscipit"
-
-
-    
-    
     switch (showSite){
         case 'frontpage':
             return (
                 <Container>
                 <Row className="centered">
                     <Col>
-                        <Panel text="tänää hyvä ä munkkia" isButton={false} />
+                        <Panel image={testImage} isButton={true} />
                     </Col>
                     <Col>
-                        <Panel image={testImage} isButton={true} />
+                        <Panel image={testImage1} isButton={false} />
                     </Col>
                 </Row>
                 <Row className="centered">
                     <Col>
-                        <Panel text={lorem}  isButton={true} />
+                        <Panel text="Nippon kazaua"   image={testImage2} isButton={false} />
                     </Col>
                     <Col>
-                        <Panel text="Nippon kazaua"  isButton={false} />
+                        <Panel image={testImage2}  isButton={true} />
                     </Col>
                     </Row>
                 </Container>
@@ -40,21 +38,14 @@ const PanelCanvas =  (props) => {
         case 'aboutus':
             return (
                 <Container>
-                <Row className="centered">
-                    <Col>
-                        <Panel text="Olemme reippaita" isButton={false} />
-                    </Col>
-                    <Col>
-                        <Panel text="Olemme leipureita" isButton={false} />
-                    </Col>
-                </Row>
-                <Row className="centered">
-                    <Col>
-                        <Panel text={lorem} size={1} isButton={false} />
-                    </Col>
-                    <Col>
-                        <Panel image={testImage} size={1} isButton={false} />
-                    </Col>
+                    <Row className="centered">
+                        <Col>
+                            <Panel image={testImage2} isButton={true} />
+                            <Panel image={testImage} isButton={true} />
+                        </Col>
+                        <Col>
+                            <Panel text={lorem} isButton={false} />
+                        </Col>
                     </Row>
                 </Container>
             )
