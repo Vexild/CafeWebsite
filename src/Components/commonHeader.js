@@ -18,7 +18,7 @@ const CommonHeader = () => {
             <Col>
                 <h1 className="sample-font">CAFE sample</h1>
             </Col>
-            <Col md="auto" className="social-media-icons">
+            <Col xs="auto" className="social-media-icons">
                 <Image className="header-icon-background" src={IGIcon} roundedCircle/>
                 <Image className="header-icon-background" src={FBIcon} roundedCircle/>
             </Col>
