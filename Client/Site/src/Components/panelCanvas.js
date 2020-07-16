@@ -3,6 +3,7 @@ import Container from 'react-bootstrap/Container'
 import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
 import Panel from './Panels/panel'
+import Menu from './menu'
 
 import testImage from '../Icons/fb_icon_color.png'
 
@@ -20,31 +21,31 @@ const PanelCanvas =  (props) => {
                 <Container>
                 <Row className="centered">
                     <Col>
-                        <Panel text="tänää hyvä ä munkkia" size={2} isButton={true} />
+                        <Panel text="tänää hyvä ä munkkia" isButton={false} />
                     </Col>
                     <Col>
-                        <Panel text={lorem} size={2} isButton={false} />
+                        <Panel image={testImage} isButton={true} />
                     </Col>
                 </Row>
                 <Row className="centered">
                     <Col>
-                        <Panel text={lorem} size={1} isButton={false} />
+                        <Panel text={lorem}  isButton={true} />
                     </Col>
                     <Col>
-                        <Panel image={testImage} size={1} isButton={true} />
+                        <Panel text="Nippon kazaua"  isButton={false} />
                     </Col>
                     </Row>
                 </Container>
             )
-        case 'menu':
+        case 'aboutus':
             return (
                 <Container>
                 <Row className="centered">
                     <Col>
-                        <Panel text="Tämä on Menuu" size={2} isButton={false} />
+                        <Panel text="Olemme reippaita" isButton={false} />
                     </Col>
                     <Col>
-                        <Panel text="Tämä on Menuu" size={2} isButton={false} />
+                        <Panel text="Olemme leipureita" isButton={false} />
                     </Col>
                 </Row>
                 <Row className="centered">
@@ -57,13 +58,22 @@ const PanelCanvas =  (props) => {
                     </Row>
                 </Container>
             )
-    default:
-        return (
-            <div>
-                <p>default</p>
-            </div>
-        )
-    }
+        case 'menu':
+            return (
+                <Container>
+                <Row className="centered">
+                    <Menu />
+                </Row>
+                </Container>
+            )
+
+        default:
+            return (
+                <div>
+                    <p>default</p>
+                </div>
+            )
+        }
     
 }
 
