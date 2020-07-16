@@ -8,15 +8,35 @@ import Product from "./models/product.model.js"
 
 const port = 4000
 
-connectMongoose()
-init() //Jos DB on tyhjä
 
+
+function mongoLocal() {
+init() //Jos DB on tyhjä
 async function connectMongoose() { 
     await mongoose.connect(
         "mongodb://localhost/cafeDB",
         { useNewUrlParser: true, useUnifiedTopology: true }
     );
 }
+connectMongoose()
+}
+
+function mongoAtlas() {
+const mongoString = `mongodb+srv://kissa:fkGQklUbCBxtOkJY@cluster0.avk0y.mongodb.net/cafeDB?retryWrites=true&w=majority`
+
+//Mongodb atlas
+async function connectMongoose() {
+    console.log("Mongo")
+await mongoose.connect(mongoString,
+                { useNewUrlParser: true, useUnifiedTopology: true }
+    );
+}
+connectMongoose()
+}
+
+//Use either mongoLocal or mongoAtlas, not both
+//mongoLocal()
+mongoAtlas()
 
 //Express
 const app = express()
@@ -59,7 +79,8 @@ app.get('/api/products', async (req, res) => {
     const products = await Product.find({})
 
     if (products) {
-        res.send(`${products}\n`)
+
+        res.send(products)
     }
     else {
         res.send("EIOO")

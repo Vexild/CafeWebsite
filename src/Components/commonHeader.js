@@ -1,20 +1,33 @@
 import React from 'react';
-// eslint-disable-next-line no-unused-vars
-import '../Styling/header.css'
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import Image from 'react-bootstrap/Image';
+import Carousel from './carousel'
 import IGIcon from '../Icons/ig_icon_color.png'
 import FBIcon from '../Icons/fb_icon_color.png'
 
 const CommonHeader = () => {
 
     return (
-        <div >
-            <div className="header-grey-background">
+        <Container fluid className="common-header">
+        <Row fluid className=" header-grey-background ">
+            <Col>
                 <h1 className="sample-font">CAFE sample</h1>
-                <img  className="header-icon-background" src={IGIcon} alt="IGIcon"/>
-                <img  className="header-icon-background" src={FBIcon} alt="IGIcon"/>
-                
-            </div>
-        </div>
+            </Col>
+            <Col>
+            </Col>
+            <Col md="auto" className="social-media-icons">
+                <Image className="header-icon-background" src={IGIcon} roundedCircle/>
+                <Image className="header-icon-background" src={FBIcon} roundedCircle/>
+            </Col>
+        </Row>
+        <Row fluid>
+            <Carousel/>
+        </Row>
+            
+        </Container>
 
     )
 }

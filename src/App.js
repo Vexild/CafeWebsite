@@ -1,30 +1,68 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
-import Product from './Product'
+import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
 import CommonHeader from './Components/commonHeader'
 import CommonFooter from './Components/commonFooter';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import Menu from './Components/menu'
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 import SimpleMap from './Components/commonMap';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import "./css/styles.css";
 
 function App() {
+  const [site, setSite] = ['frontpage'];
+
   return (
     <div>
-      <CommonHeader/>
-      <Router>
-      <div>
-        <Link to="/">Etusivu </Link>
-        <Link to="/tuotteet">Tuotteet</Link>
+      <Container fluid>
+        <Row>
 
-        <Route exact path="/" render={(props) => (
-          <p>Front</p>
-          )} />
-        <Route path="/tuotteet" render={(props) => (
-          <Product /> 
-          )} />
+          <CommonHeader/>
+        
+          <div className="nav-line">
+            <Router>
+              <Link className="nav-font" to="/">Etusivu</Link>
+              <Link className="nav-font" to="/menu">Menu</Link>
+              <Link className="nav-font" to="/aboutus">Meistä</Link>
+              <Link className="nav-font" to="/order">Tilaus</Link>
+              
+              <Switch>
 
-        </div> 
-      </Router>
-      <CommonFooter/>
+                {/* <Route exact path="/" render={(props) => ( */}
+                <Route exact path="/" render={(props) => (
+                  <p  className="sample-font ASD">Render Front</p>
+                  //setSite('frontpage')
+                  )} />
+                {/* <Route path="/menu" render={(props) => ( */}
+                <Route path="/menu" render={(props) => (
+                  <p  className="sample-font">Render Menu</p>
+                  )} />
+                {/* <Route path="/aboutus" render={(props) => ( */}
+                <Route path="/aboutus" render={(props) => (
+                  <p  className="sample-font">Render About Us</p>
+                  )} />
+                {/* <Route path="/order" render={(props) => ( */}
+                <Route path="/order" render={(props) => (
+                  <p  className="sample-font">Render Order</p>
+                  )} />
+              </Switch>
+                             
+            </Router>
+          </div>
+        </Row>
+
+        <Row>
+          {/* {site ? <FrontPage /> ? <Store/> : <AboutUs/> } */}
+          Middle
+        </Row>
+    
+        <Row fluid>
+          <CommonFooter/>
+
+        </Row>
+      
+      </Container>
     </div>
   )
 }
