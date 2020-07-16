@@ -2,4 +2,8 @@
 @use 'footer';
 @use 'header';
 
+p {
+    margin: auto;
+}
+
 //npm run compile:sass poistetaan produktionissa package.json filussa
