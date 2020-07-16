@@ -3,16 +3,9 @@ import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
 import CommonHeader from './Components/commonHeader'
 import CommonFooter from './Components/commonFooter';
 import PanelCanvas from './Components/panelCanvas'
-<<<<<<< HEAD:src/App.js
-// import Product from './Product'
-//import Menu from './Components/menu'
-=======
-import Menu from './Components/menu'
->>>>>>> b922f7fd02c18fd4ca5640b9b3611f3678f98a9d:Client/Site/src/App.js
+// import Menu from './Components/menu'
 import Container from 'react-bootstrap/Container';
-
 import Dummy from './Components/Panels/dummyPanel'
-
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import SimpleMap from './Components/commonMap';
