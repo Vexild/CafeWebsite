@@ -1,10 +1,8 @@
+import Product from '../models/product.model.js'
 export default {
 
 get: async (req, res) => {
-    console.log("Mongo start")
-    res.send("Kissa")
     const products = await Product.find({})
-    console.log("Mongo end")
 
     if (products) {
 
