@@ -3,6 +3,7 @@ import Container from 'react-bootstrap/Container'
 import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
 import Panel from './Panels/panel'
+import cateringForm from './cateringForm'
 
 import testImage from '../Icons/fb_icon_color.png'
 
@@ -56,6 +57,10 @@ const PanelCanvas =  (props) => {
                     </Col>
                     </Row>
                 </Container>
+            )
+        case 'cateringform':
+            return(
+                
             )
     default:
         return (
