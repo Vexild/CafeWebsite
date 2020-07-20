@@ -63,57 +63,28 @@ app.get('/api/addproduct', (req, res) => {
     )
 })
 
-app.get('/api/editproduct/:id', upload.fields([]), async (req, res) => {
-   const product = await Product.findOne({_id: req.params.id})
-   if (product) {
-    res.send(`
-        <form action="/api/edit" method="POST" enctype="multipart/form-data">
-        <label>Product name </label> <br>
-            <input type="text" id="name" name="name" placeholder="name" value="${product.name}" required autofocus/>
-            <br>
-            <label>Product tags (kissa, koira, kebab..)</label> <br>
-            <input type="text" id="tags" name="tags" palceholder="tags" value=${product.tags} required />
-            <br>
-            <label>Price</label> <br>
-            <input type="text" id="price" name="price" placeholder="Price" value="${product.price}"required />
-            <br>
-            <label>Product ID </label> <br>
-            <input type="text" id="productId" name="productId" placeholder="Product ID" value="${product.id}" required/>
-            <input type="hidden" name="id" value="${product._id}" required/>
-            <br>
-            <input type="submit" value="Save">
-        </form>
-        ` 
-        //redirect to edit/:name/:price etc?
-    )
-   }
-   else {
-       res.send(`Product ${req.params.id} not found.`)
-   }
-})
 
-app.post('/api/edit', upload.fields([]), (req, res) => {
+
+app.post('/api/edit', upload.fields([]), async (req, res) => {
     console.log(req.body)
 
-    console.log(req.body.id, typeof(req.body.id))
-    let target = mongoose.Types.ObjectId(`${req.body.id}`)
-    console.log(target, typeof(target))
-    
-    try {
-   Product.updateOne(
-       { _id : mongoose.Types.ObjectId(req.body.id)},
-       {$set: {
-            name: req.body.name,
-            tags: req.body.tags,
-            price: parseInt(req.body.price),
-            id: parseInt(req.body.productId) } },
-        {upsert : true}
+    let product = await Product.findOne({_id : mongoose.Types.ObjectId(req.body.id)})
+    if (product) {
+        await product.updateOne(
+            {$set: {
+                name: req.body.name,
+                tags: req.body.tags,
+                price: req.body.price,
+                productId: req.body.productId    
+            }
+            }
         )
+        await product.save()
+        res.send("Updated")
     }
-    catch (e) {
-        res.send(e)
+    else {
+        res.send("Kissa")
     }
-    res.send("Koira")
 })
 /*
 ,
