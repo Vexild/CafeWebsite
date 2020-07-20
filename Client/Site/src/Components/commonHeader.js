@@ -18,13 +18,15 @@ const CommonHeader = () => {
             <Col>
                 <h1 className="sample-font">CAFE sample</h1>
             </Col>
-            <Col xs="auto" className="social-media-icons">
+            <Col xs="auto" className="social-media-icons-top">
                 <Image className="header-icon-background" src={IGIcon} roundedCircle/>
                 <Image className="header-icon-background" src={FBIcon} roundedCircle/>
             </Col>
         </Row>
         <Row fluid>
-            <Carousel/>
+            <Col className="no-padding">
+                <Carousel/>
+            </Col>
         </Row>
             
         </Container>

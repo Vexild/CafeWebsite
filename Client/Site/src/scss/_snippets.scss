@@ -1,0 +1,24 @@
+%social-media-icons {
+    margin: auto 10px auto auto;
+}
+
+.social-media-icons-top {
+    @extend %social-media-icons;
+}
+
+.social-media-icons-bottom {
+    @extend %social-media-icons;
+}
+ 
+%relative-parent-div {
+    position: relative;
+    margin: 0px auto;
+}
+
+.no-padding  {
+    padding: 0px;
+}
+
+.no-margin {
+    margin: 0px;
+}

@@ -46,9 +46,6 @@
   background-color: #363636;
   height: auto;
 }
-.header-grey-background .social-media-icons {
-  margin: auto 10px auto auto;
-}
 
 .sample-font {
   color: white;
@@ -104,7 +101,7 @@
 
 .navigate-footer-map {
   position: relative;
-  bottom: 60px;
+  bottom: 20%;
   margin-right: 10px;
   z-index: 1;
   text-align: end;
@@ -125,7 +122,7 @@
 }
 
 .set-on-top {
-  z-index: 10;
+  z-index: awewedfaasdf;
 }
 
 .panel-button {
@@ -149,8 +146,16 @@
   position: relative;
 }
 
-p {
-  margin: auto;
+.social-media-icons-bottom, .social-media-icons-top {
+  margin: auto 10px auto auto;
+}
+
+.no-padding {
+  padding: 0px;
+}
+
+.no-margin {
+  margin: 0px;
 }
 
 /*# sourceMappingURL=styles.css.map */

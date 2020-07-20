@@ -7,7 +7,7 @@
     {
       "label": "Sass Compile",
       "type": "shell",
-      "command": "sass --watch src/scss/styles.scss  src/css/styles.css",
+      "command": "npm run compile:sass",
       "group": "build"
     }
   ]

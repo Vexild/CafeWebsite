@@ -19,6 +19,7 @@ if (props.layout === true) {
         <Image style={{position: "relative", opacity: hover ? 40 + '%' : 100 + '%'}} 
         src={require("../Media/kahvi")} fluid roundedCircle/>
 
+        //hidden 
         <p style={{color: "white", position: "absolute", top: 25 + '%', marginLeft: 25 + '%'}}>{hover? "Info" : ""}</p>
         <p>{props.data.name} </p> 
         <p>  {props.data.price}€</p>

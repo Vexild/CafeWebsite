@@ -30,7 +30,7 @@ const CommonFooter = () => {
             </p>
             </Col>
 
-            <Col>
+            <Col className="social-media-icons-bottom">
             <a href="https://www.instagram.com/"> <img  className="footer-icon-background" src={IGIcon} alt="IGIcon"/> </a>
             <a href="https://www.facebook.com/"> <img  className="footer-icon-background" src={FBIcon} alt="FBIcon"/> </a>
             </Col>

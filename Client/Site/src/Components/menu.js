@@ -53,6 +53,8 @@ const Menu = () => {
             if (products) {
                 let tags = []
 
+                console.log(products);
+
                 products.forEach((element) => {
                     element.tags.forEach((element) => {
                         if (tags.includes(element)) {
