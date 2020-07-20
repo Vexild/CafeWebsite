@@ -1,5 +1,5 @@
 @use 'utils/master' as master;
 @use 'footer';
 @use 'header';
-
+@use 'panels';
 //npm run compile:sass poistetaan produktionissa package.json filussa
