@@ -155,4 +155,35 @@ carousel {
   margin: 0 10% px 0 10% px;
 }
 
+.centered {
+  /* text-align: center; */
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.deal-panel {
+  margin: 30px;
+  height: auto;
+}
+.deal-panel > p {
+  font-family: Courier;
+  font-size: 15px;
+  padding: 10px;
+  text-align: center;
+  color: lightgray;
+}
+.deal-panel > h4 {
+  font-family: Courier;
+  font-size: 25px;
+  text-align: center;
+  margin: 10px;
+  color: lightgray;
+}
+
+.chalboard-placeholder {
+  border: 10px #77563b solid;
+  background-color: #414141;
+}
+
 /*# sourceMappingURL=styles.css.map */
