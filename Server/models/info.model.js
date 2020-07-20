@@ -7,6 +7,8 @@ const InfoSchema = new mongoose.Schema({
     email: String
 })
 
-const Info = mongoose.model("Info", InfoSchema)
+//Mongo changes the collection name to plural by default
+//Optional 3rd argument to specify that the collection name (in this case) is singular "info"
+const Info = mongoose.model("info", InfoSchema, "info")
 
 export default Info

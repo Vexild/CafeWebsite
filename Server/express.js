@@ -40,6 +40,8 @@ connectMongoose()
 //mongoLocal()
 mongoAtlas()
 
+const upload = multer()
+
 //Express
 const app = express()
 app.use(bodyParser.json())
@@ -61,26 +63,25 @@ app.get('/api/addproduct', (req, res) => {
     )
 })
 
-app.get('/api/editproduct/:id', async (req, res) => {
-   console.log(req.params.id) 
-   const product = await Product.findOne({id: req.params.id})
+app.get('/api/editproduct/:id', upload.fields([]), async (req, res) => {
+   const product = await Product.findOne({_id: req.params.id})
    if (product) {
-
     res.send(`
-        <form method="POST" action="/api/edit">
+        <form action="/api/edit" method="POST" enctype="multipart/form-data">
         <label>Product name </label> <br>
-            <input type="text" id="name" placeholder="name" value="${product.name}" required autofocus/>
+            <input type="text" id="name" name="name" placeholder="name" value="${product.name}" required autofocus/>
             <br>
             <label>Product tags (kissa, koira, kebab..)</label> <br>
-            <input type="text" id="tags" palceholder="tags" value=${product.tags} required />
+            <input type="text" id="tags" name="tags" palceholder="tags" value=${product.tags} required />
             <br>
             <label>Price</label> <br>
-            <input type="text" id="price" placeholder="Price" value="${product.price}"required />
+            <input type="text" id="price" name="price" placeholder="Price" value="${product.price}"required />
             <br>
             <label>Product ID </label> <br>
-            <input type="text" id="id" placeholder="Product ID" value="${product.id}" required/>
+            <input type="text" id="productId" name="productId" placeholder="Product ID" value="${product.id}" required/>
+            <input type="hidden" name="id" value="${product._id}" required/>
             <br>
-            <button>Save</button>
+            <input type="submit" value="Save">
         </form>
         ` 
         //redirect to edit/:name/:price etc?
@@ -91,19 +92,31 @@ app.get('/api/editproduct/:id', async (req, res) => {
    }
 })
 
-app.post('/api/edit', (req, res) => {
+app.post('/api/edit', upload.fields([]), (req, res) => {
     console.log(req.body)
-    let targetId = parseInt(req.body.id)
-    console.log(targetId)
+
+    console.log(req.body.id, typeof(req.body.id))
+    let target = mongoose.Types.ObjectId(`${req.body.id}`)
+    console.log(target, typeof(target))
     
-   //TODO?: Use mongo id instead of product id?
-   Product.replaceOne(
-       { id: targetId},
-       {
-           name : req.params.name,
-           tags: req.params.tags,
-           price: req.params.price,
-           id: targetId},
+    try {
+   Product.updateOne(
+       { _id : mongoose.Types.ObjectId(req.body.id)},
+       {$set: {
+            name: req.body.name,
+            tags: req.body.tags,
+            price: parseInt(req.body.price),
+            id: parseInt(req.body.productId) } },
+        {upsert : true}
+        )
+    }
+    catch (e) {
+        res.send(e)
+    }
+    res.send("Koira")
+})
+/*
+,
            function (err, result) {
                if (err) {
                    res.send(err)
@@ -111,9 +124,7 @@ app.post('/api/edit', (req, res) => {
                else {
                    res.send(result)
            }
-        }
-        )
-})
+           */
 
 app.post('/api/product/:productName/:price/:id', (req, res) => {
     let price = parseInt(req.params.price)
@@ -124,7 +135,7 @@ app.post('/api/product/:productName/:price/:id', (req, res) => {
         price: price,
         id: id
     }
-
+    response.end('Hello World')
     const product= new Product(productData)
     product.save()
     res.send(`Product ${req.params.productName} added.\n`)
