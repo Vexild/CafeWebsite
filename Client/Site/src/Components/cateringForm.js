@@ -65,14 +65,22 @@ const CateringForm =  () => {
       <option>sample 20 hlö</option>
     </Form.Control>
   </Col>
-  </Form.Row>
-  <Form.Row>
+    
   <Col>
+  <Form.Label>Päivämäärä:</Form.Label>
     <DatePicker selected={startDate}
     onChange={date => setStartDate(date)}
     showWeekNumbers/>
   </Col>
-  </Form.Row>
+</Form.Row>
+
+<Form.Row>
+  <Col>
+<Button type="submit">
+    Lähetä
+</Button>
+  </Col>
+</Form.Row>
 
 </Form>
 </Col>
