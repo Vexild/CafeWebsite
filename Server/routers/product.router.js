@@ -1,11 +1,6 @@
 import express from 'express'
 import productsController from '../controllers/products.controller.js'
 import multer from 'multer'
-import bodyParser from 'body-parser'
-/*
-const app = express()
-app.use(bodyParser.urlencoded({ extended: true }))
-*/
 
 const route = express.Router()
 const upload = multer()

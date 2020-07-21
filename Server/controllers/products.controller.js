@@ -1,6 +1,6 @@
 import Product from '../models/product.model.js'
 import mongoose from 'mongoose'
-
+//TODO: PILKO TAGIT 
 export default {
 editproduct: async (req, res) => {
     console.log(req.params)
@@ -12,7 +12,7 @@ editproduct: async (req, res) => {
             <input type="text" id="name" name="name" placeholder="name" value="${product.name}" required autofocus/>
             <br>
             <label>Product tags (kissa, koira, kebab..)</label> <br>
-            <input type="text" id="tags" name="tags" palceholder="tags" value=${product.tags} required />
+            <input type="text" id="tags" name="tags" placeholder="tags" value=${product.tags} required />
             <br>
             <label>Price</label> <br>
             <input type="text" id="price" name="price" placeholder="Price" value="${product.price}"required />
