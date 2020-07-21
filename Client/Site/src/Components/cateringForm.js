@@ -15,7 +15,7 @@ const CateringForm =  () => {
 
 <Container>
 
-<Col className="border d-flex justify-content-center">
+<Col className="d-flex justify-content-center">
 
 <Form>
 
