@@ -1,3 +1,11 @@
+// reused from _panels.scss
+.centered{
+    /* text-align: center; */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+
 .modal-style{
     top: 50%;
     left: 50%;

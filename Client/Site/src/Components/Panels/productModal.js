@@ -47,9 +47,15 @@ const ProductModal =  (props) => {
         <Col className="modal-view" >
             <Row>
                 <Col>
-                    {name}
-                    <Image src={productImage} />
-                    {tags}
+                    <Row className="centered">
+                        {name}
+                    </Row>
+                    <Row className="centered">
+                        <Image src={productImage} />
+                    </Row>
+                    <Row className="centered">
+                        {tags}
+                    </Row>
                 </Col>
                 <Col>
                     <p>{description}</p>
