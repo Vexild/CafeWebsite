@@ -21,6 +21,8 @@ export default {
     }
                },
     editinfo: async (req, res) => {
+        console.log("Api/editinfo")
+        console.log(req, req.body, req.params, req.data)
         const info = await Info.findOne({})
 
         await info.updateOne(
@@ -37,7 +39,7 @@ export default {
     const data = await Info.find()
 
     if (data) {
-        res.send(JSON.stringify(data))
+        res.send(data)
     }
     else {
     console.log(`Kissa \n`)

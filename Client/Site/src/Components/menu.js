@@ -29,8 +29,8 @@ const Menu = () => {
     const getProducts = () => {
             return axios.get(`http://localhost:4000/api/products/get`)
             .then(response => {
-                //Mongo response is in BSON format, array after parsing.
                 let parsedBSON
+                console.log(response.data)
                 parsedBSON = JSON.parse(JSON.stringify(response.data))
                 setProducts(parsedBSON)
                 return response.data
