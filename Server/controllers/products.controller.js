@@ -2,7 +2,21 @@ import Product from '../models/product.model.js'
 import mongoose from 'mongoose'
 //TODO: PILKO TAGIT 
 export default {
-editproduct: async (req, res) => {
+newProduct: async (req, res) => {
+    console.log(req.body, typeof(req.body))
+    const product = new Product()
+    product.name = req.body.name
+    product.price = req.body.price
+    product.id = req.body.id
+    product.tags = req.body.tags
+    product.description = req.body.description
+    product.productInfo = req.body.productInfo
+    
+    await product.save()
+    res.send("Product added")
+    
+},
+editProduct: async (req, res) => {
     console.log(req.params)
    const product = await Product.findOne({_id: mongoose.Types.ObjectId(req.params.id)})
    if (product) {

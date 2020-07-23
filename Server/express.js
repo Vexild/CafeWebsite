@@ -48,23 +48,6 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(cors())
 
-app.get('/api/addproduct', (req, res) => {
-    res.send(`
-        <form>
-            <input type="text" id="name" placeholder="Product name" required autofocus/>
-            </br>
-            <input type="text" id="price" placeholder="Price" required />
-            </br>
-            <input type="text" id="id" placeholder="Product ID" required/>
-            </br>
-            <button>Add</button>
-        </form>
-        ` 
-    )
-})
-
-
-
 app.post('/api/edit', upload.fields([]), async (req, res) => {
     console.log(req.body)
 
@@ -87,16 +70,6 @@ app.post('/api/edit', upload.fields([]), async (req, res) => {
     }
 })
 /*
-,
-           function (err, result) {
-               if (err) {
-                   res.send(err)
-               }
-               else {
-                   res.send(result)
-           }
-           */
-
 app.post('/api/product/:productName/:price/:id', (req, res) => {
     let price = parseInt(req.params.price)
     let id = parseInt(req.params.id)
@@ -111,6 +84,7 @@ app.post('/api/product/:productName/:price/:id', (req, res) => {
     product.save()
     res.send(`Product ${req.params.productName} added.\n`)
 })
+*/
 
 app.get('/api/products/get/:tag', async (req, res) => {
 
@@ -126,8 +100,6 @@ app.get('/api/products/get/:tag', async (req, res) => {
         res.send("EIOO")
     }
 })
-
-
 
 app.get('/api/test', (req, res) => {
     console.log(`Kissa \n`)
