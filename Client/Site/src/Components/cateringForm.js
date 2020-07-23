@@ -6,6 +6,7 @@ import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
 import DatePicker from 'react-datepicker'
 import "react-datepicker/dist/react-datepicker.css"
+import local from 'date-fns/locale/fi';
 
 
 const CateringForm =  () => {
@@ -16,6 +17,12 @@ const CateringForm =  () => {
     const [email, setEmail] = useState('')
     const [phonenumber, setPhonenumber] = useState('')
     const [location, setLocation] = useState('')
+
+
+    // gather dates in array
+    const dummyReservedDaysData = [  new Date("7/30/2020") , new Date("7/2/2020"), new Date("July 29, 2020") ];
+    //console.log("DUMMY", dummyReservedDaysData )
+    //console.log("LOCALE", local )
 
     const handleSetComment = (event) => {
       // console.log(event.target.value)
@@ -103,8 +110,13 @@ const CateringForm =  () => {
     
   <Col>
     <Form.Label>Päivämäärä:</Form.Label>
-    <DatePicker selected={startDate}
+    <DatePicker 
+    selected={startDate}
+    minDate={Date.now()}
+    dateFormat="dd.MM.yyyy"
+    locale={local}
     onChange={date => setStartDate(date)}
+    excludeDates={dummyReservedDaysData}
     showWeekNumbers required/>
   </Col>
 </Form.Row>
