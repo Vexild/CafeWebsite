@@ -61,10 +61,10 @@ const Menu = () => {
                             } 
                     else {
                         tags.push(element
-                        )}})})
+                        )}})}) // please dont
                         //console.log(tags)
                     return tags.map((data, key) => <Tags handleClick={handleCheckBox} data={data} key={key} />)
-                    }
+                    }   
                 }
 
         const productDivs = () => {

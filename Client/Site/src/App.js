@@ -33,24 +33,18 @@ function App() {
               
               <Switch>
 
-                {/* <Route exact path="/" render={(props) => ( */}
                 <Route exact path="/" render={(props) => (
                   <p  className="sample-font ASD">Render Front
                   { nav('frontpage') }</p>
                   )} />
-                  
-                {/* <Route path="/menu" render={(props) => ( */}
                 <Route path="/menu" render={(props) => (
                   <p  className="sample-font ASD">Render Front
                   { nav('menu') }</p>
-                //  <Menu /> 
                   )} />
-                {/* <Route path="/aboutus" render={(props) => ( */}
                 <Route path="/aboutus" render={(props) => (
                   <p  className="sample-font">Render About Us
                   { nav('aboutus') }</p>
                   )} />
-                {/* <Route path="/order" render={(props) => ( */}
                 <Route path="/order" render={(props) => (
                   <p  className="sample-font">Render Order</p>
                   )} />
