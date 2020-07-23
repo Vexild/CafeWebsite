@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 // eslint-disable-next-line no-unused-vars
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
@@ -8,9 +8,23 @@ import FBIcon from '../Icons/fb_icon_color.png'
 import OKIcon from '../Icons/sample_logo.png'
 import MLIcon from '../Icons/sample_logo.png'
 import GMIcon from '../Icons/map_image.PNG'
+import axios from 'axios'
 
 
 const CommonFooter = () => {
+  const [contactInfo, setContactInfo] = useState()
+
+  const getContactInfo = () => {
+      axios.get('http://localhost:4000/api/info/get')
+      .then(response => {
+          console.log(response.data)
+          setContactInfo(response.data)
+      })
+      .catch(error => console.log(error))
+  }
+  if (!contactInfo) {
+      getContactInfo()
+  }
 
     return (
         <Container fluid className="common-footer">
@@ -24,9 +38,9 @@ const CommonFooter = () => {
 
             <Col> 
             <p className="footer-font">
-            KATUOSOITE <br/>
-            PAIKKAKUNTA <br/>
-            PUHELIN
+            {contactInfo ? contactInfo[0].address : null}<br/>
+            {contactInfo ? contactInfo[0].city : null} <br/>
+            {contactInfo ? contactInfo[0].phone : null}
             </p>
             </Col>
 
