@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import ProductList from "./Components/productList"
 import TagList from "./Components/tagList"
 import ContactInformation from "./Components/contactInformation"
+import BusinessHours from "./Components/businessHours";
 import './App.css';
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
         <Link to="/tags">Tags</Link>
         <Link to="/contact-information"></Link>
         <Link to="/media"></Link>
+        <Link to="/business-hours">Business Hours</Link>
       </nav>
 
       <Switch>
@@ -35,6 +37,9 @@ function App() {
         </Route>
         <Route path="/media">
 
+        </Route>
+        <Route path="/business-hours">
+          <BusinessHours />
         </Route>
         <Route path="/">
           <p>Oisko vaikka documentation tässä vakio näkymässä</p>
