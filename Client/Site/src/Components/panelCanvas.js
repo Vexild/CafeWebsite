@@ -1,11 +1,13 @@
 import React from 'react'
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
+import Panel from './Panels/panel'
 import Menu from './menu'
 import AboutUs from './aboutUs'
 import FrontPage from './frontpage'
 
-// const testImage = "../Icons/fb_icon_color.png'
+import CateringForm from './cateringForm'
+import SpillagePage from './spillagePage'
 
 const PanelCanvas =  (props) => {
 
@@ -23,12 +25,31 @@ const PanelCanvas =  (props) => {
                     <AboutUs/>
                 </Container>
             )
+        case 'cateringform':
+            return(
+                <Container>
+                <Row className="centered">
+                    <CateringForm />
+                </Row>
+                </Container>
+                
+            )
+
+    
         case 'menu':
             return (
                 <Container>
                     <Row className="centered">
                         <Menu />
                     </Row>
+                </Container>
+            )
+        case 'spillage':
+            return (
+                <Container>
+                <Row className="centered">
+                    <SpillagePage />
+                </Row>
                 </Container>
             )
 

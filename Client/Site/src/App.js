@@ -30,6 +30,7 @@ function App() {
               <Link className="nav-font" to="/menu">Menu</Link>
               <Link className="nav-font" to="/aboutus">Meistä</Link>
               <Link className="nav-font" to="/order">Tilaus</Link>
+              <Link className="nav-font" to="/spillage">Hävikki</Link>
               
               <Switch>
 
@@ -52,7 +53,10 @@ function App() {
                   )} />
                 {/* <Route path="/order" render={(props) => ( */}
                 <Route path="/order" render={(props) => (
-                  <p  className="sample-font">Render Order</p>
+                  <p  className="sample-font">Render Order{nav('cateringform')}</p>
+                  )} />
+                <Route path="/spillage" render={(props) => (
+                  <p  className="sample-font">Render Hävikki{nav('spillage')}</p>
                   )} />
               </Switch>
                              
