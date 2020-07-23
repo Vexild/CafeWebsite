@@ -20,5 +20,6 @@
   "dependencies": {
     "concurrently": "^5.2.0",
     "react-modal": "^3.11.2"
+    "react-datepicker": "^3.1.3"
   }
 }
