@@ -19,7 +19,8 @@ export default function Product(props) {
           right                 : 'auto',
           bottom                : 'auto',
           marginRight           : '-50%',
-          transform             : 'translate(-50%, -50%)'
+			 transform             : 'translate(-50%, -50%)',
+			 position				  : 'absolute'
         }
       };
     
@@ -37,59 +38,68 @@ export default function Product(props) {
 
 
 if (props.layout === true) {
-    
+	 
+	// probably reconstruct products with both using container or none at all
     return(
-        <div  style={{backgroundColor: hover ? "#D2C6B8" : ""}} className="col-4 justify-content-center" 
+        <div style={{backgroundColor: hover ? "#D2C6B8" : ""}} className="col-4 justify-content-center" 
         onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)} key={props.data.key}>
             
-        <Image style={{position: "relative", opacity: hover ? 40 + '%' : 100 + '%'}} 
-        src={require("../Media/kahvi")} onClick={openModal} fluid roundedCircle/>
+			<Image style={{position: "relative", opacity: hover ? 40 + '%' : 100 + '%'}} 
+			src={require("../Media/kahvi")} onClick={openModal} fluid roundedCircle/>
 
-        <p style={{color: "white", position: "absolute", top: 25 + '%', marginLeft: 25 + '%'}}>{hover? "Info" : ""}</p>
-        <p>{props.data.name} </p> 
-        <p>  {props.data.price}€</p>
+			<p style={{color: "white", position: "absolute", top: 25 + '%', marginLeft: 25 + '%'}}>{hover? "Info" : ""}</p>
+			<p>{props.data.name} </p> 
+			<p>{props.data.price}€</p>
 
-        <Row>
-            {hover ? props.data.tags.map(el => {return <Col key={el} md="auto"> {el} </Col> } ) : ""}
-        </Row> 
-        <Modal 
-        isOpen={modalIsOpen}
-        onRequestClose={closeModal}
-        //className="modal-style"
-        style={customStyles}
-        contentLabel="Product">
-            <Button onClick={closeModal} >takaisin</Button>
-            <ProductModal name={props} desc={text} image={require("../Media/kahvi")} />
-        </Modal>
+			<Row>
+					{hover ? props.data.tags.map(el => {return <Col key={el} md="auto"> {el} </Col> } ) : ""}
+			</Row> 
+			<Modal 
+			isOpen={modalIsOpen}
+			onRequestClose={closeModal}
+			style={customStyles}
+			contentLabel="Product">
+					<Button onClick={closeModal} >takaisin</Button>
+					<ProductModal name={props} desc={text} image={require("../Media/kahvi")} />
+			</Modal>
         </div>
     )
 }
 
 if (props.layout === false) {
     return(
-        <Container onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}>
-        <div style={{backgroundColor: hover ? "#D2C6B8" : ""}}>
-        <Row>
-        <Col>
+        <Container  onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}>
+            <div onClick={openModal} style={{backgroundColor: hover ? "#D2C6B8" : ""}}>
+            <Row>
+					<Col>
 
-        <Image style={{position: "relative", opacity: hover ? 40 + '%' : 100 + '%'}}  
-        src={require("../Media/kahvi")} fluid roundedCircle/>
-        <p style={{color: "white", position: "absolute", top: 25 + '%', marginLeft: 25 + '%'}}>{hover? "Info" : ""}</p>
-        
-        </Col>
-        <Col>
-        <p style={{backgroundColor : "red"}} >{props.data.name} </p> 
-        <Row>
-        {props.data.tags.map(el => {return <Col md="auto" key={el} style={{backgroundColor: "black"}}><p style={{backgroundColor: "blue"}}>{el}</p></Col>})}
+						<Image style={{position: "relative", opacity: hover ? 40 + '%' : 100 + '%'}}  
+						src={require("../Media/kahvi")} fluid roundedCircle/>
+						<p style={{color: "white", position: "absolute", top: 25 + '%', marginLeft: 25 + '%'}}>{hover? "Info" : ""}</p>
+					
+					</Col>
+					<Col>
+						<p style={{backgroundColor : "red"}} >{props.data.name} </p> 
+						<Row>
+							{props.data.tags.map(el => {return <Col md="auto" key={el} style={{backgroundColor: "black"}}><p style={{backgroundColor: "blue"}}>{el}</p></Col>})}
+						</Row>
+						<p>{props.data.price}€ </p>
+					</Col>
+            <Col>
+            	{hover? text : ""}
+            </Col>
+            </Row>
+            </div>
 
-        </Row>
-        <p>{props.data.price}€ </p>
-        </Col>
-        <Col>
-        {hover? text : ""}
-        </Col>
-        </Row>
-        </div>
+				<Modal 
+				isOpen={modalIsOpen}
+				onRequestClose={closeModal}
+				style={customStyles}
+				contentLabel="Product">
+						<Button onClick={closeModal} >takaisin</Button>
+						<ProductModal name={props} desc={text} image={require("../Media/kahvi")} />
+				</Modal>
+
         </Container> 
         )
     }
