@@ -79,6 +79,14 @@ const PanelCanvas =  (props) => {
                 </Row>
                 </Container>
             )
+        case 'spillage':
+            return (
+                <Container>
+                <Row className="centered">
+                    HÄVIKKI PAGE
+                </Row>
+                </Container>
+            )
 
         default:
             return (
