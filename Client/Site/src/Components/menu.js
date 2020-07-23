@@ -27,10 +27,10 @@ const Menu = () => {
        }
 
     const getProducts = () => {
-            return axios.get(`http://localhost:4000/api/products`)
+            return axios.get(`http://localhost:4000/api/products/get`)
             .then(response => {
-                //Mongo response is in BSON format, array after parsing.
                 let parsedBSON
+                console.log(response.data)
                 parsedBSON = JSON.parse(JSON.stringify(response.data))
                 setProducts(parsedBSON)
                 return response.data
@@ -61,10 +61,10 @@ const Menu = () => {
                             } 
                     else {
                         tags.push(element
-                        )}})})
+                        )}})}) // please dont
                         //console.log(tags)
                     return tags.map((data, key) => <Tags handleClick={handleCheckBox} data={data} key={key} />)
-                    }
+                    }   
                 }
 
         const productDivs = () => {

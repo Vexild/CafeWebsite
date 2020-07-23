@@ -20,7 +20,7 @@ function App() {
         <Link to="/">Home</Link>
         <Link to="/products">Products</Link>
         <Link to="/tags">Tags</Link>
-        <Link to="/contact-information"></Link>
+        <Link to="/contact-information">Contact Info</Link>
         <Link to="/media"></Link>
         <Link to="/business-hours">Business Hours</Link>
       </nav>
