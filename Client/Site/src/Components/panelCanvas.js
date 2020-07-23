@@ -8,6 +8,7 @@ import Menu from './menu'
 
 import testImage from '../Icons/fb_icon_color.png'
 import CateringForm from './cateringForm'
+import SpillagePage from './spillagePage'
 
 const PanelCanvas =  (props) => {
 
@@ -83,7 +84,7 @@ const PanelCanvas =  (props) => {
             return (
                 <Container>
                 <Row className="centered">
-                    HÄVIKKI PAGE
+                    <SpillagePage />
                 </Row>
                 </Container>
             )

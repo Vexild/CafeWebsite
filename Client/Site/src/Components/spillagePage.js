@@ -8,21 +8,14 @@ import DatePicker from 'react-datepicker'
 import "react-datepicker/dist/react-datepicker.css"
 
 
-const CateringForm =  () => {
+const SpillagePage =  () => {
 
     const [startDate, setStartDate] = useState(new Date());
-    const [comment, setComment] = useState('')
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
     const [phonenumber, setPhonenumber] = useState('')
-    const [location, setLocation] = useState('')
 
-    const handleSetComment = (event) => {
-      // console.log(event.target.value)
-      setComment(event.target.value)
-    }
-
-     const handleSetName = (event) => {
+    const handleSetName = (event) => {
       // console.log(event.target.value)
       setName(event.target.value)
     }
@@ -37,14 +30,9 @@ const CateringForm =  () => {
       setPhonenumber(event.target.value)
     }
 
-    const handleSetLocation = (event) => {
-      // console.log(event.target.value)
-      setLocation(event.target.value)
-    }
-
     const submitForm = (event) => {
       event.preventDefault();
-      console.log(comment, name, email, phonenumber, location, startDate.toDateString())
+      console.log(name, email, phonenumber, startDate.toDateString())
     }
 
     return(
@@ -57,18 +45,12 @@ const CateringForm =  () => {
 
       <Form.Row>
         <Col>
-          <h3>Tilaisuuden tiedot</h3>
+          <h3>Hakijan tiedot</h3>
           <p>
-            Voit varata pitopalvelun alla olevalla lomakkeella.
+            Auta meitä välttämään hävikkiä ostamalla päivänpäätteeksi kaikki jäljellä oleva ruoka hintaan X€.
+            Täytä alla oleva lomake ja valitse päivä.
             loorem ipsumia lalalallaalala
           </p>
-        </Col>
-      </Form.Row>
-
-      <Form.Row>
-        <Col>
-          <Form.Label>Kommentti:</Form.Label>
-          <Form.Control as="textarea" placeholder="Vapaata tekstiä" onChange={handleSetComment} required/>
         </Col>
       </Form.Row>
 
@@ -93,15 +75,6 @@ const CateringForm =  () => {
 
       <Form.Row>
         <Col>
-          <Form.Label>Paikka:</Form.Label>
-          <Form.Control as="select" onChange={handleSetLocation} required>
-            <option> </option>
-            <option>Lilja 100 + 50 hlö</option>
-            <option>sample 20 hlö</option>
-          </Form.Control>
-        </Col>
-          
-        <Col>
           <Form.Label>Päivämäärä:</Form.Label>
           <DatePicker selected={startDate}
           onChange={date => setStartDate(date)}
@@ -124,4 +97,4 @@ const CateringForm =  () => {
 )
 }
 
-export default CateringForm;
+export default SpillagePage;
