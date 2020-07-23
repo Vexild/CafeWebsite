@@ -78,12 +78,11 @@
 .carousel-style {
   width: 100%;
   position: absolute;
-  z-index: -1;
   height: 60%;
 }
 
 .nav-line {
-  margin: 100px auto auto auto;
+  margin: auto;
   text-align: center;
   z-index: 1;
   position: absolute;
@@ -121,10 +120,6 @@
   justify-content: center;
 }
 
-.set-on-top {
-  z-index: awewedfaasdf;
-}
-
 .panel-button {
   text-align: center;
   width: 100%;
@@ -156,6 +151,10 @@
 
 .no-margin {
   margin: 0px;
+}
+
+.inline-block {
+  display: inline-block;
 }
 
 /*# sourceMappingURL=styles.css.map */

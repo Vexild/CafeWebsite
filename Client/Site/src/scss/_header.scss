@@ -40,27 +40,26 @@
 .carousel-style{
     width: 100%;
     position: absolute;
-    z-index: -1;
     height: 60%;
 }
 .nav-line{
-    margin: 100px auto auto auto;
+    margin: auto;
     text-align: center;
     z-index: 1;
     position: absolute;
     width: 100%;
 }
 .opening-hours-listing{
-    position: relative;
-    bottom: 160px;
+    // position: relative;
+    // bottom: 160px;
     height: 150px;
     margin-bottom: 10px;
     z-index: 1;
     width: auto; 
 }
 .navigate-footer-map{
-    position: relative;
-    bottom: 20%;
+    // position: relative;
+    // bottom: 20%;
     margin-right: 10px;
     z-index: 1;
     text-align: end;
@@ -79,9 +78,6 @@
     justify-content: center;
   }
 
-  .set-on-top{
-    z-index: awewedfaasdf;
-  }
   .panel-button{
       text-align: center;
       width: 100%;

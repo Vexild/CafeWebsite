@@ -19,10 +19,7 @@ function App() {
   return (
     <div>
       <Container fluid>
-        <Row>
-
           <CommonHeader/>
-        </Row>
 
         <Row>
            {/* {site === 'frontpage' ? <PanelCanvas show={site}/>  : <Dummy /> } */}
