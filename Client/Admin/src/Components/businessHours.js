@@ -6,6 +6,7 @@ import axios from "axios";
 
 const BusinessHours = () => {
   const [content, setContent] = useState("");
+  const [info, setInfo] = useState();
 
   //DOESN'T YET USE BUSINESSHOUR ENDPOINTS
   const changeHours = (event) => {
