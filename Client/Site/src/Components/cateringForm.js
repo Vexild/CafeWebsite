@@ -52,83 +52,83 @@ const CateringForm =  () => {
 
     return(
 
-<Container>
+      <Container>
 
-<Col className="d-flex justify-content-center">
+        <Col className="d-flex justify-content-center">
 
-<Form onSubmit = {submitForm}>
+          <Form onSubmit = {submitForm}>
 
-<Form.Row>
-  <Col>
-    <h3>Tilaisuuden tiedot</h3>
-    <p>
-      Voit varata pitopalvelun alla olevalla lomakkeella.
-      loorem ipsumia lalalallaalala
-    </p>
-  </Col>
-</Form.Row>
+          <Form.Row>
+            <Col>
+              <h3>Tilaisuuden tiedot</h3>
+              <p>
+                Voit varata pitopalvelun alla olevalla lomakkeella.
+                loorem ipsumia lalalallaalala
+              </p>
+            </Col>
+          </Form.Row>
 
-<Form.Row>
-  <Col>
-    <Form.Label>Kommentti:</Form.Label>
-    <Form.Control as="textarea" placeholder="Vapaata tekstiä" onChange={handleSetComment} required/>
-  </Col>
-</Form.Row>
+          <Form.Row>
+            <Col>
+              <Form.Label>Kommentti:</Form.Label>
+              <Form.Control as="textarea" placeholder="Vapaata tekstiä" onChange={handleSetComment} required/>
+            </Col>
+          </Form.Row>
 
-<Form.Row>
-  <Col>
-    <Form.Label>Nimi:</Form.Label>
-    <Form.Control type="text" placeholder="Matti Meikäläinen" onChange={handleSetName} required/>
-  </Col>
-</Form.Row>
+          <Form.Row>
+            <Col>
+              <Form.Label>Nimi:</Form.Label>
+              <Form.Control type="text" placeholder="Matti Meikäläinen" onChange={handleSetName} required/>
+            </Col>
+          </Form.Row>
 
-<Form.Row>
-  <Col>
-    <Form.Label>Sähköposti:</Form.Label>
-    <Form.Control type="email" placeholder="nimi@esimerkki.com" onChange={handleSetEmail} required/>
-  </Col>
+          <Form.Row>
+            <Col>
+              <Form.Label>Sähköposti:</Form.Label>
+              <Form.Control type="email" placeholder="nimi@esimerkki.com" onChange={handleSetEmail} required/>
+            </Col>
 
-  <Col>
-    <Form.Label>Puhelinnumero:</Form.Label>
-    <Form.Control type="number" placeholder=" Esimerkki 0401231234" onChange={handleSetPhonenumber} required/>
-  </Col>
-</Form.Row>
+            <Col>
+              <Form.Label>Puhelinnumero:</Form.Label>
+              <Form.Control type="tel" placeholder=" Esimerkki 0401231234" onChange={handleSetPhonenumber} required/>
+            </Col>
+          </Form.Row>
 
-<Form.Row>
-  <Col>
-    <Form.Label>Paikka:</Form.Label>
-    <Form.Control as="select" onChange={handleSetLocation} required>
-      <option> </option>
-      <option>Lilja 100 + 50 hlö</option>
-      <option>sample 20 hlö</option>
-    </Form.Control>
-  </Col>
-    
-  <Col>
-    <Form.Label>Päivämäärä:</Form.Label>
-    <DatePicker
-    selected={startDate}
-    minDate={Date.now()}
-    dateFormat="dd.MM.yyyy"
-    locale={local}
-    onChange={date => setStartDate(date)}
-    excludeDates={dummyReservedDaysData}
-    showWeekNumbers required/>
+          <Form.Row>
+            <Col>
+              <Form.Label>Paikka:</Form.Label>
+              <Form.Control as="select" onChange={handleSetLocation} required>
+                <option> </option>
+                <option>Lilja 100 + 50 hlö</option>
+                <option>sample 20 hlö</option>
+              </Form.Control>
+            </Col>
+              
+            <Col>
+              <Form.Label>Päivämäärä:</Form.Label>
+              <DatePicker
+              selected={startDate}
+              minDate={Date.now()}
+              dateFormat="dd.MM.yyyy"
+              locale={local}
+              onChange={date => setStartDate(date)}
+              excludeDates={dummyReservedDaysData}
+              showWeekNumbers required/>
 
-  </Col>
-</Form.Row>
+            </Col>
+          </Form.Row>
 
-<Form.Row>
-  <Col>
-    <Button type="submit">
-      Lähetä
-    </Button>
-  </Col>
-</Form.Row>
+          <Form.Row>
+            <Col>
+              <Button type="submit">
+                Lähetä
+              </Button>
+            </Col>
+          </Form.Row>
 
-</Form>
-</Col>
-</Container>
+          </Form>
+        </Col>
+      </Container>
 
 )
 }
