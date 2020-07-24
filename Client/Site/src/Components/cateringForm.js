@@ -71,21 +71,21 @@ const CateringForm =  () => {
 <Form.Row>
   <Col>
     <Form.Label>Kommentti:</Form.Label>
-    <Form.Control as="textarea" placeholder="Vapaata tekstiä" onChange={handleSetComment} required/>
+    <Form.Control as="textarea" placeholder="Vapaata tekstiä" maxLength={250} onChange={handleSetComment} required/>
   </Col>
 </Form.Row>
 
 <Form.Row>
   <Col>
     <Form.Label>Nimi:</Form.Label>
-    <Form.Control type="text" placeholder="Matti Meikäläinen" onChange={handleSetName} required/>
+    <Form.Control type="text" placeholder="Matti Meikäläinen" maxLength={25} onChange={handleSetName} required/>
   </Col>
 </Form.Row>
 
 <Form.Row>
   <Col>
     <Form.Label>Sähköposti:</Form.Label>
-    <Form.Control type="email" placeholder="nimi@esimerkki.com" onChange={handleSetEmail} required/>
+    <Form.Control type="email" placeholder="nimi@esimerkki.com" maxLength={25} onChange={handleSetEmail} required/>
   </Col>
 
   <Col>

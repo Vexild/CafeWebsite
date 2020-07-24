@@ -6,6 +6,7 @@ import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
 import DatePicker from 'react-datepicker'
 import "react-datepicker/dist/react-datepicker.css"
+import local from 'date-fns/locale/fi';
 
 
 const SpillagePage =  () => {
@@ -14,6 +15,8 @@ const SpillagePage =  () => {
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
     const [phonenumber, setPhonenumber] = useState('')
+
+    const dummyReservedDaysData = [  new Date("7/30/2020") , new Date("7/2/2020"), new Date("July 29, 2020") ];
 
     const handleSetName = (event) => {
       // console.log(event.target.value)
@@ -38,9 +41,7 @@ const SpillagePage =  () => {
     return(
 
       <Container>
-
       <Col className="d-flex justify-content-center">
-
       <Form onSubmit = {submitForm}>
 
       <Form.Row>
@@ -76,9 +77,15 @@ const SpillagePage =  () => {
       <Form.Row>
         <Col>
           <Form.Label>Päivämäärä:</Form.Label>
-          <DatePicker selected={startDate}
-          onChange={date => setStartDate(date)}
-          showWeekNumbers required/>
+          <DatePicker
+            selected={startDate}
+            minDate={Date.now()}
+            dateFormat="dd.MM.yyyy"
+            locale={local}
+            onChange={date => setStartDate(date)}
+            excludeDates={dummyReservedDaysData}
+            showWeekNumbers required
+          />
         </Col>
       </Form.Row>
 
@@ -93,7 +100,6 @@ const SpillagePage =  () => {
       </Form>
       </Col>
       </Container>
-
 )
 }
 
