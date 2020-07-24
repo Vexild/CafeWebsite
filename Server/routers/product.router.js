@@ -1,13 +1,11 @@
 import express from 'express'
 import productsController from '../controllers/products.controller.js'
-import multer from 'multer'
 
 const route = express.Router()
-const upload = multer()
 
 route.get('/api/products/get', productsController.get)
 route.get('/api/products/update/:id', productsController.editProduct)
-route.post('/api/products/edit', upload.fields([]), productsController.edit)
-route.post('/api/products/post', upload.fields([]), productsController.newProduct)
+route.post('/api/products/edit', productsController.edit)
+route.post('/api/products/post', productsController.newProduct)
 
 export default route
