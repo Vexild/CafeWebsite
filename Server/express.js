@@ -9,6 +9,7 @@ import Product from "./models/product.model.js"
 import infoRouter from './routers/info.router.js'
 import productsRouter from './routers/product.router.js'
 import cateringRouter from './routers/catering.router.js'
+import businessHoursRouter from './routers/businessHours.router.js'
 
 const port = 4000
 
@@ -109,5 +110,6 @@ app.get('/api/test', (req, res) => {
 app.use(productsRouter)
 app.use(cateringRouter)
 app.use(infoRouter)
+app.use(businessHoursRouter)
 
 app.listen(port, () => console.log(`Backend API listening on port ${port}!`));
