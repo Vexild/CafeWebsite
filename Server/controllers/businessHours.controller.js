@@ -6,12 +6,12 @@ export default {
         res.send(content)
     },
     put: async (req, res) => {
-        console.log(req.body.content)
+        //console.log(req.body.content)
        BusinessHours.updateOne(
            {},
           {content: req.body.content }
        )
        .catch(error => res.send(error))
-       res.send("test")
+       res.send("Updated")
     }
 }

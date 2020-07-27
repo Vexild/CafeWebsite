@@ -1,11 +1,8 @@
 import React, { useState } from 'react'
 import axios from 'axios'
-//TODO: Tags from DB, currently hardcoded
-//TODO: Response after sending
-//TODO: Productinfo {}?
 
 const NewProduct = () => {
-    const [tags, setTags] = useState(["vegan", "test", "kissa", "kebab"])
+    const [tags, setTags] = useState()
     const [name, setName] = useState()
     const [price, setPrice] = useState()
     const [id, setId] = useState()
@@ -13,10 +10,25 @@ const NewProduct = () => {
     const [description, setDescription] = useState()
     const [productTags, setProductTags] = useState([])
 
+    const getTags = () => {
+
+        return axios.get('http://localhost:4000/api/tags/get')
+        .then(response => {
+            setTags(JSON.parse(JSON.stringify(response)))
+            return response.data
+        })
+        .catch(e => console.log(e))
+        
+    }
+
+    if (!tags) {
+        getTags()
+    }
+
     const handleCheckBoxes = (tag) => {
 
         if (productTags.includes(tag)) {
-            setProductTags(productTags.filter(el => el != tag))
+            setProductTags(productTags.filter(el => el !== tag))
         }
         else {
             productTags.push(tag)
@@ -27,13 +39,14 @@ const NewProduct = () => {
     
     const generateTagCheckBoxes = (tags) => {
         if (tags) {
+            console.log(tags)
             const checkBoxes = []
             //console.log(tags, typeof (tags))
-            tags.map(element => {
+            tags.data.map(element => {
                 checkBoxes.push(
                     <>
-                   {element}  
-                    <input type="checkbox" key={element} value="element" onClick={() => handleCheckBoxes(element)} />
+                   {element.name}  
+                    <input type="checkbox" key={element.name} value="element" onClick={() => handleCheckBoxes(element._id)} />
                     </>
                 )
             })

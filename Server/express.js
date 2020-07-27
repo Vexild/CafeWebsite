@@ -10,6 +10,7 @@ import infoRouter from './routers/info.router.js'
 import productsRouter from './routers/product.router.js'
 import cateringRouter from './routers/catering.router.js'
 import businessHoursRouter from './routers/businessHours.router.js'
+import tagsRouter from './routers/tags.router.js'
 
 const port = 4000
 
@@ -71,22 +72,6 @@ app.post('/api/edit', upload.fields([]), async (req, res) => {
         res.send("Kissa")
     }
 })
-/*
-app.post('/api/product/:productName/:price/:id', (req, res) => {
-    let price = parseInt(req.params.price)
-    let id = parseInt(req.params.id)
-    // todo: img (product.model, middleware?)
-    const productData = {
-        name: req.params.productName,     
-        price: price,
-        id: id
-    }
-    response.end('Hello World')
-    const product= new Product(productData)
-    product.save()
-    res.send(`Product ${req.params.productName} added.\n`)
-})
-*/
 
 app.get('/api/products/get/:tag', async (req, res) => {
 
@@ -111,5 +96,6 @@ app.use(productsRouter)
 app.use(cateringRouter)
 app.use(infoRouter)
 app.use(businessHoursRouter)
+app.use(tagsRouter)
 
 app.listen(port, () => console.log(`Backend API listening on port ${port}!`));
