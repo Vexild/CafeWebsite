@@ -45,13 +45,14 @@ const BusinessHours = () => {
       </div>
     );
   } else {
+    console.log(hours)
     return (
       <div>
         <h3>Contact information</h3>
         <div className="editor">
           <CKEditor
             editor={ClassicEditor}
-            data={hours}
+            data={hours[0].content}
             onChange={(event, editor) => {
               const data = editor.getData();
               setContent(data);
