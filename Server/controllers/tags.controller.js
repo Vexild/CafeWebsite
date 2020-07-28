@@ -24,7 +24,7 @@ export default {
            isPriority: req.body.isPriority
        }})
        .catch(e => console.log(e))
-       res.send("KURWO")
+       res.send("Success")
    }, 
    delete: async (req, res) => {
        await Tag.deleteOne({_id : req.body._id})
