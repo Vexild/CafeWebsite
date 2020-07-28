@@ -27,9 +27,8 @@ const OpeningHours = () => {
     let start = "10:30";
     let end = "17:30";
     return(
-        <Col>
-            <h5 className="opening-hours-font">Olemme auki:</h5>
-            <p className="opening-hours-font"> {Parser(hours)} </p>
+        <Col className="opening-hours-listing">
+            {Parser(hours)}
         </Col>
     )
 }
