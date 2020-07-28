@@ -27,7 +27,7 @@ function App() {
            <PanelCanvas />
         </Row>
     
-        <Row fluid>
+        <Row>
           <CommonFooter/>
 
         </Row>

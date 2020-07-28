@@ -1,6 +1,6 @@
 .common-header{
     z-index: 1;
-    margin-bottom: 60%;
+    // margin-bottom: 60%;
 }
 .header-grey-background {
     background-color: #363636;
@@ -14,7 +14,6 @@
     font-weight: lighter;
     margin-top: 10px;
     margin-left: 10px;
-
 }
 
 .header-icon-background {
@@ -37,17 +36,26 @@
     }
 }
 
-.carousel-style{
-    width: 100%;
+.carousel-bottom {
+    z-index: 1;
     position: absolute;
-    height: 60%;
+    bottom: 2em;
+    padding-left: 2em;
+    padding-right: 2em;
 }
+
+// .carousel-style{
+//     width: 100%;
+//     position: absolute;
+//     height: 60%;
+// }
 .nav-line{
     margin: auto;
     text-align: center;
     z-index: 1;
     position: absolute;
     width: 100%;
+    top: 10%;
 }
 .opening-hours-listing{
     // position: relative;
@@ -60,7 +68,7 @@
 .navigate-footer-map{
     // position: relative;
     // bottom: 20%;
-    margin-right: 10px;
+    // margin-right: 10px;
     z-index: 1;
     text-align: end;
 }

@@ -6,6 +6,8 @@ import img2 from "../Media/placeholder_eyecatcher.jpg";
 import img3 from "../Media/placeholder_eyecatcher.jpg";
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
+import OpeningHoursComponent from './openingHours';
+import Button from 'react-bootstrap/Button';
 // import Button from 'react-bootstrap/Button';
 
 
@@ -90,6 +92,17 @@ const CustomCarousel = ()  => {
                 />                    
                 </Carousel.Item> 
             </Carousel>   
+
+            <Col xs="12" className="carousel-bottom">
+                <Row>
+                    <Col xs="6">
+                        <OpeningHoursComponent />
+                    </Col>
+                    <Col xs="6" className="navigate-footer-map">
+                        <Button>Löydä meidät!</Button>
+                    </Col>
+                </Row>
+            </Col>
         </div>        
     )
   }
