@@ -50,7 +50,6 @@ const SpillagePage =  () => {
           <p>
             Auta meitä välttämään hävikkiä ostamalla päivänpäätteeksi kaikki jäljellä oleva ruoka hintaan X€.
             Täytä alla oleva lomake ja valitse päivä.
-            loorem ipsumia lalalallaalala
           </p>
         </Col>
       </Form.Row>

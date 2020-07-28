@@ -63,7 +63,6 @@ const CateringForm =  () => {
     <h3>Tilaisuuden tiedot</h3>
     <p>
       Voit varata pitopalvelun alla olevalla lomakkeella.
-      loorem ipsumia lalalallaalala
     </p>
   </Col>
 </Form.Row>
