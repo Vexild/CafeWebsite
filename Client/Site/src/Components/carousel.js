@@ -7,19 +7,17 @@ import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import OpeningHoursComponent from './openingHours';
 import Button from 'react-bootstrap/Button';
-// import Button from 'react-bootstrap/Button';
+import {scroller} from "react-scroll";
 
+const customCarousel = ()  => {
 
-//import '../css/header.css'
-const CustomCarousel = ()  => {
-
-    const [site, setSite] = useState('frontpage');
-
-
-    const nav = (a) => {
-      setSite(a);
-      console.log(a);
-    }
+    const scrollToMap = () =>{
+        scroller.scrollTo("footer-map-element", {
+          duration: 800,
+          smooth: "easeInOutQuad",
+        });
+      }
+    
 
     return (
         <div className="carousel-style">
@@ -105,7 +103,7 @@ const CustomCarousel = ()  => {
                         <OpeningHoursComponent />
                     </Col>
                     <Col xs="6" className="navigate-footer-map">
-                        <Button>Löydä meidät!</Button>
+                        <Button onClick={() => scrollToMap()}>Löydä meidät!</Button>
                     </Col>
                 </Row>
             </Col>

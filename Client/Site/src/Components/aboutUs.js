@@ -7,8 +7,7 @@ import testImage2 from '../Media/cafe_2.jpg'
 
 const AboutUs = () => {
 
-    const lorem = "Kun Muumipeikko, Pikku Myy Ja Muumipappa esiintyy. Silloin laulut kutsukoon, Tuijottelutuokioon. Käy muumilaaksoon. Muumitalon asukkaat Seuraksesi kohta saat. Pääset mukaan viidakkoon, Taikapilvi karkeloon."
-
+    const lorem = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla elit lorem, mollis non urna vel, tempus blandit odio. Morbi sollicitudin accumsan luctus. Nullam eu augue in elit tempus scelerisque non quis lacus. Cras eu euismod augue. Vivamus gravida magna vel rhoncus efficitur. Vivamus iaculis eu diam eleifend posuere."
     return(
         <Row className="centered">
             <Col>

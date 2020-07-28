@@ -47,9 +47,9 @@ const PanelCanvas =  (props) => {
         case 'spillage':
             return (
                 <Container>
-                <Row className="centered">
-                    <SpillagePage />
-                </Row>
+                    <Row className="centered">
+                        <SpillagePage />
+                    </Row>
                 </Container>
             )
 

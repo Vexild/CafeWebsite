@@ -110,7 +110,7 @@ carousel {
   color: aliceblue;
   font-family: Courier;
   font-size: small;
-  margin-bottom: 0px;
+  margin: 0px;
 }
 
 .centered {
@@ -251,6 +251,10 @@ carousel {
 
 .modal-quantity-picker {
   margin: 2px 10px 2px 10px;
+}
+
+p {
+  margin: 0px;
 }
 
 /*# sourceMappingURL=styles.css.map */

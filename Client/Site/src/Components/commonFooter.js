@@ -17,7 +17,7 @@ const CommonFooter = () => {
   const getContactInfo = () => {
       axios.get('http://localhost:4000/api/info/get')
       .then(response => {
-          console.log(response.data)
+          //console.log(response.data)
           setContactInfo(response.data)
       })
       .catch(error => console.log(error))
