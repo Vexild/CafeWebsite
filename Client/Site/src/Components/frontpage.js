@@ -5,7 +5,6 @@ import Panel from './Panels/panel'
 import DailyDealPanel from './Panels/dailyDealPanel'
 import testImage1 from '../Media/cafe_1.jpg'
 import testImage2 from '../Media/cafe_2.jpg'
-import testImage from '../Media/cafe_3.jpg'
 
 const FrontPage = () => {
 
@@ -17,7 +16,7 @@ const FrontPage = () => {
             </Row>
             <Row className="centered">
                 <Col>
-                    <Panel image={testImage} isButton={true} />
+                    <Panel image={testImage1} isButton={true} />
                 </Col>
                 <Col>
                     <Panel image={testImage1} isButton={false} />
@@ -25,7 +24,7 @@ const FrontPage = () => {
             </Row>
             <Row className="centered">
                 <Col>
-                    <Panel text="Example text"  image={testImage2} isButton={false} />
+                    <Panel text="Kuville voi liittä kuvaustekstejä"  image={testImage2} isButton={false} />
                 </Col>
                 <Col>
                     <Panel image={testImage2}  isButton={true} />

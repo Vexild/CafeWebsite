@@ -4,7 +4,7 @@ import CommonHeader from './Components/commonHeader'
 import CommonFooter from './Components/commonFooter';
 import PanelCanvas from './Components/panelCanvas'
 import Container from 'react-bootstrap/Container';
-
+import {scroller} from "react-scroll";
 import Row from 'react-bootstrap/Row';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./css/styles.css";
@@ -12,10 +12,14 @@ import "./css/styles.css";
 function App() {
   const [site, setSite] = useState('frontpage');
 
-
   const nav = (a) => {
     setSite(a);
+    scroller.scrollTo("content-element", {
+      duration: 800,
+      smooth: "easeInOutQuad",
+    });
   }
+
   return (
     <div>
       <Container fluid>
@@ -34,22 +38,19 @@ function App() {
               <Switch>
 
                 <Route exact path="/" render={(props) => (
-                  <p  className="sample-font ASD">Render Front
-                  { nav('frontpage') }</p>
+                  <div  className="sample-font"> {nav('frontpage') }</div>
                   )} />
                 <Route path="/menu" render={(props) => (
-                  <p  className="sample-font ASD">Render Front
-                  { nav('menu') }</p>
+                  <div className="sample-font"> { nav('menu') }</div>
                   )} />
                 <Route path="/aboutus" render={(props) => (
-                  <p  className="sample-font">Render About Us
-                  { nav('aboutus') }</p>
+                  <div className="sample-font"> { nav('aboutus') }</div>
                   )} />
                 <Route path="/order" render={(props) => (
-                  <p  className="sample-font">Render Order{nav('cateringform')}</p>
+                  <div className="sample-font"> {nav('cateringform')}</div>
                   )} />
                 <Route path="/spillage" render={(props) => (
-                  <p  className="sample-font">Render Hävikki{nav('spillage')}</p>
+                  <div className="sample-font"> {nav('spillage')}</div>
                   )} />
               </Switch>
                              
@@ -57,11 +58,11 @@ function App() {
           </div>
         </Row>
 
-        <Row>
+        <Row name="content-element" >
            <PanelCanvas show={site}/>
         </Row>
     
-        <Row fluid>
+        <Row name="footer-map-element" fluid>
           <CommonFooter/>
         </Row>
       
