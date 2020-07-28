@@ -15,7 +15,6 @@ function App() {
 
   const nav = (a) => {
     setSite(a);
-    console.log(a);
   }
   return (
     <div>

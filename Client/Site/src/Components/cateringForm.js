@@ -7,7 +7,8 @@ import Form from 'react-bootstrap/Form'
 import DatePicker from 'react-datepicker'
 import "react-datepicker/dist/react-datepicker.css"
 import local from 'date-fns/locale/fi';
-
+import ReCAPTCHA from "react-google-recaptcha";
+import axios from 'axios'
 
 const CateringForm =  () => {
 
@@ -17,15 +18,18 @@ const CateringForm =  () => {
     const [email, setEmail] = useState('')
     const [phonenumber, setPhonenumber] = useState('')
     const [location, setLocation] = useState('')
-
-    const dummyReservedDaysData = [  new Date("7/30/2020") , new Date("7/2/2020"), new Date("July 29, 2020") ];
+    const [isHuman, setIsHuman] = useState(false)
+    const key = process.env.REACT_APP_GOOGLE_API_KEY
+    const sec = process.env.REACT_APP_GOOGLE_API_SEC
+    const dummyReservedDaysData = [ new Date("7/30/2020") , new Date("7/2/2020"), new Date("July 29, 2020") ];
+    
 
     const handleSetComment = (event) => {
       // console.log(event.target.value)
       setComment(event.target.value)
     }
 
-     const handleSetName = (event) => {
+    const handleSetName = (event) => {
       // console.log(event.target.value)
       setName(event.target.value)
     }
@@ -45,9 +49,46 @@ const CateringForm =  () => {
       setLocation(event.target.value)
     }
 
+    const handleIsHuman = () => {
+      console.log(isHuman, !isHuman)
+      setIsHuman(!isHuman)
+      console.log(isHuman)
+    }
+
     const submitForm = (event) => {
       event.preventDefault();
-      console.log(comment, name, email, phonenumber, location, startDate.toDateString())
+      if(isHuman){
+        console.log(comment, name, email, phonenumber, location, startDate.toDateString())
+        // do axios
+      }
+      else{
+        console.log("ERROR")
+      }
+    }
+
+    async function onChange(value){
+      // try{
+      //   let areYouHuman = await axios({
+      //     method: 'post',
+      //     url: 'https://www.google.com/recaptcha/api/siteverify', 
+      //     params: {
+      //       secret:  {sec},
+      //       response: {key}
+      //     }
+      //   });
+      //   let data = areYouHuman.data || {};
+      //   if(!data.success){
+      //       throw({
+      //           success: false,
+      //           error: 'response not valid'
+      //     })
+      // }
+      // }catch(err){
+
+      //   console.log(err);
+      //   throw err.response ? err.response.data : {success: false, error: 'captcha_error'}
+   
+      // }
     }
 
     return(
@@ -127,7 +168,15 @@ const CateringForm =  () => {
           </Form.Row>
 
           </Form>
+
         </Col>
+        <Row className="centered">
+            <ReCAPTCHA
+              sitekey={key}
+              onChange={onChange}
+            />
+            </Row>
+
       </Container>
 
 )
