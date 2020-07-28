@@ -4,19 +4,15 @@ import CommonHeader from './Components/commonHeader'
 import CommonFooter from './Components/commonFooter';
 import PanelCanvas from './Components/panelCanvas'
 import Container from 'react-bootstrap/Container';
-<<<<<<< HEAD
-=======
 import {scroller} from "react-scroll";
->>>>>>> 08b07418803fdedfa2b29e9fc3d6113f2f1b3b54
 import Row from 'react-bootstrap/Row';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./css/styles.css";
 
 //  eslint-disable-next-line
 
-<<<<<<< HEAD
 function App() {
-=======
+  
   const nav = (a) => {
     setSite(a);
     scroller.scrollTo("content-element", {
@@ -24,7 +20,6 @@ function App() {
       smooth: "easeInOutQuad",
     });
   }
->>>>>>> 08b07418803fdedfa2b29e9fc3d6113f2f1b3b54
 
   return (
     <div>
@@ -60,21 +55,15 @@ function App() {
                              
             </Router>
           </div>
-        </Row>
-
+        </Container>
         <Row name="content-element" >
            <PanelCanvas show={site}/>
         </Row>
     
-<<<<<<< HEAD
-        <Row>
-=======
         <Row name="footer-map-element" fluid>
->>>>>>> 08b07418803fdedfa2b29e9fc3d6113f2f1b3b54
           <CommonFooter/>
         </Row>
-      
-      </Container>
+  
     </div>
   )
 }
