@@ -6,16 +6,15 @@ import axios from "axios";
 
 const BusinessHours = () => {
   const [content, setContent] = useState("");
-  const [info, setInfo] = useState();
+  const [hours, setHours] = useState();
 
-  //DOESN'T YET USE BUSINESSHOUR ENDPOINTS
   const changeHours = (event) => {
     event.preventDefault();
 
     if (content) {
       axios
-        .post("http://localhost:4000/api/info/edit", {
-          openingHours: content,
+        .put('http://localhost:4000/api/businesshours/put', {
+          content: content
         })
         .then((response) => {
           console.log(response);
@@ -26,34 +25,34 @@ const BusinessHours = () => {
     }
   };
 
-  //CHANGE TO USE BUSINESSHOUR ENDPOINTS
-  const getInfo = () => {
+  const getHours = () => {
     return axios
-      .get(`http://localhost:4000/api/info/get`)
+      .get(`http://localhost:4000/api/businesshours/get`)
       .then((response) => {
         let parsedBSON;
         parsedBSON = JSON.parse(JSON.stringify(response.data));
-        setInfo(parsedBSON);
+        setHours(parsedBSON);
         return parsedBSON;
       })
       .catch((error) => console.log(error));
   };
 
-  if (!info) {
-    getInfo();
+  if (!hours) {
+    getHours();
     return (
       <div>
         <h3>BusinessHours loading..</h3>
       </div>
     );
   } else {
+    console.log(hours)
     return (
       <div>
         <h3>Contact information</h3>
         <div className="editor">
           <CKEditor
             editor={ClassicEditor}
-            data={content}
+            data={hours[0].content}
             onChange={(event, editor) => {
               const data = editor.getData();
               setContent(data);
