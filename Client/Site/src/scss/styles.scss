@@ -2,5 +2,7 @@
 @use 'footer';
 @use 'header';
 @use 'snippets';
-
+@use 'panels';
+@use 'dailydealsboard';
+@use 'modal';
 //npm run compile:sass poistetaan produktionissa package.json filussa

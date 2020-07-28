@@ -2,8 +2,7 @@ import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
 import Carousel from 'react-bootstrap/Carousel';
 import img1 from "../Media/placeholder_eyecatcher.jpg";
-import img2 from "../Media/placeholder_eyecatcher.jpg";
-import img3 from "../Media/placeholder_eyecatcher.jpg";
+import img2 from "../Media/cafe_1.jpg";
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import OpeningHoursComponent from './openingHours';
@@ -71,11 +70,11 @@ const CustomCarousel = ()  => {
                 </div>
                 <Carousel>
                 <Carousel.Item>
-                <img
-                    className="d-block w-100"
-                    src= {img1}
-                    alt="First slide"
-                />
+                    <img
+                        className="d-block w-100"
+                        src= {img1}
+                        alt="First slide"
+                    />
                 </Carousel.Item>
                 <Carousel.Item>
                     <img
@@ -85,12 +84,19 @@ const CustomCarousel = ()  => {
                     />
                 </Carousel.Item>
                 <Carousel.Item>
-                <img
-                    className="d-block w-100"
-                    src={img3}
-                    alt="Third slide"
-                />                    
+                    <img
+                        className="d-block w-100"
+                        src={img1}
+                        alt="Third slide"
+                    />                    
                 </Carousel.Item> 
+                <Carousel.Item>
+                    <img
+                        className="d-block w-100"
+                        src={img2}
+                        alt="Fourth slide"
+                    />
+                </Carousel.Item>
             </Carousel>   
 
             <Col xs="12" className="carousel-bottom">

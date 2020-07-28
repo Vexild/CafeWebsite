@@ -47,6 +47,9 @@
 //     position: absolute;
 //     height: 60%;
 // }
+carousel {
+    height: 50%;
+}
 .nav-line{
     margin: auto;
     text-align: center;
@@ -69,6 +72,7 @@
     // margin-right: 10px;
     z-index: 1;
     text-align: end;
+    justify-content: end;
 }
 .opening-hours-font {
     color: aliceblue;
