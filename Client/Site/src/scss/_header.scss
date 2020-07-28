@@ -77,6 +77,10 @@ carousel{
     color: aliceblue;
     font-family: Courier;
     font-size: small;
-    margin-bottom: 0px;
+    margin: 0px;
 }
 
+// Tthis has been added to overwrite businesshour styling in paragraphs
+p {
+    margin: 0px;
+}
