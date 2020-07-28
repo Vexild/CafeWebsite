@@ -119,6 +119,11 @@ carousel {
   color: aliceblue;
   font-family: Courier;
   font-size: small;
+  margin: 0px;
+}
+
+p {
+  margin: 0px;
 }
 
 .centered {
