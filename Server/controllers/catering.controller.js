@@ -14,7 +14,6 @@ export default {
 
     },
     delete: async (req, res) => {
-       console.log(req.body.id) 
        Catering.deleteOne({_id: req.body._id})
        .then(res.send("TODO"))
     }
