@@ -47,16 +47,9 @@ if (props.layout === true) {
 			<Image style={{position: "relative", opacity: hover ? 40 + '%' : 100 + '%'}} 
 			src={require("../Media/kahvi")} onClick={openModal} fluid roundedCircle/>
 
-<<<<<<< HEAD
-        //hidden 
-        <p style={{color: "white", position: "absolute", top: 25 + '%', marginLeft: 25 + '%'}}>{hover? "Info" : ""}</p>
-        <p>{props.data.name} </p> 
-        <p>  {props.data.price}€</p>
-=======
 			<p style={{color: "white", position: "absolute", top: 25 + '%', marginLeft: 25 + '%'}}>{hover? "Info" : ""}</p>
 			<p>{props.data.name} </p> 
 			<p>{props.data.price}€</p>
->>>>>>> 1f5aa51d4fffee2697eae58e074ba47cc80f3bd0
 
 			<Row>
 					{hover ? props.data.tags.map(el => {return <Col key={el} md="auto"> {el} </Col> } ) : ""}

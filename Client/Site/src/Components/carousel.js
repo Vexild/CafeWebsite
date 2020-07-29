@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { nav } from 'react';
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
 import Carousel from 'react-bootstrap/Carousel';
 import img1 from "../Media/placeholder_eyecatcher.jpg";
@@ -9,7 +9,7 @@ import OpeningHoursComponent from './openingHours';
 import Button from 'react-bootstrap/Button';
 import {scroller} from "react-scroll";
 
-const customCarousel = ()  => {
+const CustomCarousel = ()  => {
 
     const scrollToMap = () =>{
         scroller.scrollTo("footer-map-element", {

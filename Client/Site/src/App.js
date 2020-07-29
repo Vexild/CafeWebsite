@@ -12,6 +12,8 @@ import "./css/styles.css";
 //  eslint-disable-next-line
 
 function App() {
+
+  const [site, setSite] = useState('frontpage');
   
   const nav = (a) => {
     setSite(a);
