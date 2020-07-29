@@ -6,15 +6,13 @@ import PanelCanvas from './Components/panelCanvas'
 import Container from 'react-bootstrap/Container';
 import {scroller} from "react-scroll";
 import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./css/styles.css";
 
-//  eslint-disable-next-line
-
 function App() {
-
   const [site, setSite] = useState('frontpage');
-  
+
   const nav = (a) => {
     setSite(a);
     scroller.scrollTo("content-element", {
@@ -24,17 +22,28 @@ function App() {
   }
 
   return (
-    <div>
       <Container fluid>
+        <Row>
+
           <CommonHeader/>
         
           <div className="nav-line">
             <Router>
+              <Col xs="1" className="inline-block">
               <Link className="nav-font" to="/">Etusivu</Link>
+              </Col>
+              <Col xs="1" className="inline-block">
               <Link className="nav-font" to="/menu">Menu</Link>
+              </Col>
+              <Col xs="1" className="inline-block">
               <Link className="nav-font" to="/aboutus">Meistä</Link>
+              </Col>
+              <Col xs="1" className="inline-block">
               <Link className="nav-font" to="/order">Tilaus</Link>
+              </Col>
+              <Col xs="1" className="inline-block">
               <Link className="nav-font" to="/spillage">Hävikki</Link>
+              </Col>
               
               <Switch>
 
@@ -57,7 +66,8 @@ function App() {
                              
             </Router>
           </div>
-        </Container>
+        </Row>
+
         <Row name="content-element" >
            <PanelCanvas show={site}/>
         </Row>
@@ -65,8 +75,8 @@ function App() {
         <Row name="footer-map-element" fluid>
           <CommonFooter/>
         </Row>
-  
-    </div>
+      
+      </Container>
   )
 }
 

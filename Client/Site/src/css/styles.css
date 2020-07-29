@@ -80,12 +80,7 @@
   padding-right: 2em;
 }
 
-carousel {
-  height: 50%;
-}
-
 .nav-line {
-  margin: auto;
   text-align: center;
   z-index: 1;
   position: absolute;
@@ -93,17 +88,11 @@ carousel {
   top: 10%;
 }
 
-.opening-hours-listing {
-  height: 150px;
-  margin-bottom: 10px;
-  z-index: 1;
-  width: auto;
-}
-
 .navigate-footer-map {
-  z-index: 1;
   text-align: end;
-  justify-content: end;
+  position: absolute;
+  bottom: 30%;
+  right: 5%;
 }
 
 .opening-hours-font {
@@ -111,34 +100,6 @@ carousel {
   font-family: Courier;
   font-size: small;
   margin: 0px;
-}
-
-.centered {
-  /* text-align: center; */
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-}
-
-.panel-button {
-  text-align: center;
-  width: 100%;
-  height: 200px;
-  overflow: hidden;
-  margin: 10px;
-  border: 1px black dotted;
-}
-
-.panel-button:hover {
-  opacity: 60%;
-}
-
-.panel-button:focus {
-  color: #503328;
-}
-
-.panel-text {
-  position: relative;
 }
 
 .social-media-icons-bottom, .social-media-icons-top {
@@ -179,6 +140,7 @@ carousel {
   height: auto;
   padding: 10px;
   margin: auto;
+  border: 1px black dotted;
 }
 
 .panel-button:hover {
@@ -192,13 +154,6 @@ carousel {
 .panel-text {
   position: relative;
   margin: 0 10% px 0 10% px;
-}
-
-.centered {
-  /* text-align: center; */
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
 }
 
 .deal-panel {
@@ -251,10 +206,6 @@ carousel {
 
 .modal-quantity-picker {
   margin: 2px 10px 2px 10px;
-}
-
-p {
-  margin: 0px;
 }
 
 /*# sourceMappingURL=styles.css.map */

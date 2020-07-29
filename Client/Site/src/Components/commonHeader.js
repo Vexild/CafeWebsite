@@ -15,25 +15,25 @@ import FBIcon from '../Icons/fb_icon_color.png'
 const CommonHeader = () => {
 
     return (
-        <Container fluid className="no-padding">
-        <div className="common-header">
-            <Row className="header-grey-background">
-                <Col xs="9">
-                    <h1 className="sample-font">CAFE sample</h1>
-                </Col>
-                <Col xs="3" className="social-media-icons-top">
-                    <Image className="header-icon-background" src={IGIcon} roundedCircle/>
-                    <Image className="header-icon-background" src={FBIcon} roundedCircle/>
-                </Col>
-            </Row>
-            <Row>
-                <Col xs="12" className="no-padding">
-                    <Carousel/>
-                </Col>
-            </Row>
-            {/* <Row>
-            </Row> */}
-        </div>
+        <Container fluid>
+            <div className="common-header">
+                <Row className="header-grey-background">
+                    <Col xs="9">
+                        <h1 className="sample-font">CAFE sample</h1>
+                    </Col>
+                    <Col xs="3" className="social-media-icons-top">
+                        <Image className="header-icon-background" src={IGIcon} roundedCircle/>
+                        <Image className="header-icon-background" src={FBIcon} roundedCircle/>
+                    </Col>
+                </Row>
+                <Row>
+                    <Col xs="12" className="no-padding">
+                        <Carousel/>
+                    </Col>
+                </Row>
+                {/* <Row>
+                </Row> */}
+            </div>
         </Container>
     )
 }
