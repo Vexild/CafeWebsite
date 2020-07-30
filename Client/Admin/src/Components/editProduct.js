@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import axios from 'axios'
 
-const NewProduct = () => {
+const EditProduct = () => {
     const [tags, setTags] = useState()
     const [name, setName] = useState()
     const [price, setPrice] = useState()
@@ -9,6 +9,9 @@ const NewProduct = () => {
     const [productInfo, setProductInfo] = useState() 
     const [description, setDescription] = useState()
     const [productTags, setProductTags] = useState([])
+    //Pass mongoId and other product info as props when opening modal
+    const [mongoId, setMongoId] = useState()
+    
 
     const getTags = () => {
 
@@ -41,7 +44,6 @@ const NewProduct = () => {
         if (tags) {
             console.log(tags)
             const checkBoxes = []
-            //console.log(tags, typeof (tags))
             tags.data.map(element => {
                 checkBoxes.push(
                     <>
@@ -57,7 +59,7 @@ const NewProduct = () => {
     const handleSubmit = (e) => {
         e.preventDefault()
         console.log(productTags,name,price,id,description,productInfo)
-        axios.post('http://localhost:4000/api/products/post', {
+        axios.put('http://localhost:4000/api/products/put', {
             name: name,
             price, price,
             id: id,
@@ -81,4 +83,4 @@ const NewProduct = () => {
         </div>
     )
 }
-export default NewProduct
+export default EditProduct

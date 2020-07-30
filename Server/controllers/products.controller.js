@@ -16,6 +16,23 @@ newProduct: async (req, res) => {
     res.send("Product added")
     
 },
+put: async (req, res) => {
+    await Product.findOneAndUpdate({_id : req.body._id}, 
+        {$set: {
+            name: req.body.name,
+            price: parseInt(req.body.price),
+            id: req.body.id,
+            tags: req.body.tags,
+            description: req.body.description,
+            productInfo: req.body.productInfo
+        }})
+        res.send("TODO")
+},
+delete: async (req, res) => {
+    Product.deleteOne({_id: req.body._id})
+    .catch(e => console.log(e))
+    res.send("KURWO")
+},
 editProduct: async (req, res) => {
     console.log(req.params)
    const product = await Product.findOne({_id: mongoose.Types.ObjectId(req.params.id)})
