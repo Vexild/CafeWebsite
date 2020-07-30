@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import { Container, Row, Col, Image, Button } from "react-bootstrap";
 import Modal from 'react-modal';
-import ProductModal from './Panels/productModal'
+//import ProductModal from './Panels/productModal'
 export default function Product(props) {
     const [hover, setHover] = useState(false)
     
@@ -58,9 +58,10 @@ if (props.layout === true) {
 			isOpen={modalIsOpen}
 			onRequestClose={closeModal}
 			style={customStyles}
+			data={props}
 			contentLabel="Product">
+				{props}
 					<Button onClick={closeModal} >takaisin</Button>
-					<ProductModal name={props} desc={text} image={require("../Media/kahvi")} />
 			</Modal>
         </div>
     )
@@ -95,9 +96,12 @@ if (props.layout === false) {
 				isOpen={modalIsOpen}
 				onRequestClose={closeModal}
 				style={customStyles}
+				data={props.data}
 				contentLabel="Product">
+					<>
+					{props}
 						<Button onClick={closeModal} >takaisin</Button>
-						<ProductModal name={props} desc={text} image={require("../Media/kahvi")} />
+						</>
 				</Modal>
 
         </Container> 
