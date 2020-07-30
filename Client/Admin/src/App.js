@@ -4,6 +4,7 @@ import ProductList from "./Components/productList"
 import TagList from "./Components/tagList"
 import ContactInformation from "./Components/contactInformation"
 import BusinessHours from "./Components/businessHours";
+import EditAboutus from "./Components/editAboutus";
 import './App.css';
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
         <Link to="/contact-information">Contact Info</Link>
         <Link to="/media"></Link>
         <Link to="/business-hours">Business Hours</Link>
+        <Link to="/edit-aboutus">Edit Aboutus</Link>
       </nav>
 
       <Switch>
@@ -41,6 +43,11 @@ function App() {
         <Route path="/business-hours">
           <BusinessHours />
         </Route>
+
+        <Route path="/edit-aboutus">
+          <EditAboutus />
+        </Route>
+
         <Route path="/">
           <p>Oisko vaikka documentation tässä vakio näkymässä</p>
         </Route>
