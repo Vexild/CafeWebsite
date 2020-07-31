@@ -107,7 +107,7 @@ const CateringForm =  () => {
 
     return(
 
-      <Container className="main-form">
+      <Container className="main-form form-frame">
 
         <Col>
 

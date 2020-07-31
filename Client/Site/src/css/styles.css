@@ -231,8 +231,11 @@ p, td, th, tr {
   max-width: 80%;
   margin: 5% auto 10% auto;
   padding: 2% 0 2% 0;
-  background-color: rgba(2, 2, 2, 0.082);
+}
+
+.form-frame {
   border-radius: 30px;
+  background-color: rgba(2, 2, 2, 0.082);
   box-shadow: 0 0 10px 8px white inset;
 }
 
