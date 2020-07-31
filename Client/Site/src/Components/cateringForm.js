@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import Container from 'react-bootstrap/Container'
 import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
@@ -8,7 +8,7 @@ import DatePicker from 'react-datepicker'
 import "react-datepicker/dist/react-datepicker.css"
 import local from 'date-fns/locale/fi';
 import ReCAPTCHA from "react-google-recaptcha";
-import axios from 'axios'
+// import axios from 'axios'
 
 const CateringForm =  () => {
 
@@ -20,7 +20,21 @@ const CateringForm =  () => {
     const [location, setLocation] = useState('')
     const [isHuman, setIsHuman] = useState(false)
     const key = process.env.REACT_APP_GOOGLE_API_KEY
-    const sec = process.env.REACT_APP_GOOGLE_API_SEC
+    // const sec = process.env.REACT_APP_GOOGLE_API_SEC
+    
+    // const [daysData, setDaysDataS] = useState([])
+    
+    // useEffect(async () => {
+    //   const result = await axios(
+    //     'http://localhost:4000/api/catering/get',
+    //   );
+    //   console.log("UseEffect data: ",result.data);
+    //   setDaysDataS(result.data)
+    // }, [])
+
+    
+    //const gatheredDates = daysData.map( elem => { return new Date(elem.date)})
+
     const dummyReservedDaysData = [ new Date("7/30/2020") , new Date("7/2/2020"), new Date("July 29, 2020") ];
     
 
@@ -93,18 +107,21 @@ const CateringForm =  () => {
 
     return(
 
-      <Container>
+      <Container className="main-form">
 
-        <Col className="d-flex justify-content-center">
+        <Col>
 
           <Form onSubmit = {submitForm}>
 
           <Form.Row>
             <Col>
-              <h3>Tilaisuuden tiedot</h3>
-              <p>
+              <h3>Pitopalvelu ja tilaisuudet</h3>
+              <p  className="dark-font">
                 Voit varata pitopalvelun alla olevalla lomakkeella.
-                loorem ipsumia lalalallaalala
+                Tarjoamme pitopalvelun lisäksi mahdolisuuksia tiloihin erikoistilaisuuksia varten.
+              </p>
+              <p  className="dark-font top-padding">
+                Kirjoita alla olevaan kenttään tarpeesi ja vastaamme sinulle pian sähköpostitse.
               </p>
             </Col>
           </Form.Row>
@@ -131,7 +148,7 @@ const CateringForm =  () => {
 
             <Col>
               <Form.Label>Puhelinnumero:</Form.Label>
-              <Form.Control type="tel" placeholder=" Esimerkki 0401231234" onChange={handleSetPhonenumber} required/>
+              <Form.Control type="tel" placeholder="Esimerkki 0401231234" onChange={handleSetPhonenumber} required/>
             </Col>
           </Form.Row>
 
@@ -158,26 +175,23 @@ const CateringForm =  () => {
 
             </Col>
           </Form.Row>
-
-          <Form.Row>
-            <Col>
-              <Button type="submit">
-                Lähetä
-              </Button>
-            </Col>
-          </Form.Row>
-
-          </Form>
-
+        </Form>
+      
+        <Col className="form-center-col">
+          <ReCAPTCHA
+          className="g-recaptcha"
+          sitekey={key}
+          onChange={onChange}
+          />
         </Col>
-        <Row className="centered">
-            <ReCAPTCHA
-              sitekey={key}
-              onChange={onChange}
-            />
-            </Row>
-
-      </Container>
+      
+        <Col className="form-center-col">
+          <Button type="submit">
+            Lähetä
+          </Button>
+        </Col>
+    </Col>
+  </Container>
 
 )
 }

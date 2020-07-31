@@ -58,8 +58,8 @@ const ProductModal =  (props) => {
                     </Row>
                 </Col>
                 <Col>
-                    <p>{description}</p>
-                    <p>{price}</p>
+                    <p className="dark-font">{description}</p>
+                    <p className="dark-font">{price}</p>
                     <label htmlFor="quantity" >Valitse määrä:</label>
                     <input id="quantity" type="number" className="modal-quantity-picker" name="quantity" min="1" max="99" value={quantity} onChange={handleQuantity} />
                     <Button onClick={addToCart}>Lisää koriin</Button>
@@ -67,12 +67,12 @@ const ProductModal =  (props) => {
             </Row>
             <Row>
                 <Col>
-                    <p>Tiedot</p>
+                    <p className="dark-font">Tiedot</p>
                 </Col>
             </Row>
             <Row>
                 <Col>
-                    <p>{description}</p>
+                    <p className="dark-font">{description}</p>
                 </Col>
             </Row>
             <Modal 
