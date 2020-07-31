@@ -19,8 +19,10 @@ const EditAboutus = () => {
                 editor={ClassicEditor}
                 onChange={handleOnChange}
             />
+            <button>Submit</button>
             <div>
-                {ReactHtmlParser(value)}
+                <h3>TEXT:</h3>
+                <p>{ReactHtmlParser(value)}</p>
             </div>
         </div>
     )
