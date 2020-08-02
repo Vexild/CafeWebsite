@@ -43,6 +43,7 @@ connectMongoose()
 //Use either mongoLocal or mongoAtlas, not both
 //mongoLocal()
 mongoAtlas()
+mongoose.set('useFindAndModify', false);
 
 const upload = multer()
 
