@@ -6,6 +6,7 @@ import axios from "axios";
 
 const EditAboutus = () => {
   const [value,setValue] = useState("") 
+  console.log(value)
 
   const handleOnChange = (e,editor) => {
     //   console.log(editor.getData());
@@ -13,22 +14,22 @@ const EditAboutus = () => {
     setValue(data)
   }
 
-//   const changeHours = (event) => {
-//     event.preventDefault();
+   const changeText = (event) => {
+     event.preventDefault();
 
-//     if (content) {
-//       axios
-//         .put('http://localhost:4000/api/aboutus/put', {
-//           content: content
-//         })
-//         .then((response) => {
-//           console.log(response);
-//         })
-//         .catch((error) => console.log(error));
-//     } else {
-//       console.log("purizu wuraito samuzing");
-//     }
-//   };
+     if (value) {
+       axios
+         .put('http://localhost:4000/api/aboutus/put', {
+           content: value
+         })
+         .then((response) => {
+           console.log(response);
+         })
+         .catch((error) => console.log(error));
+     } else {
+       console.log("purizu wuraito samuzing");
+     }
+ };
 
   const getAboutUs = () => {
     return axios
@@ -54,7 +55,7 @@ if (value) {
                 onChange={handleOnChange}
                 data={value}
             />
-            <button>Submit</button>
+            <button onClick={changeText}>Submit</button>
             <div>
                 <h3>TEXT:</h3>
                 <p>{ReactHtmlParser(value)}</p>
