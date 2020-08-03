@@ -38,6 +38,27 @@ const ProductList = () => {
     if (!tags) {
         getTags()
     }
+    /*
+
+    const filterProducts = (tags, filter) => {
+        if (filter.isArray()) {
+           products.map(product => {
+               if (tags.includes(product.tags)) {
+                   displayedProducts.push(product)
+               }
+           }) 
+           setDisplayedProducts(displayedProducts)
+        }
+        else {
+            setDisplayedProducts(products)
+        }
+
+    }
+
+    if (!displayedProducts && tags) {
+            filterProducts(tags, filter)    
+    }
+    */
 
     const createCheckBoxes = () => {
 		if (tags) {
@@ -92,6 +113,8 @@ const ProductList = () => {
             )
         }
     }
+
+    
 
     return (
         <div>

@@ -101,12 +101,12 @@ export default function Product(props) {
 
 						</Col>
 						<Col>
-							<p style={{ backgroundColor: "red" }} >{props.data.name} </p>
+							<p style={{ backgroundColor: "" }} >{props.data.name} </p>
 							
 							<Row>
 
 		{props.data.tags.map(el => { return(
-		<Col md="auto" key={el} style={{ backgroundColor: "black" }}>
+		<Col md="auto" key={el} style={{ backgroundColor: "" }}>
 				<p>{tagList[tagList.findIndex(tagList => tagList._id === el)].name}</p>
 				</Col> )})}
 
@@ -115,6 +115,7 @@ export default function Product(props) {
 							<p>{props.data.price}€ </p>
 						</Col>
 						<Col>
+							{hover ? props.data.productInfo : ""} <br/>
 							{hover ? props.data.description : ""}
 						</Col>
 					</Row>
