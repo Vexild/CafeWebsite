@@ -12,18 +12,11 @@ export default {
                email: req.body.email 
             }})
             await info.save()
-        res.send("Success.")
+            .then(res.send("Updated"))
+            .catch(e => res.send(e))
     },
     get: async (req, res) => {
-    const data = await Info.find()
-
-    if (data) {
-        res.send(data)
+    const data = await Info.find({})
+    res.send(data)
     }
-    else {
-    console.log(`Kissa \n`)
-    res.send(`Kissa \n`)
-    }}
-
-
 }

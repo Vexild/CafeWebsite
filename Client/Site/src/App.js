@@ -58,7 +58,7 @@ function App() {
           </div>
         </Row>
 
-        <Row name="content-element" >
+        <Row name="content-element" className="main-frame" >
            <PanelCanvas show={site}/>
         </Row>
     

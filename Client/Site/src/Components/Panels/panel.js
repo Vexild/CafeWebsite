@@ -20,12 +20,12 @@ const Panel =  (props) => {
         {isThisButton ? ( 
             <div >
                 <Image src={image} fluid  onClick={(e) => test()} rounded />
-                <p>{text}</p>
+                <p className="panel-text dark-font">{text}</p>
             </div>
         ) : (
             <div >
                 <Image src={image} fluid rounded />
-                <p className="panel-text">{text}</p>
+                <p className="panel-text dark-font">{text}</p>
                 
             </div>
         )}

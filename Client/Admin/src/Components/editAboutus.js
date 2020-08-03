@@ -30,24 +30,29 @@ const EditAboutus = () => {
 //     }
 //   };
 
-  const getHours = () => {
+  const getAboutUs = () => {
     return axios
       .get(`http://localhost:4000/api/aboutus/get`)
       .then((response) => {
         let parsedBSON;
         parsedBSON = JSON.parse(JSON.stringify(response.data));
-        setValue(parsedBSON);
+        console.log(parsedBSON)
+        setValue(parsedBSON[0].content);
         return parsedBSON;
       })
       .catch((error) => console.log(error));
   };
-
+  if (!value) {
+      getAboutUs()
+  }
+if (value) {
     return (
         <div>
             <h1>EDITORI</h1>
             <CKEditor
                 editor={ClassicEditor}
                 onChange={handleOnChange}
+                data={value}
             />
             <button>Submit</button>
             <div>
@@ -56,6 +61,9 @@ const EditAboutus = () => {
             </div>
         </div>
     )
-};
-
+}
+else {
+    return(<p>hetkinen</p>)
+}
+}
 export default EditAboutus;

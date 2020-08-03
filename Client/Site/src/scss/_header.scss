@@ -59,11 +59,10 @@ carousel{
 }
 .opening-hours-listing{
     position: relative;
-    bottom: 160px;
+    bottom: 180px;
     height: 150px;
     margin-bottom: 10px;
     z-index: 1;
-    width: auto; 
 }
 .navigate-footer-map{
     position: relative;
@@ -78,9 +77,13 @@ carousel{
     font-family: Courier;
     font-size: small;
     margin: 0px;
+
 }
 
 // Tthis has been added to overwrite businesshour styling in paragraphs
-p {
+p, td, th, tr {
     margin: 0px;
+    color: aliceblue;
+    font-family: Courier;
+
 }
