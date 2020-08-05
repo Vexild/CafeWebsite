@@ -4,6 +4,7 @@ import Row from 'react-bootstrap/Row'
 import Panel from './Panels/panel'
 import testImage1 from '../Media/cafe_1.jpg'
 import testImage2 from '../Media/cafe_2.jpg'
+import EditAboutustxt from './editAboutustxt';
 
 const AboutUs = () => {
 
@@ -12,7 +13,7 @@ const AboutUs = () => {
         <Row className="centered">
             <Col>
                 <Panel image={testImage1} isButton={false} />
-                <Panel text={lorem} isButton={false} />
+                <Panel text={<EditAboutustxt/>} isButton={false} />
                 <Panel image={testImage1} isButton={false} />
             </Col>
             <Col>
