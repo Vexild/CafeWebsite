@@ -7,7 +7,7 @@ import Tags from './tags'
 
 const axios = require('axios')
 
-const Menu = () => {
+const Menu = (props) => {
 
     const [products, setProducts] = useState()
     const [filter, setFilter] = useState([])

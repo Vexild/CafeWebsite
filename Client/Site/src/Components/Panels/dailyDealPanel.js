@@ -1,30 +1,37 @@
 import React, { useState } from 'react'
 import Col from 'react-bootstrap/Col'
+import axios from 'axios'
 const DailyDealPanel =  () => {
-
-    // Check from database the needed data for daily deal and GET it.
-    const dummyData = {
-        "_id": "5f0c4025219f474f29b7b8ca",
-        "name": "dailydeal",
-        "content": "Tänään Espresso ja pulla yhteishintaan 4€!",
-        "__v": 0
-      }
+    const [data, setData] = useState()
+    const getData= () => {
+        axios.get('http://localhost:4000/api/dailydeal/get')
+        .then(response => {
+            console.log(response.data)
+            if (response.data[0].content) {
+                setData(response.data)
+            }
+        })
+        .catch(e => console.log(e))
+    }
+    if (!data) {
+        getData()
+    }
     
-    const content = dummyData.content;
+    if (data) {
+        return (
+            <Col className="chalboard-placeholder deal-panel">
+                <h4>Daily Deal</h4>
+                {data[0].content}
 
-    if ( content === ''){
-        return(
-            <Col>
             </Col>
         )
     }
     else {   
-        return (
-            <Col className="chalboard-placeholder deal-panel">
-                <h4>Daily Deal</h4>
-                <p>{content}</p>
-            </Col>
+        return(
+            <>
+            </>
         )
+        
     }
 }
 

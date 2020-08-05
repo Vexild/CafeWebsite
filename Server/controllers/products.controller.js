@@ -6,7 +6,7 @@ post: async (req, res) => {
     console.log(req.body, typeof(req.body))
     const product = new Product()
     product.name = req.body.name
-    product.price = req.body.price
+    product.price = parseFloat(req.body.price)
     product.id = req.body.id
     product.tags = req.body.tags
     product.description = req.body.description
@@ -20,7 +20,7 @@ put: async (req, res) => {
     await Product.findOneAndUpdate({_id : req.body._id}, 
         {$set: {
             name: req.body.name,
-            price: parseInt(req.body.price),
+            price: parseFloat(req.body.price),
             id: req.body.id,
             tags: req.body.tags,
             description: req.body.description,
