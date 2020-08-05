@@ -12,6 +12,8 @@ import cateringRouter from './routers/catering.router.js'
 import businessHoursRouter from './routers/businessHours.router.js'
 import tagsRouter from './routers/tags.router.js'
 import spillageRouter from './routers/spillage.router.js'
+import aboutUsRouter from './routers/aboutUs.router.js'
+import dailyDealRouter from './routers/dailyDeal.router.js'
 
 const port = 4000
 
@@ -43,6 +45,7 @@ connectMongoose()
 //Use either mongoLocal or mongoAtlas, not both
 //mongoLocal()
 mongoAtlas()
+mongoose.set('useFindAndModify', false);
 
 const upload = multer()
 
@@ -90,8 +93,8 @@ app.get('/api/products/get/:tag', async (req, res) => {
 })
 
 app.get('/api/test', (req, res) => {
-    console.log(`Kissa \n`)
-    res.send(`Kissa \n`)
+    console.log(`It works!\n`)
+    res.send(`It works!\n`)
 })
 app.use(productsRouter)
 app.use(cateringRouter)
@@ -99,5 +102,7 @@ app.use(infoRouter)
 app.use(businessHoursRouter)
 app.use(tagsRouter)
 app.use(spillageRouter)
+app.use(aboutUsRouter)
+app.use(dailyDealRouter)
 
 app.listen(port, () => console.log(`Backend API listening on port ${port}!`));
