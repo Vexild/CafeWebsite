@@ -18,10 +18,11 @@ const DailyDealPanel =  () => {
     }
     
     if (data) {
+        
         return (
             <Col className="chalboard-placeholder deal-panel">
                 <h4>Daily Deal</h4>
-                {data[0].content}
+               <p> {data[0].content} </p>
 
             </Col>
         )
