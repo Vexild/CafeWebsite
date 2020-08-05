@@ -1,30 +1,41 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Container from 'react-bootstrap/Container'
 import Col from 'react-bootstrap/Col'
 import Button from 'react-bootstrap/Button';
 import Image from 'react-bootstrap/Image';
 import Row from 'react-bootstrap/Row'
 import Modal from 'react-modal';
+import { BrowserRouter as Router, Route, Link, Switch, useParams} from 'react-router-dom'
 
-const ProductModal =  (props) => {
+const SingleProduct =  (props) => {
 
-    const successModalStyle = {
-        content : {
-          top                   : '50%',
-          left                  : '50%',
-          right                 : 'auto',
-          bottom                : 'auto',
-          marginRight           : '-50%',
-          transform             : 'translate(-50%, -50%)'
-        }
-      };
-    
-    const { name, price, tags } = props.name.data;
+    // const successModalStyle = {
+    //     content : {
+    //       top                   : '50%',
+    //       left                  : '50%',
+    //       right                 : 'auto',
+    //       bottom                : 'auto',
+    //       marginRight           : '-50%',
+    //       transform             : 'translate(-50%, -50%)'
+    //     }
+    //   };
+
+    console.log(props)
+    const { name, price, tags } = props.data;
     const description = props.desc;
     const productImage = props.image;
 
     const [quantity, setQuantity] = useState('1');
     const [successModal, setSuccesModal] = useState(false);
+
+    const {id} = useParams()
+    console.log("Produt page ID: ",id)
+
+    //const history = useHistory()
+
+    // useEffect(() => {
+    //     console.log("Loaded once")
+    // },[])
 
     const handleQuantity = (event) => {
         setQuantity(event.target.value);
@@ -44,7 +55,7 @@ const ProductModal =  (props) => {
     }
 
     return (
-        <Col className="modal-view" >
+        <Col className="modal-view" >			
             <Row>
                 <Col>
                     <Row className="centered">
@@ -75,16 +86,16 @@ const ProductModal =  (props) => {
                     <p className="dark-font">{description}</p>
                 </Col>
             </Row>
-            <Modal 
+            {/* <Modal 
                 isOpen={successModal}
                 onRequestClose={closeSuccessModal}
                 style={successModalStyle}
                 contentLabel="Product">
                     <h3>Tuotteet lisätty koriin!</h3>
                     <Button onClick={closeSuccessModal} >OK</Button>                    
-                </Modal>
+                </Modal> */}
         </Col>
     )
 }
 
-export default ProductModal;
+export default SingleProduct;

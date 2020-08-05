@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Link, Switch, useParams } from 'react-router-dom'
 import CommonHeader from './Components/commonHeader'
 import CommonFooter from './Components/commonFooter';
 import PanelCanvas from './Components/panelCanvas'
@@ -11,8 +11,11 @@ import "./css/styles.css";
 
 function App() {
   const [site, setSite] = useState('frontpage');
+  // const [productTarget, setTarget] = useState({})
 
-  const nav = (a) => {
+  const nav = (a, target) => {
+    
+    // setTarget(target);
     setSite(a);
     scroller.scrollTo("content-element", {
       duration: 800,
@@ -20,7 +23,12 @@ function App() {
     });
   }
 
+  // const changeRendering = (target) =>{
+  //   console.log("Asd", target);
+  //   nav('product', target)
+  // }
   return (
+    <Router>
     <div>
       <Container fluid>
         <Row>
@@ -28,7 +36,6 @@ function App() {
           <CommonHeader/>
         
           <div className="nav-line">
-            <Router>
               <Link className="nav-font" to="/">Etusivu</Link>
               <Link className="nav-font" to="/menu">Menu</Link>
               <Link className="nav-font" to="/aboutus">Meistä</Link>
@@ -40,9 +47,15 @@ function App() {
                 <Route exact path="/" render={(props) => (
                   <div  className="sample-font"> {nav('frontpage') }</div>
                   )} />
-                <Route path="/menu" render={(props) => (
+                <Route exact path="/menu" render={(props) => (
                   <div className="sample-font"> { nav('menu') }</div>
                   )} />
+                <Route path="/menu/:id" render={(props) => {
+                  // const {id} = useParams()
+                  // console.log("ID: ",id)
+                  return (
+                    <div className="sample-font"> { nav('menu') } </div>
+                  )}} />
                 <Route path="/aboutus" render={(props) => (
                   <div className="sample-font"> { nav('aboutus') }</div>
                   )} />
@@ -54,7 +67,6 @@ function App() {
                   )} />
               </Switch>
                              
-            </Router>
           </div>
         </Row>
 
@@ -68,6 +80,7 @@ function App() {
       
       </Container>
     </div>
+  </Router>
   )
 }
 
