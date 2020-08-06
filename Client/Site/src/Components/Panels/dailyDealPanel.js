@@ -22,8 +22,7 @@ const DailyDealPanel =  () => {
         return (
             <Col className="chalboard-placeholder deal-panel">
                 <h4>Daily Deal</h4>
-               <p> {data[0].content} </p>
-
+                <p>{data[0].content}</p>
             </Col>
         )
     }
