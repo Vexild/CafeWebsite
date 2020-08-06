@@ -1,5 +1,8 @@
 import React, {useState} from "react";
 import { Container, Row, Col, Image, Button } from "react-bootstrap";
+import { BrowserRouter as   Router, Route, Link, Switch, useParams, useHistory} from 'react-router-dom'
+import slugify from 'react-slugify';
+
 import Modal from 'react-modal';
 import signelProduct from './singleProductPage'
 
@@ -13,7 +16,7 @@ export default function Product(props) {
 
     //TODO: databaseen joku product-text/desc
     const text = "Norsujen näkyvin ulkoinen tuntomerkki on kärsä, joka on nenän ja ylähuulen pidentymä. Norsun kärsä voi painaa jopa 140 kilogrammaa. Se on herkkä tunto- ja tartuntaelin. Biologien mukaan norsun kärsässä voi olla jopa neljäkymmentä tuhatta erillistä lihasta, joidenkin mukaan jopa lähempänä sataa tuhatta."
-    
+	const slugifiedName = slugify(props.data.name)
 
     const customStyles = {
         content : {
@@ -46,28 +49,20 @@ if (props.layout === true) {
         <div style={{backgroundColor: hover ? "#D2C6B8" : ""}} className="col-4 justify-content-center" 
         onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)} key={props.data.key}>
 			
-
-				<Image  style={{position: "relative", opacity: hover ? 40 + '%' : 100 + '%'}} 
-				src={require("../Media/kahvi")} fluid roundedCircle/>
-				<Button onClick={() => props.handleClick(props)}>CHANGE</Button>
+				<Link to={"/menu/"+slugifiedName}>
+					<Image  style={{position: "relative", opacity: hover ? 40 + '%' : 100 + '%'}} 
+					src={require("../Media/kahvi")} fluid roundedCircle/>
+				</Link>
 				<p style={{color: "white", position: "absolute", top: 25 + '%', marginLeft: 25 + '%'}}>{hover? "Info" : ""}</p>
 				<p>{props.data.name} </p> 
 				<p>{props.data.price}€</p>
 
+
+{/* SLUUUUGIIIFYYYY */}
 				<Row>
 						{hover ? props.data.tags.map(el => {return <Col key={el} md="auto"> {el} </Col> } ) : ""}
 				</Row> 
 
-				
-
-			{/* <Modal 
-			isOpen={modalIsOpen}
-			onRequestClose={closeModal}
-			style={customStyles}
-			contentLabel="Product">
-					<Button onClick={closeModal} >takaisin</Button>
-					<ProductModal name={props} desc={text} image={require("../Media/kahvi")} />
-			</Modal> */}
         </div>
     )
 }
@@ -79,9 +74,10 @@ if (props.layout === false) {
             <div onClick={openModal} style={{backgroundColor: hover ? "#D2C6B8" : ""}}>
             <Row>
 					<Col>
-						
-						<Image style={{position: "relative", opacity: hover ? 40 + '%' : 100 + '%'}}  
-						src={require("../Media/kahvi")} fluid roundedCircle/>
+						<Link to={"/menu/"+slugifiedName}>
+							<Image style={{position: "relative", opacity: hover ? 40 + '%' : 100 + '%'}}  
+							src={require("../Media/kahvi")} fluid roundedCircle/>
+						</Link>
 						<p style={{color: "white", position: "absolute", top: 25 + '%', marginLeft: 25 + '%'}}>{hover? "Info" : ""}</p>
 					</Col>
 					<Col>

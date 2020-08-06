@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useContext} from 'react'
 import Button from 'react-bootstrap/Button';
 
 //Product component returns product cards in grid or list format.
@@ -6,11 +6,12 @@ import Product from './products'
 //Tags component returns a checkbox for every detected tag.
 import Tags from './tags'
 import SingleProduct from './singleProductPage'
+import { ProductsContext } from "./productsContext";
 const axios = require('axios')
 
 const Menu = (props) => {
 
-    const [products, setProducts] = useState()
+    const products = useContext(ProductsContext)
     const [filter, setFilter] = useState([])
     const [layout, setLayout] = useState(true)
     const [isItemSelected, setIsItemSelected] = useState(false)
@@ -29,23 +30,6 @@ const Menu = (props) => {
             setFilter(filter)
         }
        }
-
-    const getProducts = () => {
-            return axios.get(`http://localhost:4000/api/products/get`)
-            .then(response => {
-                let parsedBSON
-                console.log(response.data)
-                parsedBSON = JSON.parse(JSON.stringify(response.data))
-                setProducts(parsedBSON)
-                return response.data
-            })
-            .catch(error => console.log(error))
-        }
-    if (!products) {
-        //Get data from db if products is undefined
-        console.log("getProducts")
-        getProducts()
-    }
 
     const changeLayout = () => {
         //Toggle for product list/grid layout
@@ -74,20 +58,13 @@ const Menu = (props) => {
     const navigateBack = () => {
         setIsItemSelected(false)
     }
-    const handleSetSelectedItem = (target) => {
-        console.log("Our target and its type", target.data, typeof(target.data))
-        const data = target.data
-        setIsItemSelected(true)
-        setItemSelected(data)
-        console.log("And we got",itemSelected, "and is it really set ",isItemSelected)
-    }
 
     const productDivs = () => {
         //Creates product cards
         //TODO: filtering
         if (products) {
             //  let displayedProducts..
-        return products.map((data, key) => <Product handleClick={handleSetSelectedItem} layout={layout} data={data} key={key} />)
+        return products.map((data, key) => <Product layout={layout} data={data} key={key} />)
         }
         else {
             return (

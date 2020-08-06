@@ -1,35 +1,49 @@
-import React, { useState } from 'react';
-import { BrowserRouter as Router, Route, Link, Switch, useParams } from 'react-router-dom'
+import React, { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 import CommonHeader from './Components/commonHeader'
 import CommonFooter from './Components/commonFooter';
 import PanelCanvas from './Components/panelCanvas'
 import Container from 'react-bootstrap/Container';
-import {scroller} from "react-scroll";
 import Row from 'react-bootstrap/Row';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./css/styles.css";
+import axios from 'axios'
+import { ProductsContext } from './Components/productsContext'
+
 
 function App() {
-  const [site, setSite] = useState('frontpage');
-  // const [productTarget, setTarget] = useState({})
+  
+  const [products, setProducts] = useState([])
 
-  const nav = (a, target) => {
-    
-    // setTarget(target);
-    setSite(a);
-    scroller.scrollTo("content-element", {
-      duration: 800,
-      smooth: "easeInOutQuad",
-    });
+  
+  
+  // GET PRODUCT FROM DB
+
+  const getProducts = () => {
+    return axios.get(`http://localhost:4000/api/products/get`)
+    .then(response => {
+      let parsedBSON
+      console.log(response.data)
+      parsedBSON = JSON.parse(JSON.stringify(response.data))
+      setProducts(parsedBSON)
+      return response.data
+      })
+    .catch(error => console.log(error))
   }
 
-  // const changeRendering = (target) =>{
-  //   console.log("Asd", target);
-  //   nav('product', target)
-  // }
+  useEffect(() => {
+    console.log("INITIAL BASE DATA GET")
+    if (products.length === 0) {
+      console.log("getProducts")
+      getProducts()
+    }
+  },[]);
+  
+  console.log("PROD", products)
+
   return (
+    <ProductsContext.Provider value={products}>
     <Router>
-    <div>
       <Container fluid>
         <Row>
 
@@ -42,36 +56,12 @@ function App() {
               <Link className="nav-font" to="/order">Tilaus</Link>
               <Link className="nav-font" to="/spillage">Hävikki</Link>
               
-              <Switch>
 
-                <Route exact path="/" render={(props) => (
-                  <div  className="sample-font"> {nav('frontpage') }</div>
-                  )} />
-                <Route exact path="/menu" render={(props) => (
-                  <div className="sample-font"> { nav('menu') }</div>
-                  )} />
-                <Route path="/menu/:id" render={(props) => {
-                  // const {id} = useParams()
-                  // console.log("ID: ",id)
-                  return (
-                    <div className="sample-font"> { nav('menu') } </div>
-                  )}} />
-                <Route path="/aboutus" render={(props) => (
-                  <div className="sample-font"> { nav('aboutus') }</div>
-                  )} />
-                <Route path="/order" render={(props) => (
-                  <div className="sample-font"> {nav('cateringform')}</div>
-                  )} />
-                <Route path="/spillage" render={(props) => (
-                  <div className="sample-font"> {nav('spillage')}</div>
-                  )} />
-              </Switch>
-                             
           </div>
         </Row>
 
         <Row name="content-element" className="main-frame" >
-           <PanelCanvas show={site}/>
+           <PanelCanvas/>
         </Row>
     
         <Row name="footer-map-element" fluid>
@@ -79,8 +69,9 @@ function App() {
         </Row>
       
       </Container>
-    </div>
   </Router>
+  </ProductsContext.Provider>
+
   )
 }
 
