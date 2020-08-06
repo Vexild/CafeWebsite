@@ -13,6 +13,9 @@ const ProductList = () => {
     const [checkBoxes, setCheckBoxes] = useState()
     const [filter, setFilter] = useState([])
     const [displayedProducts, setDisplayedProducts] = useState()
+    const [tempProducts, setTempProducts] = useState()
+
+    console.log(displayedProducts)
 
     const getProducts = () => {
         return axios.get(`http://localhost:4000/api/products/get`)
@@ -20,6 +23,7 @@ const ProductList = () => {
                 let parsedBSON
                 parsedBSON = JSON.parse(JSON.stringify(response.data))
                 setProducts(parsedBSON)
+                setDisplayedProducts(parsedBSON)
                 return response.data
             })
             .catch(error => console.log(error))
@@ -38,38 +42,34 @@ const ProductList = () => {
     if (!tags) {
         getTags()
     }
-    /*
 
-    const filterProducts = (tags, filter) => {
-        if (filter.isArray()) {
-           products.map(product => {
-               if (tags.includes(product.tags)) {
-                   displayedProducts.push(product)
-               }
-           }) 
-           setDisplayedProducts(displayedProducts)
-        }
-        else {
-            setDisplayedProducts(products)
-        }
-
+    const filterProducts = (filter, products) => {
+        let temp
+        if (filter.length > 0) {
+            setTempProducts(products)
+            console.log("asd")
+           filter.forEach(tag => {
+               temp = tempProducts.filter(product => product.tags.includes(tag))
+           }
+           ,setDisplayedProducts(temp)
+           )
     }
+}
 
-    if (!displayedProducts && tags) {
-            filterProducts(tags, filter)    
+    if (!displayedProducts && filter && products) {
+            filterProducts(filter, products)    
     }
-    */
 
     const createCheckBoxes = () => {
 		if (tags) {
 		let temp = []
-			tags.forEach(element => {
-				temp.push(
-					<>
-						<label>{element.name}</label>
-						<input type="checkbox" name={element.name} onClick={() => handleCheckBox(element._id)} />
-					</>
-				)
+			tags.forEach((element, i) => {
+                temp.push(
+                <div key={i}>
+                <label >{element.name}</label>
+                <input type="checkbox" name={element.name} onClick={() => handleCheckBox(element._id)} />
+                </div>
+                )
 			}
 			)
 			temp.push(<br />)
@@ -87,10 +87,10 @@ const ProductList = () => {
             filter.push(_id)
             setFilter(filter)
         }
+            setDisplayedProducts()
     }
-
-	if (!checkBoxes) {
-		createCheckBoxes()
+    if (!checkBoxes) {
+        createCheckBoxes()
     }
 
     const openModal = () => {
@@ -102,20 +102,10 @@ const ProductList = () => {
     }
 
     const productDivs = () => {
-        if (products) {
-            return products.map((data, key) => <Product filter={filter} checkBoxes={checkBoxes} tags={tags} layout={layout} data={data} key={key} />)
+            return displayedProducts.map((data, key) => <Product filter={filter} checkBoxes={checkBoxes} tags={tags} layout={layout} data={data} key={key} />)
         }
-        else {
-            return (
-                <div>
-                    <p>Hetkinen</p>
-                </div>
-            )
-        }
-    }
-
     
-
+if (displayedProducts) {
     return (
         <div>
             <button onClick={openModal}>New product</button>
@@ -133,6 +123,14 @@ const ProductList = () => {
             {productDivs()}
         </div>
     )
+}
+else {
+    return (
+        <div>
+            ASD
+        </div>
+    )
+}
 }
 
 export default ProductList;

@@ -8,7 +8,9 @@ export default {
     put: async (req, res) => {
        AboutUs.updateOne(
            {},
-          {content: req.body.content }
+          {content: req.body.content, 
+          content2: req.body.content2,
+          content3: req.body.content3}
        )
        .catch(error => res.send(error))
        res.send("Updated")

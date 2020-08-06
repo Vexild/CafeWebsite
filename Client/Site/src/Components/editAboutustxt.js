@@ -25,7 +25,7 @@ const EditAboutustxt = () => {
     }
     return(
         <Col>
-            {ReactHtmlParser(value)}
+            <p>{ReactHtmlParser(value)}</p>
         </Col>
     )
 }

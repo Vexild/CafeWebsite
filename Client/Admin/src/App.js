@@ -5,6 +5,7 @@ import TagList from "./Components/tagList"
 import ContactInformation from "./Components/contactInformation"
 import BusinessHours from "./Components/businessHours";
 import EditAboutus from "./Components/editAboutus";
+import DailyDeals from './Components/dailyDeals'
 import './App.css';
 
 function App() {
@@ -25,9 +26,14 @@ function App() {
         <Link to="/media"></Link>
         <Link to="/business-hours">Business Hours</Link>
         <Link to="/edit-aboutus">Edit Aboutus</Link>
+        <Link to="/DailyDeals">Daily deal</Link>
+
       </nav>
 
       <Switch>
+        <Route path="/DailyDeals">
+          <DailyDeals />
+        </Route>
         <Route path="/products">
           <ProductList />
         </Route>

@@ -5,22 +5,35 @@ import ReactHtmlParser from "html-react-parser";
 import axios from "axios";
 
 const EditAboutus = () => {
-  const [value,setValue] = useState("") 
-  console.log(value)
+  const [value1,setValue1] = useState("") 
+  const [value2,setValue2] = useState("") 
+  const [value3,setValue3] = useState("") 
 
-  const handleOnChange = (e,editor) => {
+  const handleOnChange1 = (e,editor) => {
     //   console.log(editor.getData());
     const data = editor.getData()
-    setValue(data)
+    setValue1(data)
+  }
+
+  const handleOnChange2 = (e,editor) => {
+    //   console.log(editor.getData());
+    const data = editor.getData()
+    setValue2(data)
+  }
+
+  const handleOnChange3 = (e,editor) => {
+    //   console.log(editor.getData());
+    const data = editor.getData()
+    setValue3(data)
   }
 
    const changeText = (event) => {
      event.preventDefault();
 
-     if (value) {
+     if (value1 || value2 || value3) {
        axios
          .put('http://localhost:4000/api/aboutus/put', {
-           content: value
+           content: "juu", content2:"joo", content3:"jaa"
          })
          .then((response) => {
            console.log(response);
@@ -38,27 +51,42 @@ const EditAboutus = () => {
         let parsedBSON;
         parsedBSON = JSON.parse(JSON.stringify(response.data));
         console.log(parsedBSON)
-        setValue(parsedBSON[0].content);
+        setValue1(parsedBSON[0].content);
+        setValue2(parsedBSON[0].content2);
+        setValue3(parsedBSON[0].content3);
         return parsedBSON;
       })
       .catch((error) => console.log(error));
   };
-  if (!value) {
+  if (!value1 || value2 || value3) {
       getAboutUs()
   }
-if (value) {
+if (value1 || value2 || value3) {
     return (
         <div>
             <h1>EDITORI</h1>
             <CKEditor
                 editor={ClassicEditor}
-                onChange={handleOnChange}
-                data={value}
+                onChange={handleOnChange1}
+                data={value1}
             />
+
+            <CKEditor
+                editor={ClassicEditor}
+                onChange={handleOnChange2}
+                data={value2}
+            />
+
+            <CKEditor
+                editor={ClassicEditor}
+                onChange={handleOnChange3}
+                data={value3}
+            />
+
             <button onClick={changeText}>Submit</button>
             <div>
                 <h3>TEXT:</h3>
-                <p>{ReactHtmlParser(value)}</p>
+                <p>{ReactHtmlParser(value1)}</p>
             </div>
         </div>
     )

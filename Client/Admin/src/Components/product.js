@@ -7,7 +7,7 @@ export default function Product(props) {
 	const [hover, setHover] = useState(false)
 	const [name, setName] = useState(props.data.name)
 	const [id, setId] = useState(props.data.id)
-	const [_id, setMongoId] = useState(props.data._id)
+	const [_id] = useState(props.data._id)
 	const [price, setPrice] = useState(props.data.price)
 	const [tagList, setTaglist] = useState() //List of all tags from DB, used for checkboxes
 	const [tags, setTags] = useState(props.data.tags) // Tags of current product
@@ -105,9 +105,9 @@ export default function Product(props) {
 							
 							<Row>
 
-		{props.data.tags.map(el => { return(
-		<Col md="auto" key={el} style={{ backgroundColor: "" }}>
-				<p>{tagList[tagList.findIndex(tagList => tagList._id === el)].name}</p>
+		{props.data.tags.map((el, i) => { return(
+		<Col md="auto" key={i} style={{ backgroundColor: "" }}>
+				{tagList[tagList.findIndex(tagList => tagList._id === el)].name}
 				</Col> )})}
 
 							</Row>
@@ -127,10 +127,15 @@ export default function Product(props) {
 					style={customStyles}
 					contentLabel="Product">
 						{createCheckBoxes()}
+					<br/><label >Product name</label> <br/>
 					<input onChange={e => setName(e.target.value)} name="name" placeholder="Name" type="text" defaultValue={name}  /><br />
+					<br/><label >Price</label> <br/>
 					<input onChange={e => setPrice(parseFloat(e.target.value))} name="price" placeholder="Price" type="text" defaultValue={props.data.price} /><br />
+					<br/><label >Product ID</label> <br/>
 					<input onChange={e => setId(e.target.value)} name="id" placeholder="Id" type="text" defaultValue={props.data.id} /><br />
+					<br/><label>Product info</label><br/>
 					<input onChange={e => setProductInfo(e.target.value)} name="productInfo" placeholder="Product Info" type="text" defaultValue={props.data.productInfo} /><br />
+					<br/><label>Product Description</label><br/>
 					<input onChange={e => setDescription(e.target.value)} name="description" placeholder="Description" type="text" defaultValue={props.data.description} /><br />
 					<input onClick={() => handleSubmit(_id, name, price, id, productInfo, description, tags)} type="submit" value="Update" />
 					<Button onClick={closeModal} >Close</Button>
