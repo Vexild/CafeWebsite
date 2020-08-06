@@ -13,7 +13,8 @@ import businessHoursRouter from './routers/businessHours.router.js'
 import tagsRouter from './routers/tags.router.js'
 import spillageRouter from './routers/spillage.router.js'
 import aboutUsRouter from './routers/aboutUs.router.js'
-import dailyDealRouter from './routers/dailyDeal.router.js'
+import dailyDealsRouter from './routers/dailyDeals.router.js'
+
 
 const port = 4000
 
@@ -103,6 +104,6 @@ app.use(businessHoursRouter)
 app.use(tagsRouter)
 app.use(spillageRouter)
 app.use(aboutUsRouter)
-app.use(dailyDealRouter)
+app.use(dailyDealsRouter)
 
 app.listen(port, () => console.log(`Backend API listening on port ${port}!`));

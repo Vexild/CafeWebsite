@@ -4,7 +4,7 @@ import axios from 'axios'
 const DailyDealPanel =  () => {
     const [data, setData] = useState()
     const getData= () => {
-        axios.get('http://localhost:4000/api/dailydeal/get')
+        axios.get('http://localhost:4000/api/dailydeals/get')
         .then(response => {
             console.log(response.data)
             if (response.data[0].content) {

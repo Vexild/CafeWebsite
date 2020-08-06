@@ -1,12 +1,12 @@
-import DailyDeal from '../models/dailyDeal.model.js'
+import DailyDeals from '../models/dailyDeals.model.js'
 
 export default {
         get: async (req, res) => {
-        const content = await DailyDeal.find({})
+        const content = await DailyDeals.find({})
         res.send(content)
     },
     put: async (req, res) => {
-       DailyDeal.updateOne(
+       DailyDeals.updateOne(
            {},
           {content: req.body.content }
        )
