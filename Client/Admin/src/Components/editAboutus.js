@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import CKEditor from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import ReactHtmlParser from "html-react-parser";
@@ -8,6 +8,10 @@ const EditAboutus = () => {
   const [value1,setValue1] = useState("") 
   const [value2,setValue2] = useState("") 
   const [value3,setValue3] = useState("") 
+
+  if (value1 || value2 || value3) { 
+    console.log(value1,value2,value3)
+  }
 
   const handleOnChange1 = (e,editor) => {
     //   console.log(editor.getData());
@@ -30,18 +34,19 @@ const EditAboutus = () => {
    const changeText = (event) => {
      event.preventDefault();
 
-     if (value1 || value2 || value3) {
+    //  if (value1 || value2 || value3) {
        axios
          .put('http://localhost:4000/api/aboutus/put', {
-           content: "juu", content2:"joo", content3:"jaa"
+           content: value1, content2: value2, content3: value3
          })
          .then((response) => {
            console.log(response);
          })
          .catch((error) => console.log(error));
-     } else {
+    //  } 
+    // else {
        console.log("purizu wuraito samuzing");
-     }
+    //  }
  };
 
   const getAboutUs = () => {
@@ -58,10 +63,15 @@ const EditAboutus = () => {
       })
       .catch((error) => console.log(error));
   };
-  if (!value1 || value2 || value3) {
-      getAboutUs()
-  }
-if (value1 || value2 || value3) {
+  // if (!value1 || !value2 || !value3) {
+  //     getAboutUs()
+  // }
+// if (value1 && value2 && value3) {
+
+  useEffect(() => {
+    getAboutUs()
+  },[]);
+
     return (
         <div>
             <h1>EDITORI</h1>
@@ -85,14 +95,15 @@ if (value1 || value2 || value3) {
 
             <button onClick={changeText}>Submit</button>
             <div>
-                <h3>TEXT:</h3>
-                <p>{ReactHtmlParser(value1)}</p>
+                {ReactHtmlParser(value1)}
+                {ReactHtmlParser(value2)}
+                {ReactHtmlParser(value3)}
             </div>
         </div>
     )
-}
-else {
-    return(<p>hetkinen</p>)
-}
+// }
+// else {
+//     return(<p>hetkinen</p>)
+// }
 }
 export default EditAboutus;
