@@ -1,24 +1,43 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
 import Panel from './Panels/panel'
+import axios from 'axios'
 import testImage1 from '../Media/cafe_1.jpg'
 import testImage2 from '../Media/cafe_2.jpg'
 
 const AboutUs = () => {
 
-    const lorem = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla elit lorem, mollis non urna vel, tempus blandit odio. Morbi sollicitudin accumsan luctus. Nullam eu augue in elit tempus scelerisque non quis lacus. Cras eu euismod augue. Vivamus gravida magna vel rhoncus efficitur. Vivamus iaculis eu diam eleifend posuere."
+    const [value, setValue] = useState("")
+
+    const getTxt = () => {
+        return axios.get(`http://localhost:4000/api/aboutus/get`)
+        .then(response => {
+            let parsedBSON
+            //console.log(response.data)
+            parsedBSON = JSON.parse(JSON.stringify(response.data[0]))
+            setValue(parsedBSON)
+            
+            return response.data
+        })
+        .catch(error => console.log(error))
+    }
+    if (!value) {
+        //Get data from db if products is undefined
+        getTxt()
+    }
+    console.log(value);
     return(
         <Row className="centered">
             <Col>
                 <Panel image={testImage1} isButton={false} />
-                <Panel text={lorem} isButton={false} />
+                <Panel className="dark-font" text={value.content} isButton={false} />
                 <Panel image={testImage1} isButton={false} />
             </Col>
             <Col>
-                <Panel text={lorem} isButton={false} />
+                <Panel text={value.content2} isButton={false} />
                 <Panel image={testImage2} isButton={false} />
-                <Panel text={lorem} isButton={false} />
+                <Panel text={value.content3} isButton={false} />
             </Col>
         </Row>
 

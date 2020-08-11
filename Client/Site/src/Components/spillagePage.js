@@ -94,13 +94,13 @@ const SpillagePage =  () => {
             </Col>
           </Form.Row>
 
-          <Col className="form-center-col">
+          {/* <Col className="form-center-col">
             <ReCAPTCHA
             className="g-recaptcha"
             sitekey={key}
             onChange={onChange}
             />
-          </Col>
+          </Col> */}
         
           <Col className="form-center-col">
             <Button type="submit">

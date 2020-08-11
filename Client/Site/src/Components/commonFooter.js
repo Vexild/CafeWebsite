@@ -34,7 +34,7 @@ const CommonFooter = () => {
             </Row>
 
         <Row className="footer-background1 align-items-center">
-            <Col><p className="footer-font">Vapaavalintaista tekstiä loorem ipsumia ja paljon asdsadasdasdasdasdsdasdsdsad</p></Col>
+            <Col><p className="footer-font">loorem ipsum</p></Col>
 
             <Col> 
             <p className="footer-font">
