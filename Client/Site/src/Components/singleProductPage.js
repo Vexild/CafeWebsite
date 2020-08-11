@@ -8,6 +8,7 @@ import Modal from 'react-modal';
 import { BrowserRouter as Router, Route, Link, Switch, useParams, useHistory} from 'react-router-dom'
 import { ProductsContext } from "./productsContext";
 import slugify from 'react-slugify';
+import { OrderContext } from './orderContext'
 
 
 const SingleProduct =  () => {
@@ -105,7 +106,7 @@ const SingleProduct =  () => {
             </Modal>
         </Col>
         ): ( 
-            <div>Ladataan...</div>
+            <div>Valitettavasti tuotetta ei löydy valikoimastamme.as</div>
             )}
         </div>
     )

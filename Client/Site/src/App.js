@@ -9,14 +9,14 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import "./css/styles.css";
 import axios from 'axios'
 import { ProductsContext } from './Components/productsContext'
+// import { OrderContext } from './Components/orderContext'
 
 
 function App() {
   
   const [products, setProducts] = useState([])
+  const [shopingCart, setShopingCart] = useState([])
 
-  
-  
   // GET PRODUCT FROM DB
 
   const getProducts = () => {
@@ -30,12 +30,18 @@ function App() {
       })
     .catch(error => console.log(error))
   }
+  
+  const getShopingCart = () => {
+    let value = { name: "soppaa", quantity: "2", id: "asdasd123123"}
+    localStorage.setItem('myValueInLocalStorage', value);
+    console.log(localStorage.getItem(value))
+  }
 
   useEffect(() => {
-    console.log("INITIAL BASE DATA GET")
     if (products.length === 0) {
       console.log("getProducts")
       getProducts()
+      getShopingCart()
     }
   },[]);
   

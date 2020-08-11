@@ -8,10 +8,13 @@ import DatePicker from 'react-datepicker'
 import "react-datepicker/dist/react-datepicker.css"
 import local from 'date-fns/locale/fi';
 import ReCAPTCHA from "react-google-recaptcha";
-// import axios from 'axios'
+import axios from 'axios'
+import { OrderContext } from './orderContext'
 
 const CateringForm =  () => {
-
+  
+    const key = process.env.REACT_APP_GOOGLE_API_KEY;
+    const sec = process.env.REACT_APP_GOOGLE_API_SEC;
     const [startDate, setStartDate] = useState(new Date());
     const [comment, setComment] = useState('')
     const [name, setName] = useState('')
@@ -19,7 +22,6 @@ const CateringForm =  () => {
     const [phonenumber, setPhonenumber] = useState('')
     const [location, setLocation] = useState('')
     const [isHuman, setIsHuman] = useState(false)
-    const key = process.env.REACT_APP_GOOGLE_API_KEY
     // const sec = process.env.REACT_APP_GOOGLE_API_SEC
     
     // const [daysData, setDaysDataS] = useState([])
@@ -81,21 +83,32 @@ const CateringForm =  () => {
     }
 
     async function onChange(value){
+      console.log("ReCaptcha value", value)
       // try{
-      //   let areYouHuman = await axios({
-      //     method: 'post',
-      //     url: 'https://www.google.com/recaptcha/api/siteverify', 
-      //     params: {
-      //       secret:  {sec},
-      //       response: {key}
-      //     }
-      //   });
-      //   let data = areYouHuman.data || {};
-      //   if(!data.success){
-      //       throw({
-      //           success: false,
-      //           error: 'response not valid'
-      //     })
+        let areYouHuman = await axios({
+          method: 'post',
+          url: 'https://www.google.com/recaptcha/api/siteverify', 
+          headers: {
+            "Accept": "application/json",
+            "Content-Type": "application/x-www-form-urlencoded; charset=utf-8",
+            'Access-Control-Allow-Origin' : '*' 
+          },
+          params: {
+            secret:  {sec},
+            response: {key}
+          }
+        }).then( (verification =>{
+
+          console.log("VER",verification)
+        })
+        );
+        let data = areYouHuman.data || {};
+        if(!data.success){
+            throw({
+                success: false,
+                error: 'response not valid'
+          })
+        }
       // }
       // }catch(err){
 

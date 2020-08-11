@@ -12,7 +12,6 @@ import SpillagePage from './spillagePage'
 import SingleProduct from './singleProductPage'
 import { ProductsContext } from "./productsContext";
 import {scroller} from "react-scroll";
-
 const PanelCanvas =  (props) => {
 
     const data = useContext(ProductsContext);
