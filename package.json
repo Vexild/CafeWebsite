@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "concurrently \"npm start --prefix Client/Site/\"  \"npm start --prefix Server/\""
+    "start": "concurrently \"npm start --prefix Client/Site/\"  \"npm start --prefix Server/\"",
+    "compile:sass": "npm run --prefix=Client/Site/ compile:sass"
   },
   "repository": {
     "type": "git",

@@ -5,6 +5,7 @@ import CommonFooter from './Components/commonFooter';
 import PanelCanvas from './Components/panelCanvas'
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./css/styles.css";
 import axios from 'axios'
@@ -56,11 +57,21 @@ function App() {
           <CommonHeader/>
         
           <div className="nav-line">
+              <Col xs="1" className="inline-block">
               <Link className="nav-font" to="/">Etusivu</Link>
+              </Col>
+              <Col xs="1" className="inline-block">
               <Link className="nav-font" to="/menu">Menu</Link>
+              </Col>
+              <Col xs="1" className="inline-block">
               <Link className="nav-font" to="/aboutus">Meistä</Link>
+              </Col>
+              <Col xs="1" className="inline-block">
               <Link className="nav-font" to="/order">Tilaus</Link>
+              </Col>
+              <Col xs="1" className="inline-block">
               <Link className="nav-font" to="/spillage">Hävikki</Link>
+              </Col>
               
 
           </div>

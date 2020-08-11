@@ -39,15 +39,11 @@
 
 .common-header {
   z-index: 1;
-  margin-bottom: 60%;
 }
 
 .header-grey-background {
   background-color: #363636;
   height: auto;
-}
-.header-grey-background .social-media-icons {
-  margin: auto 10px auto auto;
 }
 
 .sample-font {
@@ -56,7 +52,6 @@
   font-family: Philosopher;
   font-weight: lighter;
   margin-top: 10px;
-  margin-left: 10px;
 }
 
 .header-icon-background {
@@ -69,7 +64,6 @@
   font-family: Courier;
   font-weight: bold;
   color: antiquewhite;
-  margin: 0 10px 0 10px;
   text-decoration: none;
 }
 .nav-font:hover {
@@ -78,40 +72,27 @@
   border-bottom: 2px #f07341 solid;
 }
 
-.carousel-style {
-  width: 100%;
+.carousel-bottom {
+  z-index: 1;
   position: absolute;
-  z-index: -1;
-  height: 60%;
-}
-
-carousel {
-  height: 50%;
+  bottom: 2em;
+  padding-left: 2em;
+  padding-right: 2em;
 }
 
 .nav-line {
-  margin: 100px auto auto auto;
   text-align: center;
   z-index: 1;
   position: absolute;
   width: 100%;
-}
-
-.opening-hours-listing {
-  position: relative;
-  bottom: 180px;
-  height: 150px;
-  margin-bottom: 10px;
-  z-index: 1;
+  top: 10%;
 }
 
 .navigate-footer-map {
-  position: relative;
-  bottom: 0px;
-  margin-right: 10px;
-  z-index: 1;
   text-align: end;
-  justify-content: end;
+  position: absolute;
+  bottom: 30%;
+  right: 5%;
 }
 
 .opening-hours-font {
@@ -121,10 +102,24 @@ carousel {
   margin: 0px;
 }
 
-p, td, th, tr {
+.social-media-icons-bottom, .social-media-icons-top {
+  margin: auto 0px;
+}
+
+.social-media-icons-top {
+  text-align: end;
+}
+
+.no-padding {
+  padding: 0px;
+}
+
+.no-margin {
   margin: 0px;
-  color: aliceblue;
-  font-family: Courier;
+}
+
+.inline-block {
+  display: inline-block;
 }
 
 .centered {
@@ -145,6 +140,7 @@ p, td, th, tr {
   height: auto;
   padding: 10px;
   margin: auto;
+  border: 1px black dotted;
 }
 
 .panel-button:hover {
@@ -158,13 +154,6 @@ p, td, th, tr {
 .panel-text {
   position: relative;
   margin: 0 10% px 0 10% px;
-}
-
-.centered {
-  /* text-align: center; */
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
 }
 
 .deal-panel {

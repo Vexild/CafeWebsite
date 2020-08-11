@@ -19,7 +19,6 @@ const customCarousel = ()  => {
     
 
     return (
-      <div>
         <div className="carousel-style">
             <Carousel>
                 <Carousel.Item>
@@ -51,16 +50,18 @@ const customCarousel = ()  => {
                     />
                 </Carousel.Item>
             </Carousel>   
-            <Row className="opening-hours-listing">
-                <Col >
-                    <OpeningHoursComponent />
-                </Col>
-                <Col className="navigate-footer-map">
-                    <Button onClick={() => scrollToMap()}>Löydä meidät!</Button>
-                </Col>
-            </Row>
+            <Col xs="12" className="carousel-bottom">
+                <Row >
+                    <Col xs="6">
+                        <OpeningHoursComponent />
+                    </Col>
+                    <Col xs="6" className="navigate-footer-map">
+                        <Button onClick={() => scrollToMap()}>Löydä meidät!</Button>
+                    </Col>
+                </Row>
+            </Col>
+
         </div>        
-    </div>
     )
   }
   

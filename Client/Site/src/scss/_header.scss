@@ -1,23 +1,18 @@
 .common-header{
     z-index: 1;
-    margin-bottom: 60%;
+    // margin-bottom: 60%;
 }
 .header-grey-background {
     background-color: #363636;
     height: auto;
-
-    .social-media-icons{
-        margin: auto 10px auto auto;
-    }
 }
+
 .sample-font{
     color: white;
     font-size: 30px;
     font-family: Philosopher;
     font-weight: lighter;
     margin-top: 10px;
-    margin-left: 10px;
-
 }
 
 .header-icon-background {
@@ -30,7 +25,6 @@
     font-family: Courier;
     font-weight: bold;
     color: antiquewhite;
-    margin: 0 10px 0 10px;
     text-decoration: none;
 
     &:hover{
@@ -40,39 +34,46 @@
     }
 }
 
-.carousel-style{
-    width: 100%;
+.carousel-bottom {
+    z-index: 1;
     position: absolute;
-    z-index: -1;
-    height: 60%;
+    bottom: 2em;
+    padding-left: 2em;
+    padding-right: 2em;
+}
+// .carousel-style{
+//     width: 100%;
+//     position: absolute;
+//     height: 60%;
+// }
 
-}
-carousel{
-    height: 50%;
-}
+// carousel {
+//     height: 50%;
+// }
 .nav-line{
-    margin: 100px auto auto auto;
     text-align: center;
     z-index: 1;
     position: absolute;
     width: 100%;
+    top: 10%;
 }
-.opening-hours-listing{
-    position: relative;
-    bottom: 180px;
-    height: 150px;
-    margin-bottom: 10px;
-    z-index: 1;
-}
+// .opening-hours-listing{
+//     // position: relative;
+//     // bottom: 160px;
+//     height: 150px;
+//     z-index: 1;
+//     width: auto; 
+// }
 .navigate-footer-map{
-    position: relative;
-    bottom: 0px;
-    margin-right: 10px;
-    z-index: 1;
+    // position: relative;
+    // bottom: 20%;
+    // margin-right: 10px;
     text-align: end;
-    justify-content: end;
+    position: absolute;
+    bottom: 30%;
+    right: 5%;
 }
-.opening-hours-font{
+.opening-hours-font {
     color: aliceblue;
     font-family: Courier;
     font-size: small;
@@ -80,10 +81,27 @@ carousel{
 
 }
 
-// Tthis has been added to overwrite businesshour styling in paragraphs
-p, td, th, tr {
-    margin: 0px;
-    color: aliceblue;
-    font-family: Courier;
+// .centered{
+//     /* text-align: center; */
+//     display: flex;
+//     flex-direction: row;
+//     justify-content: center;
+//   }
 
-}
+//   .panel-button{
+//       text-align: center;
+//       width: 100%;
+//       height: 200px;
+//       overflow: hidden;
+//       margin: 10px;
+//       border: 1px black dotted;
+//   }
+//   .panel-button:hover{
+//     opacity: 60%;
+//   }
+//   .panel-button:focus{
+//       color: rgb(80, 51, 40);
+//   }
+//   .panel-text{
+//       position: relative;
+//   }
