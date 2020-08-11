@@ -34,7 +34,7 @@ function App() {
   const getShopingCart = () => {
     let value = { name: "soppaa", quantity: "2", id: "asdasd123123"}
     localStorage.setItem('myValueInLocalStorage', value);
-    console.log(localStorage.getItem(value))
+    console.log("Localstorage",localStorage.getItem(value))
   }
 
   useEffect(() => {
