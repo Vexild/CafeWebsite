@@ -5,7 +5,6 @@ import cors from 'cors'
 import multer from 'multer'
 import init from './mongoinit.js'
 import Product from "./models/product.model.js"
-
 import infoRouter from './routers/info.router.js'
 import productsRouter from './routers/product.router.js'
 import cateringRouter from './routers/catering.router.js'
@@ -15,6 +14,8 @@ import spillageRouter from './routers/spillage.router.js'
 import aboutUsRouter from './routers/aboutUs.router.js'
 import dailyDealsRouter from './routers/dailyDeals.router.js'
 
+const bcrypt = require('bcryptjs')
+const saltRounds = 12
 
 const port = 4000
 

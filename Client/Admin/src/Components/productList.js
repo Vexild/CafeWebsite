@@ -97,7 +97,9 @@ const ProductList = () => {
                return el !== undefined
            })
            console.log(temp)
+           if (temp.length > 0 ) {
            setDisplayedProducts(temp)
+           }
         }
     }
 }    
