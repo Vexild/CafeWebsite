@@ -3,30 +3,24 @@ import CKEditor from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import ReactHtmlParser from "html-react-parser";
 import axios from "axios";
+import ImageUploading from "react-images-uploading";
 
 const EditAboutus = () => {
   const [value1,setValue1] = useState("") 
   const [value2,setValue2] = useState("") 
   const [value3,setValue3] = useState("") 
 
-  if (value1 || value2 || value3) { 
-    console.log(value1,value2,value3)
-  }
-
   const handleOnChange1 = (e,editor) => {
-    //   console.log(editor.getData());
     const data = editor.getData()
     setValue1(data)
   }
 
   const handleOnChange2 = (e,editor) => {
-    //   console.log(editor.getData());
     const data = editor.getData()
     setValue2(data)
   }
 
   const handleOnChange3 = (e,editor) => {
-    //   console.log(editor.getData());
     const data = editor.getData()
     setValue3(data)
   }
@@ -34,7 +28,6 @@ const EditAboutus = () => {
    const changeText = (event) => {
      event.preventDefault();
 
-    //  if (value1 || value2 || value3) {
        axios
          .put('http://localhost:4000/api/aboutus/put', {
            content: value1, content2: value2, content3: value3
@@ -43,10 +36,6 @@ const EditAboutus = () => {
            console.log(response);
          })
          .catch((error) => console.log(error));
-    //  } 
-    // else {
-       console.log("purizu wuraito samuzing");
-    //  }
  };
 
   const getAboutUs = () => {
@@ -63,10 +52,6 @@ const EditAboutus = () => {
       })
       .catch((error) => console.log(error));
   };
-  // if (!value1 || !value2 || !value3) {
-  //     getAboutUs()
-  // }
-// if (value1 && value2 && value3) {
 
   useEffect(() => {
     getAboutUs()
@@ -101,9 +86,5 @@ const EditAboutus = () => {
             </div>
         </div>
     )
-// }
-// else {
-//     return(<p>hetkinen</p>)
-// }
 }
 export default EditAboutus;
