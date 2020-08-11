@@ -5,7 +5,4 @@
 @use 'panels';
 @use 'dailydealsboard';
 @use 'modal';
-
-$site-font: './';
-
-//npm run compile:sass poistetaan produktionissa package.json filussa
+/*# sourceMappingURL=styles.css.map */
