@@ -10,12 +10,10 @@ const ProductList = () => {
     const [products, setProducts] = useState()
     const [layout] = useState(false)
     const [tags, setTags] = useState()
-    const [checkBoxes, setCheckBoxes] = useState()
+    //const [checkBoxes, setCheckBoxes] = useState()
     const [filter, setFilter] = useState([])
     const [displayedProducts, setDisplayedProducts] = useState()
     const [tempProducts, setTempProducts] = useState()
-
-    console.log(displayedProducts)
 
     const getProducts = () => {
         return axios.get(`http://localhost:4000/api/products/get`)
@@ -24,10 +22,12 @@ const ProductList = () => {
                 parsedBSON = JSON.parse(JSON.stringify(response.data))
                 setProducts(parsedBSON)
                 setDisplayedProducts(parsedBSON)
+                setTempProducts(parsedBSON)
                 return response.data
             })
             .catch(error => console.log(error))
     }
+    
 
     const getTags = () => {
         return axios.get('http://localhost:4000/api/tags/get')
@@ -43,23 +43,6 @@ const ProductList = () => {
         getTags()
     }
 
-    const filterProducts = (filter, products) => {
-        let temp
-        if (filter.length > 0) {
-            setTempProducts(products)
-            console.log("asd")
-           filter.forEach(tag => {
-               temp = tempProducts.filter(product => product.tags.includes(tag))
-           }
-           ,setDisplayedProducts(temp)
-           )
-    }
-}
-
-    if (!displayedProducts && filter && products) {
-            filterProducts(filter, products)    
-    }
-
     const createCheckBoxes = () => {
 		if (tags) {
 		let temp = []
@@ -72,26 +55,55 @@ const ProductList = () => {
                 )
 			}
 			)
-			temp.push(<br />)
-			setCheckBoxes(temp)
+            temp.push(<br />)
+            return temp
 		}
     }
 
-    const handleCheckBox = (_id) => {
+   const handleCheckBox = (_id) => {
+       console.log("click", _id)
 
        if (filter.includes(_id)) {
+           console.log("dupe")
             let filtered = filter.filter(el => el !== _id)
             setFilter(filtered)
+            filterProducts(filtered)
         }
         else {
+            console.log("not dupe")
             filter.push(_id)
             setFilter(filter)
+            console.log(filter)
+            filterProducts(filter)
         }
-            setDisplayedProducts()
     }
-    if (!checkBoxes) {
-        createCheckBoxes()
+
+    const filterProducts = (filter) => {
+        let temp
+        if (filter) {
+        if (filter.length > 0 && products) {
+           filter.forEach(tag => {
+               if (temp) {
+                  temp = [temp, ...temp.filter(product => product.tags.includes(tag))] 
+               }
+               else {
+               temp = products.filter(product => product.tags.includes(tag))
+               }
+               console.log(temp)
+           }
+
+           )
+           temp = temp.filter(el => {
+               return el !== undefined
+           })
+           console.log(temp)
+           if (temp.length > 0 ) {
+           setDisplayedProducts(temp)
+           }
+        }
     }
+}    
+
 
     const openModal = () => {
         setModalIsOpen(true)
@@ -101,11 +113,11 @@ const ProductList = () => {
         setModalIsOpen(false)
     }
 
-    const productDivs = () => {
-            return displayedProducts.map((data, key) => <Product filter={filter} checkBoxes={checkBoxes} tags={tags} layout={layout} data={data} key={key} />)
+    const productDivs = (products) => {
+            return products.map((data, key) => <Product filter={filter} tags={tags} layout={layout} data={data} key={key} />)
         }
     
-if (displayedProducts) {
+        if (products) {
     return (
         <div>
             <button onClick={openModal}>New product</button>
@@ -119,18 +131,16 @@ if (displayedProducts) {
             </Modal>
 
             <h3>Product list</h3>
-            {checkBoxes ? checkBoxes : ""}
-            {productDivs()}
+            {tags ? createCheckBoxes() : ""}
+            {displayedProducts ? filter.length > 0 ? productDivs(displayedProducts) : productDivs(products) : productDivs(products)}
         </div>
     )
-}
-else {
-    return (
-        <div>
-            ASD
-        </div>
-    )
-}
+        }
+        else {
+            return(
+                <p>Loading..</p>
+            )
+        }
 }
 
 export default ProductList;

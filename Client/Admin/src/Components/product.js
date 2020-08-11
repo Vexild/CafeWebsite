@@ -89,7 +89,7 @@ export default function Product(props) {
 		setIsOpen(false);
 	}
 
-	if (props.layout === false && tagList) {
+	if (props.data.tags && props.layout === false && tagList) {
 		return (
 			<Container onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}>
 				<div onClick={openModal} style={{ backgroundColor: hover ? "#D2C6B8" : "" }}>
@@ -146,9 +146,7 @@ export default function Product(props) {
 	}
 	else {
 		return(
-			<div>
-				<p>Loading</p>
-			</div>
+			<></>
 		)
 	}
 }
