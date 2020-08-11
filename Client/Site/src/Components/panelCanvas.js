@@ -1,66 +1,71 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
-import Panel from './Panels/panel'
 import Menu from './menu'
 import AboutUs from './aboutUs'
 import FrontPage from './frontpage'
+import ProductPage from './singleProductPage'
+import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
 
 import CateringForm from './cateringForm'
 import SpillagePage from './spillagePage'
+import SingleProduct from './singleProductPage'
+import { ProductsContext } from "./productsContext";
+import {scroller} from "react-scroll";
 
 const PanelCanvas =  (props) => {
 
-    const showSite = props.show;
-    switch (showSite){
-        case 'frontpage':
-            return (
+    const data = useContext(ProductsContext);
+    const scrollToElement = () => {
+        scroller.scrollTo("content-element", {
+          duration: 800,
+          smooth: "easeInOutQuad",
+        });
+      }
+    return (
+        <div>
+            
+            <Route  path="/" render={(props) => (
+                <div  className="sample-font"> {scrollToElement() }</div>
+              )} />
+
+            <Route exact path="/" render={(props) => (
                 <Container>
-                    <FrontPage />
+                        <FrontPage />
+                    </Container>
+            )} />
+            <Route exact path="/menu" render={(props) => (
+                <Container>
+                    <Menu/>
                 </Container>
-            )
-        case 'aboutus':
-            return (
+            )} />
+            <Route path="/menu/:id" render={(props) => {
+                return (
+                <Container>
+                    <SingleProduct/>
+                    </Container>
+                )}} />
+            <Route path="/aboutus" render={(props) => (
                 <Container>
                     <AboutUs/>
                 </Container>
-            )
-        case 'cateringform':
-            return(
-                <Container>
-                <Row className="centered">
-                    <CateringForm />
-                </Row>
-                </Container>
-                
-            )
-
-    
-        case 'menu':
-            return (
-                <Container>
+                )} />
+            <Route path="/order" render={(props) => (
+                 <Container>
                     <Row className="centered">
-                        <Menu />
+                        <CateringForm />
                     </Row>
                 </Container>
-            )
-        case 'spillage':
-            return (
+                )} />
+            <Route path="/spillage" render={(props) => (
                 <Container>
-                    <Row className="centered">
-                        <SpillagePage />
-                    </Row>
-                </Container>
-            )
-
-        default:
-            return (
-                <div>
-                    <p>default</p>
-                </div>
-            )
-        }
-    
+                     <Row className="centered">
+                         <SpillagePage />
+                     </Row>
+                 </Container>                
+                )} />
+        </div>
+        )
 }
 
 export default PanelCanvas;
