@@ -4,14 +4,22 @@
 
 .footer-background {
   background-color: #c4c4c4;
+  height: 500px;
 }
 
 .footer-background1 {
   background-color: #6c6c6c;
+  height: 200px;
+  -webkit-box-shadow: 0px -1px 10px 0px rgba(30, 30, 30, 0.75);
+  -moz-box-shadow: 0px -1px 10px 0px rgba(30, 30, 30, 0.75);
+  box-shadow: 0px -1px 10px 0px rgba(30, 30, 30, 0.75);
 }
 
 .footer-background2 {
   background-color: #363636;
+  -webkit-box-shadow: 0px -2px 5px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px -2px 5px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px -2px 5px 0px rgba(0, 0, 0, 0.75);
 }
 
 .footer-font {
@@ -19,17 +27,20 @@
   font-size: 15px;
 }
 .footer-icon-background {
-  width: 30px;
+  width: 50px;
 }
 .footer-img-background {
   width: 100px;
   height: 70px;
 }
 .footer-map-image {
-  width: 350px;
-  height: 250px;
-  margin-top: 15px;
-  margin-bottom: 15px;
+  width: 850px;
+  height: 350px;
+  margin-top: auto;
+  margin-bottom: auto;
+  -webkit-box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.75);
 }
 
 .common-footer {
