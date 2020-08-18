@@ -5,9 +5,9 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import IGIcon from '../Icons/ig_icon_color.png'
 import FBIcon from '../Icons/fb_icon_color.png'
-import OKIcon from '../Icons/sample_logo.png'
-import MLIcon from '../Icons/sample_logo.png'
-import GMIcon from '../Icons/map_image.PNG'
+import OKIcon from '../Media/sample_logo.png'
+import MLIcon from '../Media/sample_logo.png'
+import GMIcon from '../Icons/map_image.png'
 import axios from 'axios'
 
 
