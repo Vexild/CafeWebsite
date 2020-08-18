@@ -14,9 +14,6 @@ import spillageRouter from './routers/spillage.router.js'
 import aboutUsRouter from './routers/aboutUs.router.js'
 import dailyDealsRouter from './routers/dailyDeals.router.js'
 
-const bcrypt = require('bcryptjs')
-const saltRounds = 12
-
 const port = 4000
 
 function mongoLocal() {
