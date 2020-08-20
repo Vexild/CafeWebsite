@@ -6,6 +6,7 @@ import ContactInformation from "./Components/contactInformation"
 import BusinessHours from "./Components/businessHours";
 import EditAboutus from "./Components/editAboutus";
 import DailyDeals from './Components/dailyDeals'
+import Login from './Components/login'
 import './App.css';
 
 function App() {
@@ -27,6 +28,8 @@ function App() {
         <Link to="/business-hours">Business Hours</Link>
         <Link to="/edit-aboutus">Edit Aboutus</Link>
         <Link to="/DailyDeals">Daily deal</Link>
+        <Link to="/login">Login</Link>
+
 
       </nav>
 
@@ -52,6 +55,9 @@ function App() {
 
         <Route path="/edit-aboutus">
           <EditAboutus />
+        </Route>
+        <Route path="/login">
+          <Login />
         </Route>
 
         <Route path="/">

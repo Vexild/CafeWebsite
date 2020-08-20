@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import axios from "axios"
 
 const DailyDeals = () => {
@@ -16,7 +16,7 @@ const DailyDeals = () => {
       .catch((error) => console.log(error))
   }
 
-  const handleSubmit = (data) => {
+  const handleSubmit = (content) => {
     axios.put('http://localhost:4000/api/dailydeals/put', 
     { content: content})
     .then(response => {console.log(response)})
@@ -24,9 +24,9 @@ const DailyDeals = () => {
     
   }
 
-  if (!data) {
-    getDeals()
-  }
+ useEffect(() => {
+   getDeals()
+ },[])
   
   if (data) {
 
