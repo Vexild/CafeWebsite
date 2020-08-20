@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import Tag from './tag';
+import NewTag from "./newTag";
 
 const TagList = () => {
   const [tags, setTags] = useState();
@@ -32,6 +33,8 @@ const TagList = () => {
   } else {
     return (
         <div>
+        <h2>Add a new tag</h2>
+        <NewTag />  
         <h2>Tag list</h2>
         {console.log(tags, "hulapaloo")}
         {arrayIntoComponents()}
