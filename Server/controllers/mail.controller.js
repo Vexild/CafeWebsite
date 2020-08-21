@@ -2,31 +2,29 @@ import nodemailer from 'nodemailer'
 
 export default {
     post: async (req, res) => {
-        
-        
 
-        if (req.body.to && req.body.from && req.body.message && req.body.subject) {
+        if (req.body.to && req.body.message && req.body.subject) {
             console.log("OK")
 
             let transporter = nodemailer.createTransport({
-                host: "smtp-118.luukku.com",
-                port: 587,
-                secure: true,
+                service: "gmail",
+                host: "smtp.gmail.com",
                 auth: {
-                    user: "cafesample@luukku.com",
-                    pass: "vitunkissakebab"
+                    user: process.env.MAIL_USER,
+                    pass: process.env.MAIL_PASSWORD
                 }
             })
-
+            
+/*
             transporter.verify(function(error, success) {
             if (error) {
                 console.log("kissa")
               res.send(error);
             } else {
-              res.send("Server is ready to take our messages");
+              res.send(success)
             }
           });
-/*
+          */
             await transporter.sendMail({
                 to: req.body.to,
                 from: req.body.from,
@@ -35,7 +33,6 @@ export default {
             })
             .then(response => res.send(response))
             .catch(err => res.send(err))
-            */
         }
         else {
             res.send("KURWO")

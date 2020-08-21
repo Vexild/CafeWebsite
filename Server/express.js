@@ -15,6 +15,9 @@ import aboutUsRouter from './routers/aboutUs.router.js'
 import dailyDealsRouter from './routers/dailyDeals.router.js'
 import mailRouter from './routers/mail.router.js'
 import adminRouter from './routers/admin.router.js'
+import dotenv from 'dotenv'
+
+dotenv.config()
 
 const port = 4000
 
