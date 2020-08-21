@@ -10,7 +10,7 @@ import local from 'date-fns/locale/fi';
 import ReCAPTCHA from "react-google-recaptcha";
 import axios from 'axios'
 import { OrderContext } from './orderContext'
-
+import SimpleProductCard from './Panels/simpleProductCard'
 const CateringForm =  () => {
   
     const key = process.env.REACT_APP_GOOGLE_API_KEY;
@@ -38,7 +38,7 @@ const CateringForm =  () => {
     //const gatheredDates = daysData.map( elem => { return new Date(elem.date)})
 
     const dummyReservedDaysData = [ new Date("7/30/2020") , new Date("7/2/2020"), new Date("July 29, 2020") ];
-    
+    const [productsInCart, setProductsInCart] = useState(localStorage.getItem('shoppingCart'));
 
     const handleSetComment = (event) => {
       // console.log(event.target.value)
@@ -118,12 +118,30 @@ const CateringForm =  () => {
       // }
     }
 
+    const getProductsInCart = () => {
+      const parsed = JSON.parse(productsInCart);
+      console.log("parsed",parsed.length)
+
+      if(parsed.length > 0){
+        const products = parsed.map( elem => {
+          console.log("Elem: ",elem);
+            //return elem { text, size, isButton, image}
+            return <SimpleProductCard data={elem}/>
+        })
+        return <p>{products}</p>
+      }
+      else{
+        return <p>Ostoskorissa ei tuotteita</p>
+      }
+    }
+
     return(
 
       <Container className="main-form form-frame">
 
+        {getProductsInCart()}
+        
         <Col>
-
           <Form onSubmit = {submitForm}>
 
           <Form.Row>

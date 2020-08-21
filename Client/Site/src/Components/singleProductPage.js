@@ -30,33 +30,59 @@ const SingleProduct =  () => {
     const history = useHistory();
     const contextData = useContext(ProductsContext);
     const params = useParams();
-    console.log("Params Data: ",params.id, typeof(params.id))
+    //console.log("Params Data: ",params.id, typeof(params.id))
     
     const [quantity, setQuantity] = useState('1');
     const [succcessModal, setSuccessModal] = useState(false)
     
 
-    console.log("contextData", contextData)
+    //console.log("contextData", contextData)
     const product = contextData.find( elem => slugify(elem.name) === params.id)
-    // const product = contextData.map( elem =>{
-    //     console.log(elem.name);
-    // })
-    console.log("product", product)
-    // const description = product.desc;
-    // const productImage = product.image;
 
     const handleQuantity = (event) => {
         setQuantity(event.target.value);
     }
 
-    const addToCart = () => {
-        setSuccessModal(true);
-        console.log("Added ", quantity, " to cart");
-    }
     const closeSuccessModal = () => {
+        window.location.reload(false);
         setSuccessModal(false)
     }
-   
+
+    const [productsInCart, setProductsInCart] = useState([])
+    const getShopingCart = () => {
+        const resource = JSON.parse(localStorage.getItem('shoppingCart') || "[]");
+        resource ? setProductsInCart(resource) : (
+            console.log("ERROR: No localstorage")
+        )
+    }
+
+    // add a state of array of products. everytime when the state updates, run useEffect to update the localstorage
+    // This needs to be then applied to the header to show the shopping cart image (get the local storage, check the length and print corresponding value)
+
+
+    const addToCart = () => {
+        let newProduct = { name: product.name , quantity: quantity , id: product.id}
+        try{
+            console.log("This is what we're trying to save:", newProduct)
+            setProductsInCart([ ... productsInCart, newProduct])
+            console.log("This is what we have in state: ", productsInCart)
+        }
+        catch(e){
+            console.log("Error: ",e);
+        }
+        setSuccessModal(true);
+    }
+
+    useEffect(() => {
+        getShopingCart()
+    },[]);
+
+    useEffect(() => {
+        console.log("Storage ceared");
+        localStorage.setItem('shoppingCart', JSON.stringify(productsInCart))
+        console.log("new array set to Storage ", productsInCart);
+    }, [productsInCart]);
+
     try{
 
         return (
@@ -106,7 +132,7 @@ const SingleProduct =  () => {
             </Modal>
         </Col>
         ): ( 
-            <div>Valitettavasti tuotetta ei löydy valikoimastamme.as</div>
+            <div>Valitettavasti tuotetta ei löydy valikoimastamme.</div>
             )}
         </div>
     )
