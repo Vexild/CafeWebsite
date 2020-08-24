@@ -3,7 +3,7 @@ import nodemailer from 'nodemailer'
 export default {
     post: async (req, res) => {
 
-        if (req.body.to && req.body.message && req.body.subject) {
+        if (req.body.to && req.body.text && req.body.subject) {
             console.log("OK")
 
             let transporter = nodemailer.createTransport({
@@ -27,7 +27,7 @@ export default {
           */
             await transporter.sendMail({
                 to: req.body.to,
-                from: req.body.from,
+                //from: req.body.from,
                 subject: req.body.subject,
                 text: req.body.message
             })
