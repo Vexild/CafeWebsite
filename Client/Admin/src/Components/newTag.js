@@ -3,8 +3,8 @@ import axios from 'axios'
 
 const NewTag = () => {
     const [name, setName] = useState();
-    const [isProductType, setIsProductType] = useState();
-    const [isPriority, setIsPriority] = useState();
+    const [isProductType, setIsProductType] = useState(false);
+    const [isPriority, setIsPriority] = useState(false);
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -16,12 +16,32 @@ const NewTag = () => {
         })
     }
 
+    const handleCheckboxPriority = () => {
+        if(isPriority){
+            setIsPriority(false)
+        }
+        else {
+            setIsPriority(true)
+        }
+        console.log(isPriority);
+    }
+
+    const handleCheckboxType = () => {
+        if(isProductType){
+            setIsProductType(false)
+        }
+        else {
+            setIsProductType(true)
+        }
+        console.log(isProductType);
+    }
+
     return(
         <div>
             <form>
                 <input onChange={e => setName(e.target.value)} type="text" name="name" placeholder="Tag name"/>
-                <br/><input onChange={e => setIsProductType(e.target.value)} type="text" name="isProductType" placeholder="Tag Type"/>
-                <br/><input onChange={e => setIsPriority(e.target.value)} type="text" name="isPriority" placeholder="Tag Priority"/>
+                <br/><input onClick={handleCheckboxType} type="checkbox" name="isProductType"/> Type
+                <br/><input onClick={handleCheckboxPriority} type="checkbox" name="isPriority"/> Priority
                 <br/><input type="submit" onClick={e => handleSubmit(e)} value="Add Tag"/>
             </form>
         </div>    
