@@ -6,7 +6,6 @@ import Form from 'react-bootstrap/Form'
 import DatePicker from 'react-datepicker'
 import "react-datepicker/dist/react-datepicker.css"
 import local from 'date-fns/locale/fi';
-import ReCAPTCHA from "react-google-recaptcha";
 
 // import axios from 'axios'
 
