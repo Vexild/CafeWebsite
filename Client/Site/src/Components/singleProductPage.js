@@ -61,11 +61,46 @@ const SingleProduct =  () => {
 
 
     const addToCart = () => {
-        let newProduct = { name: product.name , quantity: quantity , id: product.id}
-        try{
-            console.log("This is what we're trying to save:", newProduct)
-            setProductsInCart([ ... productsInCart, newProduct])
-            console.log("This is what we have in state: ", productsInCart)
+        const newProduct = { name: product.name , quantity: quantity , id: product.id}
+        try{            
+            let dataInStorage = JSON.parse(localStorage.getItem('shoppingCart') || "[]");
+            console.log("Data in storage", dataInStorage)
+            if(dataInStorage.length > 0){
+
+                dataInStorage.find((elem) => {
+                    if(elem.id === newProduct.id){
+                    elem.quantity = parseInt(elem.quantity) + parseInt(newProduct.quantity)
+                    setProductsInCart(dataInStorage)
+                }
+                else{
+                    setProductsInCart([ ... productsInCart, newProduct])
+                }})
+            }else{
+                setProductsInCart([ ... productsInCart, newProduct])
+            }
+            // if(dataInStorage.length > 0){
+            //     const checkIfExists = dataInStorage.map(elem => {
+            //         if(elem.id === newProduct.id){
+            //             console.log("Match!", elem.name, elem.id)
+            //             // console.log("Data in storage", dataInStorage)
+
+            //             dataInStorage = dataInStorage ? dataInStorage : {}
+            //             console.log("data types",  parseInt(dataInStorage[0].quantity), parseInt(newProduct.quantity)) 
+        
+            //             dataInStorage[0].quantity =  (parseInt(dataInStorage[0].quantity) + parseInt(newProduct.quantity)).toString();
+            //             console.log("New data", dataInStorage) 
+                        
+            //             //localStorage.clear()
+            //             //localStorage.setItem('shoppingCart',  JSON.stringify(dataInStorage))
+            //             setProductsInCart([ ... productsInCart, dataInStorage])
+            //         }
+            //     })
+            //     if(!checkIfExists || dataInStorage.length > 0){
+            //         setProductsInCart([ ... productsInCart, newProduct])
+            //     }
+            // } else{
+            //     setProductsInCart([ ... productsInCart, newProduct])
+            // }
         }
         catch(e){
             console.log("Error: ",e);
@@ -78,7 +113,6 @@ const SingleProduct =  () => {
     },[]);
 
     useEffect(() => {
-        console.log("Storage ceared");
         localStorage.setItem('shoppingCart', JSON.stringify(productsInCart))
         console.log("new array set to Storage ", productsInCart);
     }, [productsInCart]);

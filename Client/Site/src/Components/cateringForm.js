@@ -73,49 +73,20 @@ const CateringForm =  () => {
 
     const submitForm = (event) => {
       event.preventDefault();
-      if(isHuman){
         console.log(comment, name, email, phonenumber, location, startDate.toDateString())
-        // do axios
-      }
-      else{
-        console.log("ERROR")
-      }
-    }
-
-    async function onChange(value){
-      console.log("ReCaptcha value", value)
-      // try{
-        let areYouHuman = await axios({
-          method: 'post',
-          url: 'https://www.google.com/recaptcha/api/siteverify', 
-          headers: {
-            "Accept": "application/json",
-            "Content-Type": "application/x-www-form-urlencoded; charset=utf-8",
-            'Access-Control-Allow-Origin' : '*' 
-          },
-          params: {
-            secret:  {sec},
-            response: {key}
-          }
-        }).then( (verification =>{
-
-          console.log("VER",verification)
-        })
-        );
-        let data = areYouHuman.data || {};
-        if(!data.success){
-            throw({
-                success: false,
-                error: 'response not valid'
+        const products = localStorage.getItem('shoppingCart');
+        const title = "Tilaus"
+        const message = "Asiakastilaus\n\nTilaaja: "+{name}+"\nSähköposti: "+{email}+"\nPuh nro: "+ {phonenumber} +"\nPaikka: "+{location}+"\n"+
+          "Päivämäärä: "+{startDate} + "\n\nTuotteet:\n"+{products}+"\n\nTämä on lähetetty sisäisestä palvelusta";
+        const mail = { to: 'vili.ahonen@hotmail.com', subject: title, string: message}
+        axios.post('https://localhost:4000/api/mail/post', mail)
+          .then(Response => {
+            console.log(Response);
           })
-        }
-      // }
-      // }catch(err){
-
-      //   console.log(err);
-      //   throw err.response ? err.response.data : {success: false, error: 'captcha_error'}
-   
-      // }
+          .catch(err => {
+            console.log(err)
+          })
+        // do axios 
     }
 
     const getProductsInCart = () => {
@@ -126,7 +97,7 @@ const CateringForm =  () => {
         const products = parsed.map( elem => {
           console.log("Elem: ",elem);
             //return elem { text, size, isButton, image}
-            return <SimpleProductCard data={elem}/>
+            return <SimpleProductCard data={elem} allData={productsInCart}/>
         })
         return <p>{products}</p>
       }
@@ -217,7 +188,7 @@ const CateringForm =  () => {
         </Col> */}
       
         <Col className="form-center-col">
-          <Button type="submit">
+          <Button onClick={submitForm} type="submit">
             Lähetä
           </Button>
         </Col>
