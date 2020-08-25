@@ -52,7 +52,6 @@ function App() {
         <Route path="/business-hours">
           <BusinessHours />
         </Route>
-
         <Route path="/edit-aboutus">
           <EditAboutus />
         </Route>

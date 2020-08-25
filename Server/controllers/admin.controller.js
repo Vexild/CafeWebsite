@@ -43,7 +43,6 @@ export default {
     },
     logIn: async (req, res) => { 
         
-        //move to .env
         const tempSecret = "asdfghj"
         
         const admin = await Admin.findOne({})
@@ -61,7 +60,7 @@ export default {
             res.send(token)
         }
         else {
-            res.send(403)
+            res.sendStatus(403)
         }
     },
     testToken: async (req, res) => {
@@ -74,7 +73,7 @@ export default {
         jwt.verify(req.token, tempSecret, (err, authorizedData) => {
             if (err) {
                 console.log(err)
-                res.send(403)
+                res.sendStatus(403)
             }
             else {
                 res.send("Success", authorizedData)

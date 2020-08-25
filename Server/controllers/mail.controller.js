@@ -27,9 +27,8 @@ export default {
           */
             await transporter.sendMail({
                 to: req.body.to,
-                //from: req.body.from,
                 subject: req.body.subject,
-                text: req.body.message
+                text: req.body.text
             })
             .then(response => res.send(response))
             .catch(err => res.send(err))
