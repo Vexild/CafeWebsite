@@ -63,7 +63,7 @@ const CateringForm =  () => {
 
     const getProductTable = () => {
       let toParse = "";
-      const prod = JSON.parse(localStorage.getItem('shoppingCart'));
+      const prod = JSON.parse(localStorage.getItem('shoppingCart') || "[]");
       prod.map((elem) => {
         // ugly, i know
          toParse += (elem.name+" "+elem.quantity+" kappaletta")
