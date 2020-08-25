@@ -81,8 +81,19 @@ const CateringForm =  () => {
       event.preventDefault();
         const products = getProductTable()
         const title = "Tilaus"
-        const message = "Asiakastilaus\n\nTilaaja: "+name+"\nSähköposti: "+email+"\nPuh nro: "+phonenumber+"\nPaikka: "+location+"\n"+
-          "Päivämäärä: "+startDate + "\n\nTuotteet:\n"+products+"\nTämä on lähetetty sisäisestä palvelusta";
+
+        const message =` 
+        Asiakastilaus
+        Nimi: ${name}
+        Sähköposti: ${email}
+        Puh nro: ${phonenumber}
+        Päivämäärä: ${startDate}
+        Paikka: ${location}
+        
+        Viesti: ${comment}
+        
+        Tämä on lähetetty sisäisestä palvelusta.`
+
         const mail = { to: email, subject: title, text: message}
         axios.post('http://localhost:4000/api/mail/post',mail)
           .then(Response => {
