@@ -78,29 +78,6 @@ const SingleProduct =  () => {
             }else{
                 setProductsInCart([ ... productsInCart, newProduct])
             }
-            // if(dataInStorage.length > 0){
-            //     const checkIfExists = dataInStorage.map(elem => {
-            //         if(elem.id === newProduct.id){
-            //             console.log("Match!", elem.name, elem.id)
-            //             // console.log("Data in storage", dataInStorage)
-
-            //             dataInStorage = dataInStorage ? dataInStorage : {}
-            //             console.log("data types",  parseInt(dataInStorage[0].quantity), parseInt(newProduct.quantity)) 
-        
-            //             dataInStorage[0].quantity =  (parseInt(dataInStorage[0].quantity) + parseInt(newProduct.quantity)).toString();
-            //             console.log("New data", dataInStorage) 
-                        
-            //             //localStorage.clear()
-            //             //localStorage.setItem('shoppingCart',  JSON.stringify(dataInStorage))
-            //             setProductsInCart([ ... productsInCart, dataInStorage])
-            //         }
-            //     })
-            //     if(!checkIfExists || dataInStorage.length > 0){
-            //         setProductsInCart([ ... productsInCart, newProduct])
-            //     }
-            // } else{
-            //     setProductsInCart([ ... productsInCart, newProduct])
-            // }
         }
         catch(e){
             console.log("Error: ",e);
