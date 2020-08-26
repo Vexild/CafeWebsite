@@ -10,18 +10,19 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import "./css/styles.css";
 import axios from 'axios'
 import { ProductsContext } from './Components/productsContext'
+import apiUrl from './api'
+
 // import { OrderContext } from './Components/orderContext'
 
-
 function App() {
-  
+    
   const [products, setProducts] = useState([])
   const [shopingCart, setShopingCart] = useState([])
 
   // GET PRODUCT FROM DB
 
   const getProducts = () => {
-    return axios.get(`http://localhost:4000/api/products/get`)
+    return axios.get(apiUrl + "/api/products/get")
     .then(response => {
       let parsedBSON
       //console.log(response.data)

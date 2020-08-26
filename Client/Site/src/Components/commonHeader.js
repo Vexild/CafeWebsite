@@ -12,6 +12,8 @@ import OpeningHoursComponent from './openingHours';
 import IGIcon from '../Icons/ig_icon_color.png'
 import FBIcon from '../Icons/fb_icon_color.png'
 import ShoppingCartIcon from '../Icons/shopping_cart.png'
+import apiUrl from '../api'
+
 
 const CommonHeader = () => {
 

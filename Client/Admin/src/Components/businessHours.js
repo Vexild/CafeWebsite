@@ -13,7 +13,7 @@ const BusinessHours = () => {
 
     if (content) {
       axios
-        .put('http://localhost:4000/api/businesshours/put', {
+        .put(apiUrl + "/api/businesshours/put", {
           content: content
         })
         .then((response) => {
@@ -27,7 +27,7 @@ const BusinessHours = () => {
 
   const getHours = () => {
     return axios
-      .get(`http://localhost:4000/api/businesshours/get`)
+      .get(apiUrl + "/api/businesshours/get")
       .then((response) => {
         let parsedBSON;
         parsedBSON = JSON.parse(JSON.stringify(response.data));

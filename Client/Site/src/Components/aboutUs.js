@@ -5,13 +5,15 @@ import Panel from './Panels/panel'
 import axios from 'axios'
 import testImage1 from '../Media/cafe_1.jpg'
 import testImage2 from '../Media/cafe_2.jpg'
+import apiUrl from '../api'
+
 
 const AboutUs = () => {
 
     const [value, setValue] = useState("")
 
     const getTxt = () => {
-        return axios.get(`http://localhost:4000/api/aboutus/get`)
+        return axios.get(apiUrl + "/api/aboutus/get")
         .then(response => {
             let parsedBSON
             //console.log(response.data)

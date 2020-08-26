@@ -7,6 +7,8 @@ import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import Button from 'react-bootstrap/Button';
 import {scroller} from "react-scroll";
+import apiUrl from '../api'
+
 
 const customCarousel = ()  => {
 

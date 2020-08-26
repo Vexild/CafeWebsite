@@ -16,7 +16,7 @@ const ProductList = () => {
     const [tempProducts, setTempProducts] = useState()
 
     const getProducts = () => {
-        return axios.get(`http://localhost:4000/api/products/get`)
+        return axios.get(apiUrl + "/api/products/get")
             .then(response => {
                 let parsedBSON
                 parsedBSON = JSON.parse(JSON.stringify(response.data))
@@ -30,7 +30,7 @@ const ProductList = () => {
     
 
     const getTags = () => {
-        return axios.get('http://localhost:4000/api/tags/get')
+        return axios.get(apiUrl + "/api/tags/get")
             .then(response => {
                 setTags(response.data)
             })

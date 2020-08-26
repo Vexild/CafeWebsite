@@ -18,7 +18,7 @@ export default function LogIn() {
             setError()
         }
 
-        axios.post('http://localhost:4000/api/restrictedzone/login', {
+        axios.post(apiUrl + "/api/restrictedzone/login", {
             password: password
         })
         .catch(err => {
@@ -31,7 +31,7 @@ export default function LogIn() {
         if (error) {
             setError()
         }
-        axios.get('http://localhost:4000/api/restrictedzone/test')
+        axios.get(apiUrl + "/api/restrictedzone/test")
         .then(response => console.log(response), setError(""))
         .catch(err => {
             setError("Auth failed.")

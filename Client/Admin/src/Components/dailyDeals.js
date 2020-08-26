@@ -6,7 +6,7 @@ const DailyDeals = () => {
   const [data, setData] = useState()
 
   const getDeals = () => {
-      axios.get(`http://localhost:4000/api/dailydeals/get`)
+      axios.get(apiUrl + "/api/dailydeals/get")
       .then((response) => {
         let parsedBSON
         //parsedBSON = JSON.parse(JSON.stringify(response.data))
@@ -17,7 +17,7 @@ const DailyDeals = () => {
   }
 
   const handleSubmit = (content) => {
-    axios.put('http://localhost:4000/api/dailydeals/put', 
+    axios.put(apiUrl + "/api/dailydeals/put", 
     { content: content})
     .then(response => {console.log(response)})
     .catch(error => {console.log(error)})

@@ -11,7 +11,7 @@ const ContactInformation = () => {
     const handleSubmit = (event) => {
         event.preventDefault()
 
-       axios.post('http://localhost:4000/api/info/edit',{
+       axios.post(apiUrl + "/api/info/edit",{
            address: address ? address : info[0].address,
            phone: phone ? phone : info[0].phone,
            city: city ? city : info[0].city,
@@ -25,7 +25,7 @@ const ContactInformation = () => {
     }
 
     const getInfo = () => {
-        return axios.get(`http://localhost:4000/api/info/get`)
+        return axios.get(apiUrl + "/api/info/get")
             .then(response => {
                 let parsedBSON
                 parsedBSON = JSON.parse(JSON.stringify(response.data))

@@ -29,7 +29,7 @@ const EditAboutus = () => {
      event.preventDefault();
 
        axios
-         .put('http://localhost:4000/api/aboutus/put', {
+         .put(apiUrl + "/api/aboutus/put", {
            content: value1, content2: value2, content3: value3
          })
          .then((response) => {
@@ -40,7 +40,7 @@ const EditAboutus = () => {
 
   const getAboutUs = () => {
     return axios
-      .get(`http://localhost:4000/api/aboutus/get`)
+      .get(apiUrl + "/api/aboutus/get")
       .then((response) => {
         let parsedBSON;
         parsedBSON = JSON.parse(JSON.stringify(response.data));
