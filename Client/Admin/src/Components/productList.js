@@ -3,6 +3,8 @@ import Modal from 'react-modal'
 import NewProduct from './newProduct'
 import axios from 'axios'
 import Product from './product'
+import apiUrl from '../api'
+
 Modal.setAppElement('#root')
 
 const ProductList = () => {

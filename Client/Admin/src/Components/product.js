@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Container, Row, Col, Image, Button } from "react-bootstrap";
 import Modal from 'react-modal';
 import axios from 'axios'
+import apiUrl from '../api'
 
 export default function Product(props) {
 	const [hover, setHover] = useState(false)

@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import axios from 'axios'
+import apiUrl from '../api'
 
 export default function LogIn() {
     const [password, setPassword] = useState()

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios'
-    
+import apiUrl from '../api' 
+
 const ContactInformation = () => {
     const [info, setInfo] = useState()
     const [address, setAddress] = useState()

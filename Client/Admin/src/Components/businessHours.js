@@ -3,6 +3,7 @@ import CKEditor from "@ckeditor/ckeditor5-react";
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 import parse from "html-react-parser";
 import axios from "axios";
+import apiUrl from '../api' 
 
 const BusinessHours = () => {
   const [content, setContent] = useState("");

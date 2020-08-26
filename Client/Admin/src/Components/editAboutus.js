@@ -4,6 +4,7 @@ import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import ReactHtmlParser from "html-react-parser";
 import axios from "axios";
 import ImageUploading from "react-images-uploading";
+import apiUrl from '../api'
 
 const EditAboutus = () => {
   const [value1,setValue1] = useState("") 
