@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import Container from 'react-bootstrap/Container'
 import Col from 'react-bootstrap/Col'
-import Row from 'react-bootstrap/Row'
+import { BrowserRouter as Link} from 'react-router-dom'
 import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
 import DatePicker from 'react-datepicker'
@@ -202,6 +202,7 @@ const CateringForm =  () => {
                 <h3>Tilauksesi on lähetetty!</h3>
                 <p>Saat pian vahvistussähköpostin.</p>
                 <p>Otamme yhteyttä tarvittaessa.</p>
+                <Link to={"/"+window.location.href}>About</Link>
                 <Button onClick={closeSuccessModal} >OK</Button>                    
             </Modal>
     </Col>

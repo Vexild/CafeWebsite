@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useContext } from 'react'
 import Container from 'react-bootstrap/Container'
 import Col from 'react-bootstrap/Col'
+import Row from 'react-bootstrap/Row'
 import Button from 'react-bootstrap/Button';
 import Image from 'react-bootstrap/Image';
-import Row from 'react-bootstrap/Row'
 import Modal from 'react-modal';
 import { BrowserRouter as Router, Route, Link, Switch, useParams, useHistory} from 'react-router-dom'
 import { ProductsContext } from "./productsContext";
