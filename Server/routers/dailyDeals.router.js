@@ -5,6 +5,5 @@ import auth from './auth.js'
 const route = express.Router()
 
 route.get('/api/dailydeals/get', dailyDealsController.get)
-route.use(auth)
-route.put('/api/dailydeals/put', dailyDealsController.put)
+route.put('/api/dailydeals/put', auth, dailyDealsController.put)
 export default route
