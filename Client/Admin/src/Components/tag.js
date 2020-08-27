@@ -5,8 +5,10 @@ const Tag = (props) => {
 
   const deleteTag = () => {
     const body = {
+      data: {
       _id: props.data._id
-    };
+    }
+  };
 
     console.log("BODY", body)
 
