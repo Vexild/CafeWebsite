@@ -6,6 +6,14 @@ import NewTag from "./newTag";
 const TagList = () => {
   const [tags, setTags] = useState();
 
+  const removeTag = (id) => {
+    setTags(
+      tags.filter(tag => {
+        return tag._id !== id
+      })
+    )
+  }
+
   const getTags = () => {
     return axios
       .get(`http://localhost:4000/api/tags/get`)
@@ -20,7 +28,11 @@ const TagList = () => {
   };
 
   const arrayIntoComponents = () => {
-    return tags.map((data, key) => <Tag data={data} key={key} /> )
+    return tags.map(
+      (tag, key) => {
+        return <Tag data={tag} key={key} remove={() => removeTag(tag._id)} /> 
+      }
+    );
   }
 
   if (!tags) {
