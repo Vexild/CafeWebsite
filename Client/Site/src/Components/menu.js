@@ -74,7 +74,7 @@ const Menu = (props) => {
             )
         }
     }
-    console.log("item",isItemSelected)
+    //console.log("item",isItemSelected)
     return(
         <div>
             {isItemSelected ? (

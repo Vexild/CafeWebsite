@@ -26,6 +26,8 @@ const CommonFooter = () => {
       getContactInfo()
   }
 
+  
+
     return (
         <Container fluid className="common-footer">
 

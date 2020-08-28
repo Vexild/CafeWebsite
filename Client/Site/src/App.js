@@ -24,29 +24,23 @@ function App() {
     return axios.get(`http://localhost:4000/api/products/get`)
     .then(response => {
       let parsedBSON
-      console.log(response.data)
+      //console.log(response.data)
       parsedBSON = JSON.parse(JSON.stringify(response.data))
       setProducts(parsedBSON)
       return response.data
       })
     .catch(error => console.log(error))
   }
-  
-  const getShopingCart = () => {
-    let value = { name: "soppaa", quantity: "2", id: "asdasd123123"}
-    localStorage.setItem('myValueInLocalStorage', value);
-    console.log("Localstorage",localStorage.getItem(value))
-  }
 
   useEffect(() => {
     if (products.length === 0) {
       console.log("getProducts")
       getProducts()
-      getShopingCart()
+      //getShopingCart()
     }
   },[]);
   
-  console.log("PROD", products)
+  //console.log("PROD", products)
 
   return (
     <ProductsContext.Provider value={products}>

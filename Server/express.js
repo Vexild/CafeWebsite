@@ -13,6 +13,11 @@ import tagsRouter from './routers/tags.router.js'
 import spillageRouter from './routers/spillage.router.js'
 import aboutUsRouter from './routers/aboutUs.router.js'
 import dailyDealsRouter from './routers/dailyDeals.router.js'
+import mailRouter from './routers/mail.router.js'
+import adminRouter from './routers/admin.router.js'
+import dotenv from 'dotenv'
+
+dotenv.config()
 
 const port = 4000
 
@@ -48,11 +53,17 @@ mongoose.set('useFindAndModify', false);
 
 const upload = multer()
 
+const corsOptions = {
+        origin: ['http://localhost:3001', 'http://localhost:3000'],
+        credentials: true
+    }
+
+
 //Express
 const app = express()
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
-app.use(cors())
+app.use(cors(corsOptions))
 
 app.post('/api/edit', upload.fields([]), async (req, res) => {
     console.log(req.body)
@@ -103,5 +114,7 @@ app.use(tagsRouter)
 app.use(spillageRouter)
 app.use(aboutUsRouter)
 app.use(dailyDealsRouter)
+app.use(mailRouter)
+app.use(adminRouter)
 
 app.listen(port, () => console.log(`Backend API listening on port ${port}!`));

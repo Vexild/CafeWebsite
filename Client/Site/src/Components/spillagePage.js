@@ -6,10 +6,8 @@ import Form from 'react-bootstrap/Form'
 import DatePicker from 'react-datepicker'
 import "react-datepicker/dist/react-datepicker.css"
 import local from 'date-fns/locale/fi';
-import ReCAPTCHA from "react-google-recaptcha";
-
-// import axios from 'axios'
-
+import Modal from 'react-modal';
+import axios from 'axios'
 
 const SpillagePage =  () => {
 
@@ -17,9 +15,25 @@ const SpillagePage =  () => {
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
     const [phonenumber, setPhonenumber] = useState('')
-    const key = process.env.REACT_APP_GOOGLE_API_KEY
-
+    const [succcessModal, setSuccessModal] = useState(false)
     const dummyReservedDaysData = [  new Date("7/30/2020") , new Date("7.2.2020"), new Date("July 29, 2020") ];
+    
+    const successModalStyle = {
+      content : {
+        top                   : '50%',
+        left                  : '50%',
+        right                 : 'auto',
+        bottom                : 'auto',
+        marginRight           : '-50%',
+     transform             : 'translate(-50%, -50%)',
+           position				  : 'absolute'
+      },
+      overlay: {zIndex: 1000}
+    };
+    const closeSuccessModal = () => {
+      setSuccessModal(false)
+      window.location.reload(false);
+  }
 
     const handleSetName = (event) => {
       // console.log(event.target.value)
@@ -42,7 +56,25 @@ const SpillagePage =  () => {
 
     const submitForm = (event) => {
       event.preventDefault();
-      console.log(name, email, phonenumber, startDate.toDateString())
+        const title = "Hävikkijono ilmoitus"
+        const message =` 
+        Hävikkijono ilmoitus
+        Nimi: ${name}
+        Sähköposti: ${email}
+        Puh nro: ${phonenumber}
+        Päivämäärä: ${startDate}
+                
+        Tämä on lähetetty sisäisestä palvelusta.`
+        const mail = { to: email, subject: title, text: message}
+        axios.post('http://localhost:4000/api/mail/post',mail)
+          .then(Response => {
+            console.log(Response);
+            localStorage.clear();
+            setSuccessModal(true);
+          })
+          .catch(err => {
+            console.log(err)
+          })
     }
 
     return(
@@ -93,15 +125,6 @@ const SpillagePage =  () => {
               showWeekNumbers required/>
             </Col>
           </Form.Row>
-
-          {/* <Col className="form-center-col">
-            <ReCAPTCHA
-            className="g-recaptcha"
-            sitekey={key}
-            onChange={onChange}
-            />
-          </Col> */}
-        
           <Col className="form-center-col">
             <Button type="submit">
               Lähetä
@@ -110,6 +133,15 @@ const SpillagePage =  () => {
 
         </Form>
       </Col>
+      <Modal 
+          isOpen={succcessModal}
+          onRequestClose={closeSuccessModal}
+          style={successModalStyle}
+          contentLabel="Spillage">
+          <h3>Teidät on lisätty jonoon!</h3>
+          <p>Ilmoitamme tarkempia tietoja pian sähköpostilla.</p>
+          <Button onClick={closeSuccessModal} >OK</Button>                    
+      </Modal>
     </Container>
 
 )
