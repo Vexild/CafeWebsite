@@ -25,15 +25,15 @@ function App() {
             <h3>Control Panel</h3>
           </header> 
           <Col className="flex-column" md="2">
-            <Link to="/">Home</Link>
-            <Link to="/products">Products</Link>
-            <Link to="/tags">Tags</Link>
-            <Link to="/contact-information">Contact Info</Link>
-            <Link to="/media"></Link>
-            <Link to="/business-hours">Business Hours</Link>
-            <Link to="/edit-aboutus">Edit Aboutus</Link>
-            <Link to="/DailyDeals">Daily deal</Link>
-            <Link to="/login">Login</Link>
+            <Link className="main-left-font padded" to="/">Home</Link>
+            <Link className="main-left-font padded" to="/products">Products</Link>
+            <Link className="main-left-font padded" to="/tags">Tags</Link>
+            <Link className="main-left-font padded" to="/contact-information">Contact Info</Link>
+            <Link className="main-left-font padded" to="/media"></Link>
+            <Link className="main-left-font padded" to="/business-hours">Business Hours</Link>
+            <Link className="main-left-font padded" to="/edit-aboutus">Edit Aboutus</Link>
+            <Link className="main-left-font padded" to="/DailyDeals">Daily deal</Link>
+            <Link className="main-left-font padded" to="/login">Login</Link>
           </Col>
         </Col>
         <Col className="main-right main-left-font">

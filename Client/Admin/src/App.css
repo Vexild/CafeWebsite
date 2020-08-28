@@ -45,17 +45,26 @@
   border: 2px rgb(9, 133, 126) solid;
 } 
 .main-left{
-  min-height: 96vh;
   padding: 10px;
   background-color: rgb(210, 247, 255);
 }
 .main-left-font{
   font-family: Arial;
+  color: black;
+  text-decoration: none;
 }
+.padded{
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+.padded:hover{
+  text-decoration: underline;
+  color: rgb(24, 82, 109);
+}
+
 .main-right{
   padding-left: 10px;
   position: relative;
-  
 }
 .right-page-title{
   position: relative;
@@ -69,4 +78,5 @@
 .flex-row{ 
   display: flex;
   flex-direction: row;
+  height: 100%;
 }
