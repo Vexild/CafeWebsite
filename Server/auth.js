@@ -4,7 +4,7 @@ import jwt from 'jsonwebtoken'
      console.log("Auth")
      if (!req.header('cookie')) {
          console.log("No cookie")
-            res.sendStatus(403)
+            res.sendStatus(401)
         }
         else {
             console.log("Cookie: ", req.header('cookie'))
