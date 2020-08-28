@@ -38,7 +38,7 @@ const DailyDeals = () => {
         Set empty deal to hide chalkboard.<br/>
         <br/><label >Daily deal</label><br/>
         <input onChange={e => setContent(e.target.value)} defaultValue={content} placeholder="content" type="text" name="content" />
-        <br/><input onClick={handleSubmit(content)} value="Update" type="submit" />
+        <br/><input onClick={() => handleSubmit(content)} value="Update" type="submit" />
       </div>
     )
   }

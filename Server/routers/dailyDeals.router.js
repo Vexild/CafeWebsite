@@ -1,6 +1,6 @@
 import express from 'express'
 import dailyDealsController from '../controllers/dailyDeals.controller.js'
-import auth from './auth.js'
+import auth from '../auth.js'
 
 const route = express.Router()
 
