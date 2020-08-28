@@ -5,6 +5,7 @@ import apiUrl from '../api'
 export default function LogIn() {
     const [password, setPassword] = useState()
     const [error, setError] = useState()
+    const [loginSuccess, setLoginSuccess] = useState(false)
 
     //axios.defaults.withCredentials = true
     axios.create({
@@ -22,6 +23,8 @@ export default function LogIn() {
         axios.post(apiUrl + "/api/restrictedzone/login", {
             password: password
         })
+        .then(response => {
+            response.status == 200 ? setLoginSuccess(true) : setLoginSuccess(false)})
         .catch(err => {
             console.log(err)
             setError("Authentication failed.")
@@ -35,7 +38,7 @@ export default function LogIn() {
         axios.get(apiUrl + "/api/restrictedzone/test")
         .then(response => console.log(response), setError(""))
         .catch(err => {
-            setError("Auth failed.")
+            setError("Auth failed.", err)
         })
     }
     
@@ -43,10 +46,11 @@ export default function LogIn() {
     return(
         <div>
             <label for="Password">Password</label><br/>
-            <input type="text" onChange={e => setPassword(e.target.value)} name="password" /><br/>
+            <input type="password" onChange={e => setPassword(e.target.value)} name="password" /><br/>
             <input type="button" value="login" onClick={() => handleSubmit()}/>
             <input type="button" value="check" onClick={() => checkToken()}/>
             <br/>{error ? error : ""}
+            <br/>{loginSuccess ? <p>Login Success!</p> : ""}
         </div>
     )
 }
