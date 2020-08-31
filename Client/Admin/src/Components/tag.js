@@ -1,5 +1,6 @@
 import React from "react";
 import Axios from "axios";
+import apiUrl from '../api' 
 
 const Tag = (props) => {
 
@@ -12,7 +13,7 @@ const Tag = (props) => {
 
     console.log("BODY", body)
 
-    Axios.delete('http://localhost:4000/api/tags/delete/', body)
+    Axios.delete(apiUrl + "/api/tags/delete/", body)
     .then(response => {
       console.log(response)
       props.remove()

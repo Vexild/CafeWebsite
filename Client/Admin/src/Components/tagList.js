@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import Tag from './tag';
 import NewTag from "./newTag";
-
+import apiUrl from '../api' 
 const TagList = () => {
   const [tags, setTags] = useState();
 
@@ -16,7 +16,7 @@ const TagList = () => {
 
   const getTags = () => {
     return axios
-      .get(`http://localhost:4000/api/tags/get`)
+      .get(apiUrl + "/api/tags/get")
       .then((response) => {
         let parsedBSON;
         parsedBSON = JSON.parse(JSON.stringify(response.data));

@@ -25,54 +25,54 @@ function App() {
             <h3>Control Panel</h3>
           </header> 
           <Col className="flex-column" md="2">
-            <Link className="main-left-font padded" to="/">Home</Link>
-            <Link className="main-left-font padded" to="/products">Products</Link>
-            <Link className="main-left-font padded" to="/tags">Tags</Link>
-            <Link className="main-left-font padded" to="/contact-information">Contact Info</Link>
-            <Link className="main-left-font padded" to="/media"></Link>
-            <Link className="main-left-font padded" to="/business-hours">Business Hours</Link>
-            <Link className="main-left-font padded" to="/edit-aboutus">Edit Aboutus</Link>
-            <Link className="main-left-font padded" to="/DailyDeals">Daily deal</Link>
-            <Link className="main-left-font padded" to="/login">Login</Link>
+            <Link className="main-left-font padded" to="/cpanel/">Home</Link>
+            <Link className="main-left-font padded" to="/cpanel/products">Products</Link>
+            <Link className="main-left-font padded" to="/cpanel/tags">Tags</Link>
+            <Link className="main-left-font padded" to="/cpanel/contact-information">Contact Info</Link>
+            <Link className="main-left-font padded" to="/cpanel/media"></Link>
+            <Link className="main-left-font padded" to="/cpanel/business-hours">Business Hours</Link>
+            <Link className="main-left-font padded" to="/cpanel/edit-aboutus">Edit Aboutus</Link>
+            <Link className="main-left-font padded" to="/cpanel/DailyDeals">Daily deal</Link>
+            <Link className="main-left-font padded" to="/cpanel/login">Login</Link>
           </Col>
         </Col>
         <Col className="main-right main-left-font">
           <Switch>
-            <Route path="/DailyDeals">
+            <Route path="/cpanel/DailyDeals">
               <h3 className="right-page-title">DAILY DEAL</h3>
               <DailyDeals />
             </Route>
-            <Route path="/products">
+            <Route path="/cpanel/products">
               <h3 className="right-page-title">PRODCT MANAGEMETN</h3>
               <ProductList />
             </Route>
-            <Route path="/tags">
+            <Route path="/cpanel/tags">
               <h3 className="right-page-title">TAG MANAGEMENT</h3>
 
               <TagList />
             </Route>
-            <Route path="/contact-information">
+            <Route path="/cpanel/contact-information">
               <h3 className="right-page-title">CONTACT INFO</h3>
               <ContactInformation />
             </Route>
-            <Route path="/media">
+            <Route path="/cpanel/media">
               <h3 className="right-page-title">MEDIA</h3>
 
             </Route>
-            <Route path="/business-hours">
+            <Route path="/cpanel/business-hours">
               <h3 className="right-page-title">BUSINESS HOURS</h3>
               <BusinessHours />
             </Route>
-            <Route path="/edit-aboutus">
+            <Route path="/cpanel/edit-aboutus">
               <h3 className="right-page-title">ABOUT US</h3>
               <EditAboutus />
             </Route>
-            <Route path="/login">
+            <Route path="/cpanel/login">
               <h3 className="right-page-title">LOGIN</h3>
               <Login />
             </Route>
 
-            <Route path="/">
+            <Route path="/cpanel">
               <p>Oisko vaikka documentation tässä vakio näkymässä</p>
             </Route>
           </Switch>
