@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import axios from 'axios'
 
-export default function LogIn() {
+export default function LogIn({userLogin}) {
     const [password, setPassword] = useState()
     const [error, setError] = useState()
     const [loginSuccess, setLoginSuccess] = useState(false)
@@ -10,7 +10,6 @@ export default function LogIn() {
     axios.create({
         withCredentials: true
     })
-
     
     const handleSubmit = () => {
         console.log("click", password)
@@ -23,9 +22,13 @@ export default function LogIn() {
             password: password
         })
         .then(response => {
-            response.status == 200 ? setLoginSuccess(true) : setLoginSuccess(false)})
+            userLogin(true)
+            response.status == 200 ? setLoginSuccess(true) : setLoginSuccess(false)
+            localStorage.setItem("user", "true")
+        })
         .catch(err => {
             console.log(err)
+            localStorage.clear()
             setError("Authentication failed.")
         })
     }

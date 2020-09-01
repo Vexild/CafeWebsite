@@ -1,47 +1,21 @@
-import React, { useState, useEffect } from 'react';
-// import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
-// import ProductList from "./Components/productList"
-// import TagList from "./Components/tagList"
-import Container from 'react-bootstrap/Container'
-// import Col from 'react-bootstrap/Col'
-// import Row from 'react-bootstrap/Row'
-// import ContactInformation from "./Components/contactInformation"
-// import BusinessHours from "./Components/businessHours";
-// import EditAboutus from "./Components/editAboutus";
-// import DailyDeals from './Components/dailyDeals'
-import Login from './Components/login'
-import Dashboard from './Components/dashboard'
-import axios from 'axios'
+import React from 'react'
+import Col from 'react-bootstrap/Col'
+import Row from 'react-bootstrap/Row'
+import ContactInformation from "./contactInformation"
+import BusinessHours from "./businessHours";
+import EditAboutus from "./editAboutus";
+import DailyDeals from './dailyDeals'
+import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
+import ProductList from "./productList"
+import TagList from "./tagList"
 
-import './App.css';
-
-function App() {
-
-  //const [view, setView] = useState("main");
-  
-  const [user, setUser] = useState(localStorage.getItem("user") || null);
-  // const [user, setUser] = useState(null);
-
-  useEffect(() => {
-    axios.get('http://localhost:4000/api/restrictedzone/test')
-        // .then(response => console.log(response), setError(""))
-        .then(response => {
-         console.log("Checking the verification for user" ,response) 
-        })
-        .catch(err => {
-             console.log("Auth failed.", err)
-        })    
-  },[]);
-
-
-  return (
-    <Container className="main-frame">
-      { user 
-      ? <Dashboard userLogout={() => setUser(null)}/> 
-      : <Login userLogin={() => setUser(true)}/>}
-      {/* : <Login userLogin={userName => setUser(userName)}/>} */}
-
-      {/* <Row className="flex-row">
+const Dashboard = ({userLogout}) => {
+    const logout = () => {
+        localStorage.clear()
+        userLogout()
+    }
+    return( 
+        <Row className="flex-row">
         <Col className="main-left main-left-font" md="2">
           <header>
             <h1>Cafe Sample</h1>
@@ -56,7 +30,9 @@ function App() {
             <Link className="main-left-font padded" to="/cpanel/business-hours">Business Hours</Link>
             <Link className="main-left-font padded" to="/cpanel/edit-aboutus">Edit Aboutus</Link>
             <Link className="main-left-font padded" to="/cpanel/DailyDeals">Daily deal</Link>
-            <Link className="main-left-font padded" to="/cpanel/login">Login</Link>
+            {/* <Link className="main-left-font padded" to="/cpanel/login">Login</Link> */}
+            <Link className="main-left-font padded" onClick={() => logout()}>Log out</Link>
+            
           </Col>
         </Col>
         <Col className="main-right main-left-font">
@@ -90,19 +66,18 @@ function App() {
               <h3 className="right-page-title">ABOUT US</h3>
               <EditAboutus />
             </Route>
-            <Route path="/cpanel/login">
+            {/* <Route path="/cpanel/login">
               <h3 className="right-page-title">LOGIN</h3>
               <Login />
-            </Route>
+            </Route> */}
 
             <Route path="/cpanel/">
               <p>Oisko vaikka documentation tässä vakio näkymässä</p>
             </Route>
           </Switch>
         </Col>
-      </Row> */}
-    </Container>
-  );
+      </Row>
+    )
 }
 
-export default App;
+export default Dashboard;
