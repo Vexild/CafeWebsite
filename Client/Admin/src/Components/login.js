@@ -1,6 +1,9 @@
 import React, {useState} from 'react'
 import axios from 'axios'
 import apiUrl from '../api'
+import Container from 'react-bootstrap/Container'
+import Col from 'react-bootstrap/Col'
+import Row from 'react-bootstrap/Row'
 
 export default function LogIn({userLogin}) {
     const [password, setPassword] = useState()
@@ -46,13 +49,24 @@ export default function LogIn({userLogin}) {
     
 
     return(
-        <div>
+        <Container className="login-main">
+            <Col className="login-center login-font">
+            <h2>Cafe Katastrof</h2>
             <label for="Password">Password</label><br/>
             <input type="password" onChange={e => setPassword(e.target.value)} name="password" /><br/>
             <input type="button" value="login" onClick={() => handleSubmit()}/>
             <input type="button" value="check" onClick={() => checkToken()}/>
             <br/>{error ? error : ""}
             <br/>{loginSuccess ? <p>Login Success!</p> : ""}
-        </div>
+            </Col>
+            <Col>
+                <p className="login-flavor-area">{`"Beware that, when fighting monsters, you yourself do not become a monster... 
+                
+                for when you gaze long into the abyss. The abyss gazes also into you.”
+
+                    ― Friedrich W. Nietzsche`}
+                </p>
+            </Col>
+        </Container>
     )
 }

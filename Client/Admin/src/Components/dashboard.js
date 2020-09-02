@@ -17,15 +17,6 @@ const Dashboard = ({userLogout}) => {
         userLogout()
     }
 
-    // useEffect(() => {
-    //     axios.get('http://localhost:4000/api/restrictedzone/test')
-    //         .then(response => console.log("Responssi",response))
-    //         .catch(err => {
-    //              console.log("Auth failed.", err)
-    //              //localStorage.clear();
-    //         })    
-    //   },[]);
-
     return( 
         <Row className="flex-row">
         <Col className="main-left main-left-font" md="2">
@@ -42,8 +33,7 @@ const Dashboard = ({userLogout}) => {
             <Link className="main-left-font padded" to="/cpanel/business-hours">Business Hours</Link>
             <Link className="main-left-font padded" to="/cpanel/edit-aboutus">Edit Aboutus</Link>
             <Link className="main-left-font padded" to="/cpanel/DailyDeals">Daily deal</Link>
-            {/* <Link className="main-left-font padded" to="/cpanel/login">Login</Link> */}
-            <Link className="main-left-font padded" onClick={() => logout()}>Log out</Link>
+            <Link className="main-left-font padded" onClick={() => logout()} to="/">Log out</Link>
             
           </Col>
         </Col>
@@ -78,10 +68,6 @@ const Dashboard = ({userLogout}) => {
               <h3 className="right-page-title">ABOUT US</h3>
               <EditAboutus />
             </Route>
-            {/* <Route path="/cpanel/login">
-              <h3 className="right-page-title">LOGIN</h3>
-              <Login />
-            </Route> */}
 
             <Route path="/cpanel/">
               <p>Oisko vaikka documentation tässä vakio näkymässä</p>

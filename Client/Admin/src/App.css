@@ -80,3 +80,20 @@
   flex-direction: row;
   height: 100%;
 }
+.login-main{
+  height: 100%;
+}
+.login-center{
+  position: relative;
+  padding-top: 10%;
+  text-align: center;
+}
+.login-font{
+  font-family: monospace;
+}
+.login-flavor-area{
+  max-width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  font-style: italic;
+}
