@@ -7,11 +7,10 @@ import jwt from 'jsonwebtoken'
             res.sendStatus(401)
         }
         else {
-            console.log("Cookie: ", req.header('cookie'))
+            //console.log("Cookie: ", req.header('cookie'))
         const token = req.header('cookie').split('=')[1]
-        const tempSecret = "asdfghj"
 
-        jwt.verify(token, tempSecret, (err) => {
+        jwt.verify(token, process.env.SECRET, (err) => {
             if (err) {
                 console.log(err)
                 res.sendStatus(403)

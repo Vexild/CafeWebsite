@@ -22,8 +22,6 @@ dotenv.config()
 const port = 4000
 
 function mongoLocal() {
-init() //If DB is empty, add dummydata
-//Requires mongodb to be running locally
 async function connectMongoose() { 
     await mongoose.connect(
         "mongodb://localhost/cafeDB",
@@ -49,6 +47,11 @@ connectMongoose()
 //Use either mongoLocal or mongoAtlas, not both
 //mongoLocal()
 mongoAtlas()
+
+//Init checks that admin has a password in DB
+//Read mongoinit.js for more info
+init()
+
 mongoose.set('useFindAndModify', false);
 
 const upload = multer()

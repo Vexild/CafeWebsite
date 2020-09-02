@@ -6,13 +6,7 @@ const saltRounds = 14 //bcrypt work factor, use higher value as computers get fa
 // saltRounds = 17 => changePwd - 7.76s - login 8.05s (insomnia, 8700k@4.7)
 
 export default {
-    get: async (req, res) => {
-
-    },
-    put: async (req, res) => {
-    },
     changePwd: async (req,res) => {
-        console.log(req.body.password)
 
         if (req.body.password) {
         await bcrypt.genSalt(saltRounds, (err, salt) => {
@@ -42,15 +36,13 @@ export default {
     },
     logIn: async (req, res) => { 
         
-        const tempSecret = "asdfghj"
-        
         const admin = await Admin.findOne({})
 
         const isMatch = await bcrypt.compare(req.body.password, admin.password)
 
         if (isMatch) {
             console.log("Success")
-            const token = jwt.sign({asd: "asd"}, tempSecret, {
+            const token = jwt.sign({asd: "asd"}, process.env.SECRET , {
                 expiresIn: '1h',
             })
             res.cookie('token', token, {
@@ -61,21 +53,5 @@ export default {
         else {
             res.sendStatus(403)
         }
-    },
-    testToken: async (req, res) => {
-	    const token = req.header('cookie').split('=')[1]
-        const authorizedData = "asd"
-        const tempSecret = "asdfghj"
-
-
-        jwt.verify(token, tempSecret, (err, authorizedData) => {
-            if (err) {
-                console.log(err)
-                res.sendStatus(403)
-            }
-            else {
-                res.send(authorizedData)
-            }
-        })
     }
 }

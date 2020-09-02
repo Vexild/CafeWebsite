@@ -1,58 +1,39 @@
-import Product from "./models/product.model.js"
+import Admin from './models/admin.model.js'
+import bcrypt from 'bcryptjs'
 
 export default async function init() {
-    const db = await Product.findOne({name: "taikahaltiakakku"})
+    const admin = await Admin.findOne({})
 
     console.log("init")
 
-    if (!db) {
-    console.log("db doesn't exist")
-       
-        const dummyProduct = new Product()
-        dummyProduct.name = "taikahaltiakakku",
-        dummyProduct.price = 20
-        dummyProduct.tags = ["maaginen", "makea"]
-        dummyProduct.id = 12345
-        dummyProduct.save()
+    if (!admin.password | admin.password.length === 0) {
+    console.log("Admin password blank. Running init.")
 
-        const dummyProduct2 = new Product()
-        dummyProduct2.name = "kahvi",
-        dummyProduct2.price = 5,
-        dummyProduct2.tags = ["kahvi"]
-        dummyProduct2.id = 1 
-        dummyProduct2.save()
-        
-        const dummyProduct3 = new Product()
-        dummyProduct3.name = "pulla",
-        dummyProduct3.price = 3,
-        dummyProduct3.tags = ["pulla"]
-        dummyProduct3.id = 1212521534
-        dummyProduct3.save()
+    const saltRounds = 14
+    const defaultPwd = "pitkätestikissakebab"
+    
+    await bcrypt.genSalt(saltRounds, (err, salt) => {
+            if (err) {
+                throw (err)
+            }
+            else {
+                bcrypt.hash(defaultPwd, salt, (err, hash) => {
+                    if (err) {
+                        throw err
+                    }
+                    else {
+            Admin.updateOne({},
+                {
+                    password : hash
+            })
+            .catch(err => console.log(err))
+            .then(console.log("Admin password reset. Read mongoinit.js."))
+        }
+    })
+}
+})
 
-        const dummyProduct4 = new Product()
-        dummyProduct4.name = "pullakahvi",
-        dummyProduct4.price = 7,
-        dummyProduct4.tags = ["pulla", "kahvi"]
-        dummyProduct4.id = 124685
-        dummyProduct4.save()
-
-        const dummyProduct5 = new Product()
-        dummyProduct5.name = "kissa",
-        dummyProduct5.price = 9001,
-        dummyProduct5.tags = ["vitunpitkätagikebabkissa", "your-tag-here", "vihainen", "raapiva", "kissa"]
-        dummyProduct5.id = 123461251
-        dummyProduct5.save()
-
-        const dummyProduct6 = new Product()
-        dummyProduct6.name = "salmiakkisuklaa",
-        dummyProduct6.price = 90,
-        dummyProduct6.tags = ["suolainen", "makea"]
-        dummyProduct6.id = 12161251
-        dummyProduct6.save()
-        
-        console.log("Dummydb created")
     }
-    else {
-        console.log("db exists")
-    }
+    
+
 }

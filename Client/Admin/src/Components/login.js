@@ -16,7 +16,6 @@ export default function LogIn({userLogin}) {
     })
     
     const handleSubmit = () => {
-        console.log("click", password)
 
         if (error) {
             setError()
@@ -36,18 +35,6 @@ export default function LogIn({userLogin}) {
         })
     }
 
-    const checkToken = () => {
-        if (error) {
-            setError()
-        }
-        axios.get(apiUrl + "/api/restrictedzone/test")
-        .then(response => console.log(response), setError(""))
-        .catch(err => {
-            setError("Auth failed.", err)
-        })
-    }
-    
-
     return(
         <Container className="login-main">
             <Col className="login-center login-font">
@@ -55,7 +42,6 @@ export default function LogIn({userLogin}) {
             <label for="Password">Password</label><br/>
             <input type="password" onChange={e => setPassword(e.target.value)} name="password" /><br/>
             <input type="button" value="login" onClick={() => handleSubmit()}/>
-            <input type="button" value="check" onClick={() => checkToken()}/>
             <br/>{error ? error : ""}
             <br/>{loginSuccess ? <p>Login Success!</p> : ""}
             </Col>
