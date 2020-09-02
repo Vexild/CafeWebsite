@@ -1,19 +1,31 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
 import ContactInformation from "./contactInformation"
 import BusinessHours from "./businessHours";
 import EditAboutus from "./editAboutus";
-import DailyDeals from './dailyDeals'
-import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
+import DailyDeals from './dailyDeals';
+import { BrowserRouter as Route, Link, Switch, useLocation  } from 'react-router-dom';
 import ProductList from "./productList"
 import TagList from "./tagList"
+import axios from 'axios'
+
 
 const Dashboard = ({userLogout}) => {
     const logout = () => {
         localStorage.clear()
         userLogout()
     }
+
+    // useEffect(() => {
+    //     axios.get('http://localhost:4000/api/restrictedzone/test')
+    //         .then(response => console.log("Responssi",response))
+    //         .catch(err => {
+    //              console.log("Auth failed.", err)
+    //              //localStorage.clear();
+    //         })    
+    //   },[]);
+
     return( 
         <Row className="flex-row">
         <Col className="main-left main-left-font" md="2">

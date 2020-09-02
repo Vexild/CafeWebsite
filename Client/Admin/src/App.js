@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 // import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 // import ProductList from "./Components/productList"
 // import TagList from "./Components/tagList"
@@ -11,28 +11,14 @@ import Container from 'react-bootstrap/Container'
 // import DailyDeals from './Components/dailyDeals'
 import Login from './Components/login'
 import Dashboard from './Components/dashboard'
-import axios from 'axios'
 
 import './App.css';
 
 function App() {
 
-  //const [view, setView] = useState("main");
   
+
   const [user, setUser] = useState(localStorage.getItem("user") || null);
-  // const [user, setUser] = useState(null);
-
-  useEffect(() => {
-    axios.get('http://localhost:4000/api/restrictedzone/test')
-        // .then(response => console.log(response), setError(""))
-        .then(response => {
-         console.log("Checking the verification for user" ,response) 
-        })
-        .catch(err => {
-             console.log("Auth failed.", err)
-        })    
-  },[]);
-
 
   return (
     <Container className="main-frame">

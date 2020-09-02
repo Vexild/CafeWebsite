@@ -3,6 +3,7 @@ import CKEditor from "@ckeditor/ckeditor5-react";
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 import parse from "html-react-parser";
 import axios from "axios";
+import apiUrl from '../api' 
 
 const BusinessHours = () => {
   const [content, setContent] = useState("");
@@ -13,7 +14,7 @@ const BusinessHours = () => {
 
     if (content) {
       axios
-        .put('http://localhost:4000/api/businesshours/put', {
+        .put(apiUrl + "/api/businesshours/put", {
           content: content
         })
         .then((response) => {
@@ -27,7 +28,7 @@ const BusinessHours = () => {
 
   const getHours = () => {
     return axios
-      .get(`http://localhost:4000/api/businesshours/get`)
+      .get(apiUrl + "/api/businesshours/get")
       .then((response) => {
         let parsedBSON;
         parsedBSON = JSON.parse(JSON.stringify(response.data));

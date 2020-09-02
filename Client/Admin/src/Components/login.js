@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import axios from 'axios'
+import apiUrl from '../api'
 
 export default function LogIn({userLogin}) {
     const [password, setPassword] = useState()
@@ -17,14 +18,13 @@ export default function LogIn({userLogin}) {
         if (error) {
             setError()
         }
-
-        axios.post('http://localhost:4000/api/restrictedzone/login', {
+        axios.post(apiUrl + "/api/restrictedzone/login", {
             password: password
         })
         .then(response => {
             userLogin(true)
-            response.status == 200 ? setLoginSuccess(true) : setLoginSuccess(false)
             localStorage.setItem("user", "true")
+            response.status == 200 ? setLoginSuccess(true) : setLoginSuccess(false)
         })
         .catch(err => {
             console.log(err)
@@ -37,7 +37,7 @@ export default function LogIn({userLogin}) {
         if (error) {
             setError()
         }
-        axios.get('http://localhost:4000/api/restrictedzone/test')
+        axios.get(apiUrl + "/api/restrictedzone/test")
         .then(response => console.log(response), setError(""))
         .catch(err => {
             setError("Auth failed.", err)

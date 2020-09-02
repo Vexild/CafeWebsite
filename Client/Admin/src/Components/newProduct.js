@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import axios from 'axios'
+import apiUrl from '../api'
 
 const NewProduct = () => {
     const [tags, setTags] = useState()
@@ -12,7 +13,7 @@ const NewProduct = () => {
 
     const getTags = () => {
 
-        return axios.get('http://localhost:4000/api/tags/get')
+        return axios.get(apiUrl + "/api/tags/get")
         .then(response => {
             setTags(JSON.parse(JSON.stringify(response)))
             return response.data
@@ -57,7 +58,7 @@ const NewProduct = () => {
     const handleSubmit = (e) => {
         e.preventDefault()
         console.log(productTags,name,price,id,description,productInfo)
-        axios.post('http://localhost:4000/api/products/post', {
+        axios.post(apiUrl + "/api/products/post", {
             name: name,
             price, price,
             id: id,

@@ -8,6 +8,8 @@ import "react-datepicker/dist/react-datepicker.css"
 import local from 'date-fns/locale/fi';
 import Modal from 'react-modal';
 import axios from 'axios'
+import apiUrl from '../api'
+
 
 const SpillagePage =  () => {
 
@@ -66,7 +68,7 @@ const SpillagePage =  () => {
                 
         Tämä on lähetetty sisäisestä palvelusta.`
         const mail = { to: email, subject: title, text: message}
-        axios.post('http://localhost:4000/api/mail/post',mail)
+        axios.post(apiUrl + "/api/mail/post",mail)
           .then(Response => {
             console.log(Response);
             localStorage.clear();

@@ -64,19 +64,18 @@ export default {
         }
     },
     testToken: async (req, res) => {
-        console.log(req.headers.authorization)
-        //console.log(req.data)
-
+	    const token = req.header('cookie').split('=')[1]
         const authorizedData = "asd"
         const tempSecret = "asdfghj"
 
-        jwt.verify(req.token, tempSecret, (err, authorizedData) => {
+
+        jwt.verify(token, tempSecret, (err, authorizedData) => {
             if (err) {
                 console.log(err)
                 res.sendStatus(403)
             }
             else {
-                res.send("Success", authorizedData)
+                res.send(authorizedData)
             }
         })
     }

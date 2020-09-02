@@ -1,5 +1,6 @@
 import mongoose from 'mongoose'
 import Tag from '../models/tags.model.schema.js'
+import Product from '../models/product.model.js'
 
 export default {
    get: async (req, res)  => {
@@ -28,6 +29,10 @@ export default {
    }, 
    delete: async (req, res) => {
        await Tag.deleteOne({_id : req.body._id})
-       res.send("TODO")
+       await Product.updateMany({tags : req.body._id}, {$pull : {
+           tags : req.body._id
+       }},
+       {multi: true})
+       res.send("Deleted")
    }
 }

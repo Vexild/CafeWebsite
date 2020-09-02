@@ -7,6 +7,8 @@ import Product from './products'
 import Tags from './tags'
 import SingleProduct from './singleProductPage'
 import { ProductsContext } from "./productsContext";
+import apiUrl from '../api'
+
 const axios = require('axios')
 
 const Menu = (props) => {

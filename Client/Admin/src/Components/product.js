@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Container, Row, Col, Image, Button } from "react-bootstrap";
 import Modal from 'react-modal';
 import axios from 'axios'
+import apiUrl from '../api'
 
 export default function Product(props) {
 	const [hover, setHover] = useState(false)
@@ -16,7 +17,7 @@ export default function Product(props) {
 
 	const handleSubmit = (_id, name, price, id, productInfo, description, selectedTags) => {
         //console.log(_id, name, price, id, productInfo, description, selectedTags)
-        axios.put('http://localhost:4000/api/products/put',{
+        axios.put(apiUrl + "/api/products/put",{
             _id: _id,
             name: name,
             price: price,

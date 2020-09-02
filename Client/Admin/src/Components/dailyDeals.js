@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react"
 import axios from "axios"
+import apiUrl from '../api' 
 
 const DailyDeals = () => {
   const [content, setContent] = useState()
   const [data, setData] = useState()
 
   const getDeals = () => {
-      axios.get(`http://localhost:4000/api/dailydeals/get`)
+      axios.get(apiUrl + "/api/dailydeals/get")
       .then((response) => {
         let parsedBSON
         //parsedBSON = JSON.parse(JSON.stringify(response.data))
@@ -17,7 +18,7 @@ const DailyDeals = () => {
   }
 
   const handleSubmit = (content) => {
-    axios.put('http://localhost:4000/api/dailydeals/put', 
+    axios.put(apiUrl + "/api/dailydeals/put", 
     { content: content})
     .then(response => {console.log(response)})
     .catch(error => {console.log(error)})
@@ -37,7 +38,7 @@ const DailyDeals = () => {
         Set empty deal to hide chalkboard.<br/>
         <br/><label >Daily deal</label><br/>
         <input onChange={e => setContent(e.target.value)} defaultValue={content} placeholder="content" type="text" name="content" />
-        <br/><input onClick={handleSubmit(content)} value="Update" type="submit" />
+        <br/><input onClick={() => handleSubmit(content)} value="Update" type="submit" />
       </div>
     )
   }

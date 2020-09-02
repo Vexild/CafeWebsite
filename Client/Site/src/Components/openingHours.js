@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import Col from 'react-bootstrap/Col';
 import axios from 'axios'
 import Parser from 'html-react-parser'
+import apiUrl from '../api'
 
 const OpeningHours = () => {
 
@@ -9,7 +10,7 @@ const OpeningHours = () => {
 
     //TODO get data from database
     const getHours = () => {
-        return axios.get(`http://localhost:4000/api/businesshours/get`)
+        return axios.get(apiUrl + "/api/businesshours/get")
         .then(response => {
             let parsedBSON
             //console.log(response.data)
