@@ -7,7 +7,7 @@ import jwt from 'jsonwebtoken'
             res.sendStatus(401)
         }
         else {
-            console.log("Cookie: ", req.header('cookie'))
+            //console.log("Cookie: ", req.header('cookie'))
         const token = req.header('cookie').split('=')[1]
 
         jwt.verify(token, process.env.SECRET, (err) => {

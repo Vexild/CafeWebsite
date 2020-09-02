@@ -7,7 +7,6 @@ const saltRounds = 14 //bcrypt work factor, use higher value as computers get fa
 
 export default {
     changePwd: async (req,res) => {
-        console.log(req.body.password)
 
         if (req.body.password) {
         await bcrypt.genSalt(saltRounds, (err, salt) => {
@@ -55,3 +54,4 @@ export default {
             res.sendStatus(403)
         }
     }
+}

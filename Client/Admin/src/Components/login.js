@@ -16,7 +16,6 @@ export default function LogIn({userLogin}) {
     })
     
     const handleSubmit = () => {
-        console.log("click", password)
 
         if (error) {
             setError()
