@@ -29,15 +29,16 @@ const Dashboard = ({userLogout}) => {
             <Link className="main-left-font padded" to="/cpanel/products">Products</Link>
             <Link className="main-left-font padded" to="/cpanel/tags">Tags</Link>
             <Link className="main-left-font padded" to="/cpanel/contact-information">Contact Info</Link>
-            <Link className="main-left-font padded" to="/cpanel/media"></Link>
+            <Link className="main-left-font padded" to="/cpanel/media">Media</Link>
             <Link className="main-left-font padded" to="/cpanel/business-hours">Business Hours</Link>
             <Link className="main-left-font padded" to="/cpanel/edit-aboutus">Edit Aboutus</Link>
             <Link className="main-left-font padded" to="/cpanel/DailyDeals">Daily deal</Link>
-            <Link className="main-left-font padded" onClick={() => logout()} to="/">Log out</Link>
             
           </Col>
+          <Link className="main-left-font padded bottom" onClick={() => logout()} to="/">Log out</Link>
+
         </Col>
-        <Col className="main-right main-left-font">
+        <Col className="main-right main-left-font overflow">
           <Switch>
             <Route path="/cpanel/DailyDeals">
               <h3 className="right-page-title">DAILY DEAL</h3>
