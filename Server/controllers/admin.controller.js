@@ -5,7 +5,6 @@ import jwt from 'jsonwebtoken'
 const saltRounds = 14 //bcrypt work factor, use higher value as computers get faster
 // saltRounds = 17 => changePwd - 7.76s - login 8.05s (insomnia, 8700k@4.7)
 
-
 export default {
     get: async (req, res) => {
 
