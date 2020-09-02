@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react'
 import Carousel from 'react-bootstrap/Carousel';
 import img1 from "../Media/placeholder_eyecatcher.jpg";
 import img2 from "../Media/cafe_1.jpg";
@@ -10,8 +10,10 @@ import {scroller} from "react-scroll";
 import apiUrl from '../api'
 
 
-const customCarousel = ()  => {
-
+const CustomCarousel = ()  => {
+    
+    const [vpWidth, setVpHeight] = useState(window.innerWidth);
+    
     const scrollToMap = () =>{
         scroller.scrollTo("footer-map-element", {
           duration: 800,
@@ -55,7 +57,7 @@ const customCarousel = ()  => {
             <Col xs="12" className="carousel-bottom">
                 <Row >
                     <Col xs="6">
-                        <OpeningHoursComponent />
+                        {vpWidth > 640 ? <OpeningHoursComponent /> : ( void 0)}
                     </Col>
                     <Col xs="6" className="navigate-footer-map">
                         <Button onClick={() => scrollToMap()}>Löydä meidät!</Button>
@@ -67,4 +69,4 @@ const customCarousel = ()  => {
     )
   }
   
-  export default customCarousel;
+  export default CustomCarousel;

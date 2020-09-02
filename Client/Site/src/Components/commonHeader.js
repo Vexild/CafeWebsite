@@ -22,10 +22,7 @@ const CommonHeader = () => {
     useEffect(() => {
         if(JSON.parse(localStorage.getItem('shoppingCart'))){
             const getItems = JSON.parse(localStorage.getItem('shoppingCart') || "[]").length;
-            console.log("Items ", getItems)
-            //if(getItems){
             setShoppingCartLength(parseInt(getItems))
-            //}
         }
       },[]);
 
@@ -55,8 +52,6 @@ const CommonHeader = () => {
                         <Carousel/>
                     </Col>
                 </Row>
-                {/* <Row>
-                </Row> */}
             </div>
         </Container>
     )

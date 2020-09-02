@@ -110,9 +110,35 @@
   color: aliceblue;
   font-family: Courier;
   font-size: small;
+  word-spacing: 0px;
   margin: 0px;
 }
-
+/* @media screen and (max-width:600px) {
+  .opening-hours-font {
+    font-size: x-small;
+    max-height: 10%;
+    left: -20px;
+    bottom: -20px;
+  }
+}
+@media screen and (max-width:400px) {
+  .opening-hours-font {
+    font-size: xx-small;
+    max-width: 100%; 
+    max-height: 100%;
+    overflow: hidden;
+    left: -20px;
+    bottom: -20px;
+  }
+} */
+.table td, .table th{
+  padding: 0px;
+  color: aliceblue;
+}
+table{
+  position: relative;
+  width: 75%;
+}
 .shopping-cart-icon {
   margin: auto 10px auto auto;
   max-height: 32px;
@@ -224,7 +250,7 @@
   margin: 2px 10px 2px 10px;
 }
 
-.dark-font {
+.dark-font{
   color: black;
 }
 

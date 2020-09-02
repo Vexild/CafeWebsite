@@ -16,7 +16,6 @@ const AboutUs = () => {
         return axios.get(apiUrl + "/api/aboutus/get")
         .then(response => {
             let parsedBSON
-            //console.log(response.data)
             parsedBSON = JSON.parse(JSON.stringify(response.data[0]))
             setValue(parsedBSON)
             
