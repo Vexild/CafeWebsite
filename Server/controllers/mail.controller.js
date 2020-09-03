@@ -1,9 +1,9 @@
 import nodemailer from 'nodemailer'
 
 export default {
-    post: async (req, res) => {
-
-        if (req.body.to && req.body.message && req.body.subject) {
+    post: async (req, res) => {  
+        console.log("req body",req.body)      
+        if (req.body.to && req.body.text && req.body.subject) {
             console.log("OK")
 
             let transporter = nodemailer.createTransport({
@@ -24,12 +24,11 @@ export default {
               res.send(success)
             }
           });
-          */
+    */
             await transporter.sendMail({
                 to: req.body.to,
-                from: req.body.from,
                 subject: req.body.subject,
-                text: req.body.message
+                text: req.body.text
             })
             .then(response => res.send(response))
             .catch(err => res.send(err))

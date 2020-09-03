@@ -2,13 +2,20 @@ import React, { useState } from 'react'
 import Col from 'react-bootstrap/Col';
 import axios from 'axios'
 import ReactHtmlParser from 'html-react-parser'
+import apiUrl from '../api'
+
 
 const EditAboutustxt = () => {
+
+    console.log("##############################\n\n\n")
+  console.log(apiUrl)
+  console.log("#######################\n\n\n")
+
 
     const [value, setValue] = useState("")
 
     const getTxt = () => {
-        return axios.get(`http://localhost:4000/api/aboutus/get`)
+        return axios.get(apiUrl + "/api/aboutus/get")
         .then(response => {
             let parsedBSON
             //console.log(response.data)

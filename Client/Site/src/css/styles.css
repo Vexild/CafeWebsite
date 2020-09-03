@@ -116,6 +116,11 @@
   margin: 0px;
 }
 
+.shopping-cart-icon {
+  margin: auto 10px auto auto;
+  max-height: 32px;
+}
+
 .social-media-icons-bottom, .social-media-icons-top {
   margin: auto 0px;
 }

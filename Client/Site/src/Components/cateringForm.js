@@ -1,45 +1,43 @@
 import React, {useState, useEffect} from 'react'
 import Container from 'react-bootstrap/Container'
 import Col from 'react-bootstrap/Col'
-import Row from 'react-bootstrap/Row'
+import { BrowserRouter as Link} from 'react-router-dom'
 import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
 import DatePicker from 'react-datepicker'
 import "react-datepicker/dist/react-datepicker.css"
 import local from 'date-fns/locale/fi';
-import ReCAPTCHA from "react-google-recaptcha";
 import axios from 'axios'
-import { OrderContext } from './orderContext'
+import SimpleProductCard from './Panels/simpleProductCard'
+import Modal from 'react-modal';
+import apiUrl from '../api'
+
 
 const CateringForm =  () => {
   
-    const key = process.env.REACT_APP_GOOGLE_API_KEY;
-    const sec = process.env.REACT_APP_GOOGLE_API_SEC;
     const [startDate, setStartDate] = useState(new Date());
     const [comment, setComment] = useState('')
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
     const [phonenumber, setPhonenumber] = useState('')
     const [location, setLocation] = useState('')
-    const [isHuman, setIsHuman] = useState(false)
-    // const sec = process.env.REACT_APP_GOOGLE_API_SEC
-    
-    // const [daysData, setDaysDataS] = useState([])
-    
-    // useEffect(async () => {
-    //   const result = await axios(
-    //     'http://localhost:4000/api/catering/get',
-    //   );
-    //   console.log("UseEffect data: ",result.data);
-    //   setDaysDataS(result.data)
-    // }, [])
-
-    
-    //const gatheredDates = daysData.map( elem => { return new Date(elem.date)})
-
+    // TODO: get the real data from DB. Needs to be in array and be a Date() format
     const dummyReservedDaysData = [ new Date("7/30/2020") , new Date("7/2/2020"), new Date("July 29, 2020") ];
+    const [productsInCart, setProductsInCart] = useState([]);
+    const [succcessModal, setSuccessModal] = useState(false)
     
-
+    const successModalStyle = {
+      content : {
+        top                   : '50%',
+        left                  : '50%',
+        right                 : 'auto',
+        bottom                : 'auto',
+        marginRight           : '-50%',
+     transform             : 'translate(-50%, -50%)',
+           position				  : 'absolute'
+      },
+      overlay: {zIndex: 1000}
+    };
     const handleSetComment = (event) => {
       // console.log(event.target.value)
       setComment(event.target.value)
@@ -65,67 +63,71 @@ const CateringForm =  () => {
       setLocation(event.target.value)
     }
 
-    const handleIsHuman = () => {
-      console.log(isHuman, !isHuman)
-      setIsHuman(!isHuman)
-      console.log(isHuman)
+    const getProductTable = () => {
+      let toParse = "";
+      const prod = JSON.parse(localStorage.getItem('shoppingCart') || "[]");
+      prod.map((elem) => {
+        // ugly, i know
+         toParse += (elem.name+" "+elem.quantity+" kappaletta")
+         toParse += "\n"
+       })
+      return toParse
     }
+
+    const closeSuccessModal = () => {
+      setSuccessModal(false)
+      window.location.reload(false);
+  }
 
     const submitForm = (event) => {
       event.preventDefault();
-      if(isHuman){
-        console.log(comment, name, email, phonenumber, location, startDate.toDateString())
-        // do axios
+        const products = getProductTable()
+        const title = "Tilaus"
+
+        const message =` 
+        Asiakastilaus
+        Nimi: ${name}
+        Sähköposti: ${email}
+        Puh nro: ${phonenumber}
+        Päivämäärä: ${startDate}
+        Paikka: ${location}
+        
+        Viesti: ${comment}
+        
+        Tämä on lähetetty sisäisestä palvelusta.`
+
+        const mail = { to: email, subject: title, text: message}
+        axios.post(apiUrl + "/api/mail/post",mail)
+          .then(Response => {
+            console.log(Response);
+            localStorage.clear();
+            setSuccessModal(true);
+          })
+          .catch(err => {
+            console.log(err)
+          })
+    }
+    
+
+    const getProductsInCart = () => {
+      const parsed = JSON.parse(localStorage.getItem('shoppingCart') || "[]");
+      if(parsed.length > 0){
+        const products = parsed.map( elem => {
+            return <SimpleProductCard data={elem} allData={productsInCart}/>
+        })
+        return <p>{products}</p>
       }
       else{
-        console.log("ERROR")
+        return <p>Ostoskorissa ei tuotteita</p>
       }
-    }
-
-    async function onChange(value){
-      console.log("ReCaptcha value", value)
-      // try{
-        let areYouHuman = await axios({
-          method: 'post',
-          url: 'https://www.google.com/recaptcha/api/siteverify', 
-          headers: {
-            "Accept": "application/json",
-            "Content-Type": "application/x-www-form-urlencoded; charset=utf-8",
-            'Access-Control-Allow-Origin' : '*' 
-          },
-          params: {
-            secret:  {sec},
-            response: {key}
-          }
-        }).then( (verification =>{
-
-          console.log("VER",verification)
-        })
-        );
-        let data = areYouHuman.data || {};
-        if(!data.success){
-            throw({
-                success: false,
-                error: 'response not valid'
-          })
-        }
-      // }
-      // }catch(err){
-
-      //   console.log(err);
-      //   throw err.response ? err.response.data : {success: false, error: 'captcha_error'}
-   
-      // }
     }
 
     return(
 
       <Container className="main-form form-frame">
-
+        {getProductsInCart()}
         <Col>
-
           <Form onSubmit = {submitForm}>
-
           <Form.Row>
             <Col>
               <h3>Pitopalvelu ja tilaisuudet</h3>
@@ -188,24 +190,25 @@ const CateringForm =  () => {
 
             </Col>
           </Form.Row>
-        </Form>
-      
-        {/* <Col className="form-center-col">
-          <ReCAPTCHA
-          className="g-recaptcha"
-          sitekey={key}
-          onChange={onChange}
-          />
-        </Col> */}
-      
+        </Form>    
         <Col className="form-center-col">
-          <Button type="submit">
+          <Button onClick={submitForm} type="submit">
             Lähetä
           </Button>
         </Col>
+        <Modal 
+                isOpen={succcessModal}
+                onRequestClose={closeSuccessModal}
+                style={successModalStyle}
+                contentLabel="Order">
+                <h3>Tilauksesi on lähetetty!</h3>
+                <p>Saat pian vahvistussähköpostin.</p>
+                <p>Otamme yhteyttä tarvittaessa.</p>
+                <Link to={"/"+window.location.href}>About</Link>
+                <Button onClick={closeSuccessModal} >OK</Button>                    
+            </Modal>
     </Col>
   </Container>
-
 )
 }
 

@@ -1,0 +1,9 @@
+@use 'utils/master' as master;
+@use 'footer';
+@use 'header';
+@use 'snippets';
+@use 'panels';
+@use 'dailydealsboard';
+@use 'modal';
+@use 'simpleproduct'
+/*# sourceMappingURL=styles.css.map */

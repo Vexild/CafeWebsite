@@ -9,13 +9,15 @@ import OKIcon from '../Media/sample_logo.png'
 import MLIcon from '../Media/sample_logo.png'
 import GMIcon from '../Icons/map_image.png'
 import axios from 'axios'
+import apiUrl from '../api'
+
 
 
 const CommonFooter = () => {
   const [contactInfo, setContactInfo] = useState()
 
   const getContactInfo = () => {
-      axios.get('http://localhost:4000/api/info/get')
+      axios.get(apiUrl + "/api/info/get")
       .then(response => {
           //console.log(response.data)
           setContactInfo(response.data)
@@ -25,6 +27,8 @@ const CommonFooter = () => {
   if (!contactInfo) {
       getContactInfo()
   }
+
+  
 
     return (
         <Container fluid className="common-footer">

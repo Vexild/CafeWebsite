@@ -1,10 +1,15 @@
 import React, { useState } from 'react'
 import Col from 'react-bootstrap/Col'
 import axios from 'axios'
+import apiUrl from '../../api.js'
+
 const DailyDealPanel =  () => {
+    console.log("apiUrl: ", apiUrl)
+    console.log(process.env)
+
     const [data, setData] = useState()
     const getData= () => {
-        axios.get('http://localhost:4000/api/dailydeals/get')
+        axios.get(apiUrl + "/api/dailydeals/get")
         .then(response => {
             console.log(response.data)
             if (response.data[0].content) {

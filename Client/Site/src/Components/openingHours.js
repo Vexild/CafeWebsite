@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import Col from 'react-bootstrap/Col';
 import axios from 'axios'
 import Parser from 'html-react-parser'
+import apiUrl from '../api'
 
 const OpeningHours = () => {
 
@@ -9,7 +10,7 @@ const OpeningHours = () => {
 
     //TODO get data from database
     const getHours = () => {
-        return axios.get(`http://localhost:4000/api/businesshours/get`)
+        return axios.get(apiUrl + "/api/businesshours/get")
         .then(response => {
             let parsedBSON
             //console.log(response.data)
@@ -27,8 +28,9 @@ const OpeningHours = () => {
     let start = "10:30";
     let end = "17:30";
     return(
-        <Col className="opening-hours-listing">
-            {Parser(hours)}
+        <Col className="opening-hours-listing opening-hours-font" >
+            {/* <p>Maanantaina saunaan, tiistaina putkaan, keskivikkona alkoon</p> */}
+            <p>{Parser(hours)}</p>
         </Col>
     )
 }
