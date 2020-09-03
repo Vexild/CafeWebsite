@@ -30,13 +30,14 @@ const CommonFooter = () => {
         <Container fluid className="common-footer">
 
             <Row className="footer-background">
-                <Col className="d-flex justify-content-center"><img className="footer-map-image" src={GMIcon} alt="GMIcon"/></Col>
+                <Col xs="12" className="d-flex justify-content-center map-title-text"><h2>Kebaba und kohveve</h2></Col>
+                <Col xs="12" className="d-flex justify-content-center"><img className="footer-map-image" src={GMIcon} alt="GMIcon"/></Col>
             </Row>
 
-        <Row className="footer-background1 align-items-center">
-            <Col><p className="footer-font">loorem ipsum</p></Col>
+            <Row className="footer-background2 ">
+            <Col xs="8" ><p className="footer-font">loorem ipsum</p></Col>
 
-            <Col> 
+            <Col xs="4"> 
             <p className="footer-font">
             {contactInfo ? contactInfo[0].address : null}<br/>
             {contactInfo ? contactInfo[0].city : null} <br/>
@@ -48,9 +49,7 @@ const CommonFooter = () => {
             <a href="https://www.instagram.com/"> <img  className="footer-icon-background" src={IGIcon} alt="IGIcon"/> </a>
             <a href="https://www.facebook.com/"> <img  className="footer-icon-background" src={FBIcon} alt="FBIcon"/> </a>
             </Col>
-        </Row>
-
-        <Row className="footer-background2 ">
+        
             <Col><img className="footer-img-background" src={OKIcon} alt="OKIcon"/></Col> 
             <Col><p className="footer-font">Yhteistyössä</p></Col>
             <Col><img className="footer-img-background" src={MLIcon} alt="MLIcon"/></Col>

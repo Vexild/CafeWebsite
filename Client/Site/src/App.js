@@ -51,7 +51,7 @@ function App() {
   return (
     <ProductsContext.Provider value={products}>
     <Router>
-      <Container fluid>
+      <Container fluid className="wood-background">
         <Row>
 
           <CommonHeader/>

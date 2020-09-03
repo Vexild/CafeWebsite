@@ -6,6 +6,7 @@ import AboutUs from './aboutUs'
 import FrontPage from './frontpage'
 import ProductPage from './singleProductPage'
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
+import Col from 'react-bootstrap/Col'
 
 import CateringForm from './cateringForm'
 import SpillagePage from './spillagePage'
@@ -22,7 +23,7 @@ const PanelCanvas =  (props) => {
         });
       }
     return (
-        <div>
+        <Col>
             
             <Route  path="/" render={(props) => (
                 <div  className="sample-font"> {scrollToElement() }</div>
@@ -63,7 +64,7 @@ const PanelCanvas =  (props) => {
                      </Row>
                  </Container>                
                 )} />
-        </div>
+        </Col>
         )
 }
 

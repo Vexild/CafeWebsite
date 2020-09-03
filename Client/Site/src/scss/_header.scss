@@ -1,10 +1,16 @@
 .common-header{
     z-index: 1;
     // margin-bottom: 60%;
+    -webkit-box-shadow: 0px 30px 36px 0px rgba(0,0,0,0.5);
+    -moz-box-shadow: 0px 30px 36px 0px rgba(0,0,0,0.5);
+    box-shadow: 0px 30px 36px 0px rgba(0,0,0,0.5);
 }
 .header-grey-background {
     background-color: #363636;
     height: auto;
+    -webkit-box-shadow: inset 0px 0px 36px 0px rgba(0,0,0,0.5);
+    -moz-box-shadow: inset 0px 0px 36px 0px rgba(0,0,0,0.5);
+    box-shadow: inset 0px 0px 36px 0px rgba(0,0,0,0.5);
 }
 
 .sample-font{

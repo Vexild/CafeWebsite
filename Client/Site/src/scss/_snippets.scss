@@ -27,3 +27,11 @@
 .inline-block {
     display: inline-block;
 }
+
+.wood-background{
+    // <span>Photo by <a href="https://unsplash.com/@lazycreekimages?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Michael Dziedzic</a> on <a href="https://unsplash.com/photos/5nUNdLueQio?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span>
+    // <span>Photo by <a href="https://unsplash.com/@jjbart7?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Joshua Bartell</a> on <a href="https://unsplash.com/photos/5nUNdLueQio?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span>
+    background-image: url('../Media/joshua-bartell-6vvIBTvL90A-unsplash.jpg');
+    background-repeat: repeat-y;
+    background-size: contain;
+}

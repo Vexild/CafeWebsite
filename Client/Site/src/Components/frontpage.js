@@ -10,16 +10,17 @@ const FrontPage = () => {
 
 
     return(
-<       div>
+    <div>
             <Row className="centered">
                 <DailyDealPanel />
             </Row>
             <Row className="centered">
                 <Col>
-                    <Panel image={testImage1} isButton={true} />
+                    <Panel text="
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam massa nunc, tincidunt nec tempor vitae, tempus suscipit enim. Sed leo quam, accumsan at molestie eu, faucibus nec risus. Duis fermentum lacus massa, varius faucibus orci lacinia non." image={testImage1} isButton={true} />
                 </Col>
-                <Col>
-                    <Panel image={testImage1} isButton={false} />
+                <Col> 
+                    <Panel text="Jaahas juupas juu jepsus" image={testImage1} isButton={false} />
                 </Col>
             </Row>
             <Row className="centered">
@@ -27,7 +28,7 @@ const FrontPage = () => {
                     <Panel text="Kuville voi liittä kuvaustekstejä"  image={testImage2} isButton={false} />
                 </Col>
                 <Col>
-                    <Panel image={testImage2}  isButton={true} />
+                    <Panel text="Jaahas juupas juu jepsus" image={testImage2}  isButton={true} />
                 </Col>
         </Row>
     </div>
