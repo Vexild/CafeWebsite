@@ -129,16 +129,21 @@
 table{
   position: relative;
 }
+
+.shopping-cart-icon {
+  margin: auto 10px auto auto;
+  max-height: 32px;
+}
 @media (max-width: 640px) {
   table{
     position: relative;
     margin: auto;
   }
-}
-
-.shopping-cart-icon {
-  margin: auto 10px auto auto;
-  max-height: 32px;
+  .header-icon-background {
+    height: 2rem;
+    width: 2rem;
+    margin: 2px;
+  }
 }
 
 @media (min-width: 768px) {
