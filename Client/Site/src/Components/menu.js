@@ -78,7 +78,7 @@ const Menu = (props) => {
     }
     //console.log("item",isItemSelected)
     return(
-        <div>
+        <div className="main-form form-frame" >
             {isItemSelected ? (
                     <div>
                     <Button onClick={() => navigateBack()}>Back</Button>

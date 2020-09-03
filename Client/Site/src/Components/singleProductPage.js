@@ -100,7 +100,7 @@ const SingleProduct =  () => {
             <div>
 
         { product ? ( 
-            <Col className="modal-view" >			
+            <Col className="main-form form-frame">			
             <Link to={"/menu"}>Return</Link>
 
             <Row>
