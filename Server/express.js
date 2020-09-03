@@ -31,13 +31,13 @@ async function connectMongoose() {
 connectMongoose()
 }
 
+
 function mongoAtlas() {
-const mongoString = `mongodb+srv://kissa:fkGQklUbCBxtOkJY@cluster0.avk0y.mongodb.net/cafeDB?retryWrites=true&w=majority`
 
 //Mongodb atlas
 async function connectMongoose() {
     console.log("Mongo")
-await mongoose.connect(mongoString,
+await mongoose.connect(process.env.MONGOSTRING,
                 { useNewUrlParser: true, useUnifiedTopology: true }
     );
 }
