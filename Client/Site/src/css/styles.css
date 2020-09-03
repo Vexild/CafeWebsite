@@ -111,12 +111,29 @@
   bottom: 30%;
   right: 5%;
 }
-
+.opening-hours-listing ~  figure{
+  text-align: center;
+}
 .opening-hours-font {
   color: aliceblue;
   font-family: Courier;
   font-size: small;
   margin: 0px;
+}
+
+.table td, .table th{
+  padding: 0px;
+  color: aliceblue;
+  padding-right: 5px;
+}
+table{
+  position: relative;
+}
+@media (max-width: 640px) {
+  table{
+    position: relative;
+    margin: auto;
+  }
 }
 
 .shopping-cart-icon {
@@ -130,7 +147,7 @@
     width: 2rem;
     margin: 2px;
   }
-
+  
   .nav-line {
     text-align: center;
     z-index: 1;
@@ -139,6 +156,7 @@
     top: 10%;
   }
 }
+
 .social-media-icons-bottom, .social-media-icons-top {
   margin: auto 0px;
 }
