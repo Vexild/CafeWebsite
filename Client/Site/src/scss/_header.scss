@@ -23,8 +23,8 @@
 
 .header-icon-background {
     height: 2rem;
-    width: 2rem;
-    margin: 2px;
+    width: 50%;
+    margin: 0px;
 }
 
 .nav-font{
@@ -56,12 +56,15 @@
 // carousel {
 //     height: 50%;
 // }
-.nav-line{
+.nav-line {
     text-align: center;
     z-index: 1;
-    position: absolute;
     width: 100%;
-    top: 10%;
+    padding-top: 2em;
+}
+
+.nav-line div {
+    padding-bottom: 0.5em;
 }
 // .opening-hours-listing{
 //     // position: relative;
@@ -116,3 +119,19 @@
 //       position: relative;
 //   }
 
+@media (min-width: 768px){
+ 
+    .header-icon-background {
+        height: 2rem;
+        width: 2rem;
+        margin: 2px;
+    }
+     
+    .nav-line{
+        text-align: center;
+        z-index: 1;
+        position: absolute;
+        width: 100%;
+        top: 10%;
+    }
+}

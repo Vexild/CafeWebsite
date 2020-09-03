@@ -70,8 +70,8 @@
 
 .header-icon-background {
   height: 2rem;
-  width: 2rem;
-  margin: 2px;
+  width: 50%;
+  margin: 0px;
 }
 
 .nav-font {
@@ -97,9 +97,12 @@
 .nav-line {
   text-align: center;
   z-index: 1;
-  position: absolute;
   width: 100%;
-  top: 10%;
+  padding-top: 2em;
+}
+
+.nav-line div {
+  padding-bottom: 0.5em;
 }
 
 .navigate-footer-map {
@@ -121,6 +124,21 @@
   max-height: 32px;
 }
 
+@media (min-width: 768px) {
+  .header-icon-background {
+    height: 2rem;
+    width: 2rem;
+    margin: 2px;
+  }
+
+  .nav-line {
+    text-align: center;
+    z-index: 1;
+    position: absolute;
+    width: 100%;
+    top: 10%;
+  }
+}
 .social-media-icons-bottom, .social-media-icons-top {
   margin: auto 0px;
 }
@@ -259,8 +277,6 @@
 }
 
 .main-frame {
-  max-width: 80%;
-  margin: 5% auto 10% auto;
   padding: 2% 0 2% 0;
 }
 
@@ -295,17 +311,21 @@
   display: inline-block;
 }
 
+.main-form {
+  background-color: rgba(196, 196, 196, 0.8);
+}
+
 .btn-primary, .btn-primary:hover, .btn-primary:visited .btn-primary:focus, .btn-primary:active {
   background-color: #fa8d44 !important;
   border: none;
-  color: black;
+  color: #F3F0E0;
 }
 
 .btn-primary {
   background-color: #be5c23 !important;
   border-radius: 2px 2px 10px 2px;
   border: none;
-  color: black;
+  color: #F3F0E0;
 }
 
 .react-datepicker-wrapper,
@@ -320,6 +340,14 @@ h3 {
   font-variant-caps: all-petite-caps;
   text-align: center;
   padding: 10px 2px 10px 2px;
+}
+
+@media (min-width: 768px) {
+  .main-frame {
+    max-width: 80%;
+    margin: 5% auto 10% auto;
+    padding: 2% 0 2% 0;
+  }
 }
 
 /*# sourceMappingURL=styles.css.map */

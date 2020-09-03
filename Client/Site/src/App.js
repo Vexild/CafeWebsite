@@ -52,19 +52,19 @@ function App() {
           <CommonHeader/>
         
           <div className="nav-line">
-              <Col xs="1" className="inline-block">
+              <Col md="1" sm="12" className="inline-block">
               <Link className="nav-font" to="/">Etusivu</Link>
               </Col>
-              <Col xs="1" className="inline-block">
+              <Col md="1" sm="12" className="inline-block">
               <Link className="nav-font" to="/menu">Menu</Link>
               </Col>
-              <Col xs="1" className="inline-block">
+              <Col md="1" className="inline-block">
               <Link className="nav-font" to="/aboutus">Meistä</Link>
               </Col>
-              <Col xs="1" className="inline-block">
+              <Col md="1" className="inline-block">
               <Link className="nav-font" to="/order">Tilaus</Link>
               </Col>
-              <Col xs="1" className="inline-block">
+              <Col md="1" className="inline-block">
               <Link className="nav-font" to="/spillage">Hävikki</Link>
               </Col>
               

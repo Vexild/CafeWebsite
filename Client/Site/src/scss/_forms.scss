@@ -5,8 +5,6 @@
     font-family: Courier;
 }
 .main-frame{
-    max-width: 80%;
-    margin: 5% auto 10% auto;
     padding: 2% 0 2% 0;
 }
 .form-frame{
@@ -35,16 +33,20 @@
     display: inline-block;
 }
 
+.main-form {
+    background-color: rgba(196, 196, 196, 0.8);
+}
+
 .btn-primary, .btn-primary:hover, .btn-primary:visited .btn-primary:focus, .btn-primary:active{
     background-color:  rgb(250, 141, 68) !important;
     border: none;
-    color: black;
+    color: #F3F0E0;
 }
 .btn-primary  {
     background-color:  rgb(190, 92, 35) !important;
     border-radius: 2px 2px 10px 2px;
     border: none;
-    color: black;
+    color: #F3F0E0;
 }
 .react-datepicker-wrapper,
 .react-datepicker__input-container,
@@ -58,4 +60,14 @@ h3 {
     font-variant-caps: all-petite-caps;
     text-align: center;
     padding: 10px 2px 10px 2px;
+}
+
+@media (min-width: 768px){
+
+    .main-frame{
+        max-width: 80%;
+        margin: 5% auto 10% auto;
+        padding: 2% 0 2% 0;
+    }
+     
 }
